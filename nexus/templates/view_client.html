@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+
+{% block page_title %} - {{ client.name }}{% endblock %}
+
+{% block htmlhead %}
+{% load custom_tags %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container view-client">
+	<div class="row">
+    <div class="col-md-12">
+        <h2 >{{ client.name }}</h2>
+        <h4>Type: <small>{{ client.get_client_type_display }}</small></h4>
+        <h3>Instructions</h3>
+    </div>
+	</div>
+    <div class="row">
+    <div class="col-md-6">
+            <table class="table reqTable">
+                <tr>
+                    <td><label for="appraiser_sign">Appraiser Must Sign?</label></td>
+                    <td><input type="checkbox" id="AppraiserSign"
+                    {% if client.appraiser_must_sign %} checked />
+                    {% else %} />
+                    {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="appraiser_inspect">Appraiser Must Inspect?</label></td>
+                    <td><input type="checkbox" id="AppraiserInspect"
+                    {% if client.appraiser_must_inspect %} checked />
+                    {% else %} />
+                    {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                    <label for="client_requirements">Client Requirements</label>
+                    <input type="text" class="form-control" id="ClientRequirements" 
+                       {% if client.requirements_url %} value='{{ client.requirements_url }}' {% endif %} />
+                        <a href=" {{ client.requirements_url }}" id="ViewReq"  {% if client.requirements_url %}style="display:inline-block" {% endif %} target="_blank" class="npvBtn form-control">View Requirements</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                    <label for="client_notes">Client Notes</label>
+                    <textarea class="form-control" id="ClientNotes" cols="3"
+                        >{% if client.notes %}{{ client.notes }}{% endif %}</textarea>
+                    </td>
+                </tr>
+            </table>
+    </div>
+    <div class="col-md-6">
+            <table class="table reqTable">
+                <tr>
+                    <td>
+                    <label for="invoice_delivery">Invoice Delivery</label>
+                    <textarea cols="3" class="form-control" id="InvoiceDelivery" 
+                       >{% if client.invoice_delivery %}{{ client.invoice_delivery }}{% endif %}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <label for="report_delivery">Report Delivery</label>
+                    <input type="text" class="form-control" id="ReportDelivery" 
+                        {% if client.report_delivery %} value="{{ client.report_delivery }}" {% endif %}>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="invoice_timing">Invoice Timing</label>
+                        <select class='form-control npvSelect' id='InvoiceTiming'>
+                            <option value="DRAFT"
+                            {% if client.invoice_timing == "DRAFT" %} selected="true"
+                            {% endif %}
+                            >With Draft</option>
+
+                            <option value="FINAL"
+                            {% if client.invoice_timing == "FINAL" %} selected="true"
+                            {% endif %}
+                            >With Final</option>
+
+                            <option value="END_OF_QUARTER"
+                            {% if client.invoice_timing == "END_OF_QUARTER" %} selected="true"
+                            {% endif %}
+                            >End of Quarter</option>
+
+                            <option value="OTHER"
+                            {% if client.invoice_timing == "OTHER" %} selected="true"
+                            {% endif %}
+                            >Other</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+    </div>
+        </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <button id='Update' type='submit' action="/api/v1/client/{{ client.pk }}/"
+                class="btn btn-sm npvBtn pull-right" >Update</button>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-md-12">
+        <h3>Contacts</h3>
+        <table id='Contacts' class='table table-striped footable'>
+            <thead> 
+            <tr>
+                <th data-class="expand">Name</th>
+                <th data-hide="phone,tablet">Email</th>
+                <th>Phone</th>
+                <th ata-hide="phone">Mobile</th>
+                <th data-hide="phone,tablet">Fax</th>
+                <th data-hide="phone,tablet">Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contact in client.contacts.all %}
+            <tr>
+                <td>{{ contact }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{% phonenumber contact.phone %}</td>
+                <td>{% phonenumber contact.mobile %}</td>
+                <td>{% phonenumber contact.fax %}</td>
+                <td>{{ contact.address }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+        </div>
+    <div class="row">
+    <div class="col-md-12">
+        <h3>Properties/Appraisals</h3>
+        <div  class="btn-group">
+            <button type="button" class="btn btn-default active" id="BtnActive">Active</button>
+            <button type="button" class="btn btn-default" id="BtnHistorical">Historical</button>
+        </div>
+        <table id='Active' class='table table-striped footable'>
+            <thead> 
+            <tr>
+                <th data-hide="phone,tablet">Job Number</th>
+                <th data-class="expand">Property</th>
+                <th data-hide="phone">Appraiser</th>
+                <th>Due Date</th>
+                <th data-hide="phone,tablet">Final Value</th>
+                <th data-type="numeric">Fee</th>
+                <th data-hide="phone,tablet">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for appraisal in client.get_active_appraisals %}
+            <tr>
+                <td><a href="{{ appraisal.get_absolute_url }}">{{ appraisal.job_number }}</a></td>
+                <td><a href="/property/{{ appraisal.engagement_property.property.id }}">{{ appraisal.engagement_property.property }}</a></td>
+                <td>{{ appraisal.lead_appraiser.employee.name|default:'' }}</td>
+                <td>{{ appraisal.due_date }}</td>
+                <td>${{ appraisal.final_value }}</td>
+                <td data-value="{{ appraisal.fee }}">{{ appraisal.fee|currency }}</td>
+                <td>{{ appraisal.get_status_display }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <table id='Historical' class='table table-striped footable'>
+            <thead> 
+            <tr>
+                <th data-hide="phone,tablet">Job Number</th>
+                <th data-class="expand">Property</th>
+                <th data-hide="phone">Appraiser</th>
+                <th>Due Date</th>
+                <th data-hide="phone,tablet">Final Value</th>
+                <th data-type="numeric">Fee</th>
+                <th data-hide="phone,tablet">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for appraisal in client.get_historical_appraisals %}
+            <tr>
+                <td><a href="{{ appraisal.get_absolute_url }}">{{ appraisal.job_number }}</a></td>
+                <td><a href="/property/{{ appraisal.engagement_property.property.id }}">{{ appraisal.engagement_property.property }}</a></td> 
+                <td>{{ appraisal.lead_appraiser.employee.name|default:'' }}</td>
+                <td>{{ appraisal.due_date }}</td>
+                <td>${{ appraisal.final_value }}</td>
+                <td data-value="{{ appraisal.fee }}">{{ appraisal.fee|currency }}</td>
+                <td>{{ appraisal.get_status_display }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+     </div>
+   </div>
+</div>
+
+{% endblock %}
+
+{% block bodyend %}
+<script>
+    NPVNexus.View_Client.init();
+</script>
+
+{% endblock %}

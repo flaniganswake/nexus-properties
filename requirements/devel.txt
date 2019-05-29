@@ -1,0 +1,6 @@
+# Packages only useful for a development environment
+-r common.txt
+# mock
+# coverage
+flake8
+pep8-naming

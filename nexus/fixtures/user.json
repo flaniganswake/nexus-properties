@@ -1,0 +1,1106 @@
+[
+    {
+        "fields": {
+            "first_name": "Dewey", 
+            "is_staff": true, 
+            "is_superuser": true, 
+            "last_name": "Decimal", 
+            "password": "pbkdf2_sha256$12000$zBhfx14P3Fje$l99Lp0ZHzcDYs+YwU9acsIEzFZ4iEnqBdckWWoYqb6s=", 
+            "username": "dewey"
+        }, 
+        "model": "auth.user", 
+        "pk": 1
+    }, 
+    {
+        "fields": {
+            "first_name": "Rick", 
+            "is_staff": true, 
+            "is_superuser": true, 
+            "last_name": "Fox", 
+            "password": "temp", 
+            "username": "rf"
+        }, 
+        "model": "auth.user", 
+        "pk": 2
+    }, 
+    {
+        "fields": {
+            "first_name": "Jonathan", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Gerard", 
+            "password": "temp", 
+            "username": "jgg"
+        }, 
+        "model": "auth.user", 
+        "pk": 3
+    }, 
+    {
+        "fields": {
+            "first_name": "Jennifer", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Gubler", 
+            "password": "temp", 
+            "username": "jyg"
+        }, 
+        "model": "auth.user", 
+        "pk": 4
+    }, 
+    {
+        "fields": {
+            "first_name": "Travis", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Campbell", 
+            "password": "temp", 
+            "username": "tmc"
+        }, 
+        "model": "auth.user", 
+        "pk": 5
+    }, 
+    {
+        "fields": {
+            "first_name": "Joshua", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Tarpley", 
+            "password": "temp", 
+            "username": "jft"
+        }, 
+        "model": "auth.user", 
+        "pk": 6
+    }, 
+    {
+        "fields": {
+            "first_name": "Katherine", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "O'Donnell", 
+            "password": "temp", 
+            "username": "kod"
+        }, 
+        "model": "auth.user", 
+        "pk": 7
+    }, 
+    {
+        "fields": {
+            "first_name": "Mark", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Russo", 
+            "password": "temp", 
+            "username": "mvr"
+        }, 
+        "model": "auth.user", 
+        "pk": 8
+    }, 
+    {
+        "fields": {
+            "first_name": "Molly", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Hartsock", 
+            "password": "temp", 
+            "username": "mmd"
+        }, 
+        "model": "auth.user", 
+        "pk": 9
+    }, 
+    {
+        "fields": {
+            "first_name": "Diana", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Lin", 
+            "password": "temp", 
+            "username": "dl"
+        }, 
+        "model": "auth.user", 
+        "pk": 10
+    }, 
+    {
+        "fields": {
+            "first_name": "Samantha", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Hobson", 
+            "password": "temp", 
+            "username": "seh"
+        }, 
+        "model": "auth.user", 
+        "pk": 11
+    }, 
+    {
+        "fields": {
+            "first_name": "Jonathan", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Fink", 
+            "password": "temp", 
+            "username": "jf"
+        }, 
+        "model": "auth.user", 
+        "pk": 12
+    }, 
+    {
+        "fields": {
+            "first_name": "Kristen", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Manners", 
+            "password": "temp", 
+            "username": "klm"
+        }, 
+        "model": "auth.user", 
+        "pk": 13
+    }, 
+    {
+        "fields": {
+            "first_name": "Dan", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Kesich", 
+            "password": "temp", 
+            "username": "dk"
+        }, 
+        "model": "auth.user", 
+        "pk": 14
+    }, 
+    {
+        "fields": {
+            "first_name": "Dan", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "McNeilly", 
+            "password": "temp", 
+            "username": "NA5"
+        }, 
+        "model": "auth.user", 
+        "pk": 15
+    }, 
+    {
+        "fields": {
+            "first_name": "Benjamin", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Visser", 
+            "password": "temp", 
+            "username": "bev"
+        }, 
+        "model": "auth.user", 
+        "pk": 16
+    }, 
+    {
+        "fields": {
+            "first_name": "David", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Walden", 
+            "password": "temp", 
+            "username": "drw"
+        }, 
+        "model": "auth.user", 
+        "pk": 17
+    }, 
+    {
+        "fields": {
+            "first_name": "Ching-Ting", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Wang", 
+            "password": "temp", 
+            "username": "ctw"
+        }, 
+        "model": "auth.user", 
+        "pk": 18
+    }, 
+    {
+        "fields": {
+            "first_name": "Ann", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Fortner", 
+            "password": "temp", 
+            "username": "acf"
+        }, 
+        "model": "auth.user", 
+        "pk": 19
+    }, 
+    {
+        "fields": {
+            "first_name": "John", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Fears", 
+            "password": "temp", 
+            "username": "jef"
+        }, 
+        "model": "auth.user", 
+        "pk": 20
+    }, 
+    {
+        "fields": {
+            "first_name": "Andrea", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Williams", 
+            "password": "temp", 
+            "username": "anw"
+        }, 
+        "model": "auth.user", 
+        "pk": 21
+    }, 
+    {
+        "fields": {
+            "first_name": "Keith", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Strohl", 
+            "password": "temp", 
+            "username": "kas"
+        }, 
+        "model": "auth.user", 
+        "pk": 22
+    }, 
+    {
+        "fields": {
+            "first_name": "Rebecca", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Carr", 
+            "password": "temp", 
+            "username": "mrc"
+        }, 
+        "model": "auth.user", 
+        "pk": 23
+    }, 
+    {
+        "fields": {
+            "first_name": "Alisa", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Mock", 
+            "password": "temp", 
+            "username": "alm"
+        }, 
+        "model": "auth.user", 
+        "pk": 24
+    }, 
+    {
+        "fields": {
+            "first_name": "Michael", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Porter", 
+            "password": "temp", 
+            "username": "mwp"
+        }, 
+        "model": "auth.user", 
+        "pk": 25
+    }, 
+    {
+        "fields": {
+            "first_name": "Paul", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Heydweiller", 
+            "password": "temp", 
+            "username": "ph"
+        }, 
+        "model": "auth.user", 
+        "pk": 26
+    }, 
+    {
+        "fields": {
+            "first_name": "Julie", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Holman", 
+            "password": "temp", 
+            "username": "jah"
+        }, 
+        "model": "auth.user", 
+        "pk": 27
+    }, 
+    {
+        "fields": {
+            "first_name": "Michael", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Gathman", 
+            "password": "temp", 
+            "username": "mpg"
+        }, 
+        "model": "auth.user", 
+        "pk": 28
+    }, 
+    {
+        "fields": {
+            "first_name": "Eric", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Pfeiffer", 
+            "password": "temp", 
+            "username": "ecp"
+        }, 
+        "model": "auth.user", 
+        "pk": 29
+    }, 
+    {
+        "fields": {
+            "first_name": "John", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Wrzesinski", 
+            "password": "temp", 
+            "username": "jiw"
+        }, 
+        "model": "auth.user", 
+        "pk": 30
+    }, 
+    {
+        "fields": {
+            "first_name": "Ross", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Weijer", 
+            "password": "temp", 
+            "username": "rtw"
+        }, 
+        "model": "auth.user", 
+        "pk": 31
+    }, 
+    {
+        "fields": {
+            "first_name": "Abulfazel", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Fata", 
+            "password": "temp", 
+            "username": "af"
+        }, 
+        "model": "auth.user", 
+        "pk": 32
+    }, 
+    {
+        "fields": {
+            "first_name": "Ardelle", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Jonas", 
+            "password": "temp", 
+            "username": "alj"
+        }, 
+        "model": "auth.user", 
+        "pk": 33
+    }, 
+    {
+        "fields": {
+            "first_name": "Seamus", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "King", 
+            "password": "temp", 
+            "username": "spk"
+        }, 
+        "model": "auth.user", 
+        "pk": 34
+    }, 
+    {
+        "fields": {
+            "first_name": "Robert", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Willette", 
+            "password": "temp", 
+            "username": "rjw"
+        }, 
+        "model": "auth.user", 
+        "pk": 35
+    }, 
+    {
+        "fields": {
+            "first_name": "Angie", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Tzou", 
+            "password": "temp", 
+            "username": "adt"
+        }, 
+        "model": "auth.user", 
+        "pk": 36
+    }, 
+    {
+        "fields": {
+            "first_name": "Dylan", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Hoyes", 
+            "password": "temp", 
+            "username": "dch"
+        }, 
+        "model": "auth.user", 
+        "pk": 37
+    }, 
+    {
+        "fields": {
+            "first_name": "Paul", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Hartsock", 
+            "password": "temp", 
+            "username": "pnh"
+        }, 
+        "model": "auth.user", 
+        "pk": 38
+    }, 
+    {
+        "fields": {
+            "first_name": "Timothy", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Whelan", 
+            "password": "temp", 
+            "username": "tmw"
+        }, 
+        "model": "auth.user", 
+        "pk": 39
+    }, 
+    {
+        "fields": {
+            "first_name": "Phillip", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Rosanova", 
+            "password": "temp", 
+            "username": "pmr"
+        }, 
+        "model": "auth.user", 
+        "pk": 40
+    }, 
+    {
+        "fields": {
+            "first_name": "Tomjo", 
+            "is_staff": true, 
+            "is_superuser": true, 
+            "last_name": "Soptame", 
+            "password": "temp", 
+            "username": "tsoptame"
+        }, 
+        "model": "auth.user", 
+        "pk": 41
+    }, 
+    {
+        "fields": {
+            "first_name": "Jeffrey", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Taylor", 
+            "password": "temp", 
+            "username": "jet"
+        }, 
+        "model": "auth.user", 
+        "pk": 42
+    }, 
+    {
+        "fields": {
+            "first_name": "Brian", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Wilkinson", 
+            "password": "temp", 
+            "username": "bdw"
+        }, 
+        "model": "auth.user", 
+        "pk": 43
+    }, 
+    {
+        "fields": {
+            "first_name": "Thomas", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Kakalios", 
+            "password": "temp", 
+            "username": "tbk"
+        }, 
+        "model": "auth.user", 
+        "pk": 44
+    }, 
+    {
+        "fields": {
+            "first_name": "William", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Reed", 
+            "password": "temp", 
+            "username": "NA4"
+        }, 
+        "model": "auth.user", 
+        "pk": 45
+    }, 
+    {
+        "fields": {
+            "first_name": "Edward", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Castillo", 
+            "password": "temp", 
+            "username": "NA1"
+        }, 
+        "model": "auth.user", 
+        "pk": 46
+    }, 
+    {
+        "fields": {
+            "first_name": "Cole", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Davis", 
+            "password": "temp", 
+            "username": "ctd"
+        }, 
+        "model": "auth.user", 
+        "pk": 47
+    }, 
+    {
+        "fields": {
+            "first_name": "Eric", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Altman", 
+            "password": "temp", 
+            "username": "eba"
+        }, 
+        "model": "auth.user", 
+        "pk": 48
+    }, 
+    {
+        "fields": {
+            "first_name": "Hoi-Ting", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Chan", 
+            "password": "temp", 
+            "username": "ehtc"
+        }, 
+        "model": "auth.user", 
+        "pk": 49
+    }, 
+    {
+        "fields": {
+            "first_name": "Samantha", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Hsieh", 
+            "password": "temp", 
+            "username": "sh"
+        }, 
+        "model": "auth.user", 
+        "pk": 50
+    }, 
+    {
+        "fields": {
+            "first_name": "James", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Boren", 
+            "password": "temp", 
+            "username": "jfb"
+        }, 
+        "model": "auth.user", 
+        "pk": 51
+    }, 
+    {
+        "fields": {
+            "first_name": "James", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Mock", 
+            "password": "temp", 
+            "username": "jwm"
+        }, 
+        "model": "auth.user", 
+        "pk": 52
+    }, 
+    {
+        "fields": {
+            "first_name": "Antonia", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Lalagos", 
+            "password": "temp", 
+            "username": "ail"
+        }, 
+        "model": "auth.user", 
+        "pk": 53
+    }, 
+    {
+        "fields": {
+            "first_name": "James", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Kafes", 
+            "password": "temp", 
+            "username": "jck"
+        }, 
+        "model": "auth.user", 
+        "pk": 54
+    }, 
+    {
+        "fields": {
+            "first_name": "Jack", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Ritchey", 
+            "password": "temp", 
+            "username": "jdr"
+        }, 
+        "model": "auth.user", 
+        "pk": 55
+    }, 
+    {
+        "fields": {
+            "first_name": "Rosalynn", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Jovanovich", 
+            "password": "temp", 
+            "username": "rvj"
+        }, 
+        "model": "auth.user", 
+        "pk": 56
+    }, 
+    {
+        "fields": {
+            "first_name": "Keith", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Pierce", 
+            "password": "temp", 
+            "username": "kap"
+        }, 
+        "model": "auth.user", 
+        "pk": 57
+    }, 
+    {
+        "fields": {
+            "first_name": "Patrick", 
+            "is_staff": true, 
+            "is_superuser": true, 
+            "last_name": "Flanigan", 
+            "password": "temp", 
+            "username": "pf"
+        }, 
+        "model": "auth.user", 
+        "pk": 58
+    }, 
+    {
+        "fields": {
+            "first_name": "Kelly", 
+            "is_staff": true, 
+            "is_superuser": true, 
+            "last_name": "Walden", 
+            "password": "temp", 
+            "username": "kaw"
+        }, 
+        "model": "auth.user", 
+        "pk": 59
+    }, 
+    {
+        "fields": {
+            "first_name": "Phillip", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Forbes", 
+            "password": "temp", 
+            "username": "pdf"
+        }, 
+        "model": "auth.user", 
+        "pk": 60
+    }, 
+    {
+        "fields": {
+            "first_name": "Gregory", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Hueners", 
+            "password": "temp", 
+            "username": "gh"
+        }, 
+        "model": "auth.user", 
+        "pk": 61
+    }, 
+    {
+        "fields": {
+            "first_name": "Heidi", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Thatcher", 
+            "password": "temp", 
+            "username": "hlt"
+        }, 
+        "model": "auth.user", 
+        "pk": 62
+    }, 
+    {
+        "fields": {
+            "first_name": "Adam", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Harrison", 
+            "password": "temp", 
+            "username": "alh"
+        }, 
+        "model": "auth.user", 
+        "pk": 63
+    }, 
+    {
+        "fields": {
+            "first_name": "Keith", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Solomon", 
+            "password": "temp", 
+            "username": "ks"
+        }, 
+        "model": "auth.user", 
+        "pk": 64
+    }, 
+    {
+        "fields": {
+            "first_name": "Barry", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Benson", 
+            "password": "temp", 
+            "username": "bmb"
+        }, 
+        "model": "auth.user", 
+        "pk": 65
+    }, 
+    {
+        "fields": {
+            "first_name": "Raymond", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Walton III", 
+            "password": "temp", 
+            "username": "rcw"
+        }, 
+        "model": "auth.user", 
+        "pk": 66
+    }, 
+    {
+        "fields": {
+            "first_name": "Susan", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Park", 
+            "password": "temp", 
+            "username": "NA6"
+        }, 
+        "model": "auth.user", 
+        "pk": 67
+    }, 
+    {
+        "fields": {
+            "first_name": "Melissa", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Zevallos", 
+            "password": "temp", 
+            "username": "mmz"
+        }, 
+        "model": "auth.user", 
+        "pk": 68
+    }, 
+    {
+        "fields": {
+            "first_name": "Jason", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Choi", 
+            "password": "temp", 
+            "username": "NA8"
+        }, 
+        "model": "auth.user", 
+        "pk": 69
+    }, 
+    {
+        "fields": {
+            "first_name": "Lynda", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Gallagher", 
+            "password": "temp", 
+            "username": "lag"
+        }, 
+        "model": "auth.user", 
+        "pk": 70
+    }, 
+    {
+        "fields": {
+            "first_name": "Jordan", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Crews", 
+            "password": "temp", 
+            "username": "jc"
+        }, 
+        "model": "auth.user", 
+        "pk": 71
+    }, 
+    {
+        "fields": {
+            "first_name": "Dean", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Hobart", 
+            "password": "temp", 
+            "username": "dh"
+        }, 
+        "model": "auth.user", 
+        "pk": 72
+    }, 
+    {
+        "fields": {
+            "first_name": "Whit", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Johnson", 
+            "password": "temp", 
+            "username": "NA9"
+        }, 
+        "model": "auth.user", 
+        "pk": 73
+    }, 
+    {
+        "fields": {
+            "first_name": "Drew", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Strohl", 
+            "password": "temp", 
+            "username": "djs"
+        }, 
+        "model": "auth.user", 
+        "pk": 74
+    }, 
+    {
+        "fields": {
+            "first_name": "Molly", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Schultz", 
+            "password": "temp", 
+            "username": "mes"
+        }, 
+        "model": "auth.user", 
+        "pk": 75
+    }, 
+    {
+        "fields": {
+            "first_name": "Nicholas", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Nowak", 
+            "password": "temp", 
+            "username": "ncn"
+        }, 
+        "model": "auth.user", 
+        "pk": 76
+    }, 
+    {
+        "fields": {
+            "first_name": "Pedro", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Jimenez", 
+            "password": "temp", 
+            "username": "pdj"
+        }, 
+        "model": "auth.user", 
+        "pk": 77
+    }, 
+    {
+        "fields": {
+            "first_name": "Thomas", 
+            "is_staff": true, 
+            "is_superuser": true, 
+            "last_name": "Jenkins", 
+            "password": "temp", 
+            "username": "tj"
+        }, 
+        "model": "auth.user", 
+        "pk": 78
+    }, 
+    {
+        "fields": {
+            "first_name": "Evan", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Pape", 
+            "password": "temp", 
+            "username": "eap"
+        }, 
+        "model": "auth.user", 
+        "pk": 79
+    }, 
+    {
+        "fields": {
+            "first_name": "Mary", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Sparrow", 
+            "password": "temp", 
+            "username": "NA3"
+        }, 
+        "model": "auth.user", 
+        "pk": 80
+    }, 
+    {
+        "fields": {
+            "first_name": "Kevin", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Duffy", 
+            "password": "temp", 
+            "username": "kad"
+        }, 
+        "model": "auth.user", 
+        "pk": 81
+    }, 
+    {
+        "fields": {
+            "first_name": "Stephen", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Cheng", 
+            "password": "temp", 
+            "username": "NA2"
+        }, 
+        "model": "auth.user", 
+        "pk": 82
+    }, 
+    {
+        "fields": {
+            "first_name": "Simranjot", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Bachal", 
+            "password": "temp", 
+            "username": "ssb"
+        }, 
+        "model": "auth.user", 
+        "pk": 83
+    }, 
+    {
+        "fields": {
+            "first_name": "Neil", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Clark", 
+            "password": "temp", 
+            "username": "nac"
+        }, 
+        "model": "auth.user", 
+        "pk": 84
+    }, 
+    {
+        "fields": {
+            "first_name": "Marvin", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Jones", 
+            "password": "temp", 
+            "username": "mcj"
+        }, 
+        "model": "auth.user", 
+        "pk": 85
+    }, 
+    {
+        "fields": {
+            "first_name": "Jonathon", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Oh", 
+            "password": "temp", 
+            "username": "jo"
+        }, 
+        "model": "auth.user", 
+        "pk": 86
+    }, 
+    {
+        "fields": {
+            "first_name": "Kerry", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Reece", 
+            "password": "temp", 
+            "username": "klr"
+        }, 
+        "model": "auth.user", 
+        "pk": 87
+    }, 
+    {
+        "fields": {
+            "first_name": "John", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Grochowiak", 
+            "password": "temp", 
+            "username": "jag"
+        }, 
+        "model": "auth.user", 
+        "pk": 88
+    }, 
+    {
+        "fields": {
+            "first_name": "Clarence", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Williams", 
+            "password": "temp", 
+            "username": "cew"
+        }, 
+        "model": "auth.user", 
+        "pk": 89
+    }, 
+    {
+        "fields": {
+            "first_name": "Ryan", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Smith", 
+            "password": "temp", 
+            "username": "kws"
+        }, 
+        "model": "auth.user", 
+        "pk": 90
+    }, 
+    {
+        "fields": {
+            "first_name": "Brian", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Park", 
+            "password": "temp", 
+            "username": "NA7"
+        }, 
+        "model": "auth.user", 
+        "pk": 91
+    }, 
+    {
+        "fields": {
+            "first_name": "Karen", 
+            "is_staff": true, 
+            "is_superuser": false, 
+            "last_name": "Fabregat", 
+            "password": "temp", 
+            "username": "kmf"
+        }, 
+        "model": "auth.user", 
+        "pk": 92
+    }
+]

@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block page_title %} - {{ amf.name }}{% endblock %}
+
+{% block htmlhead %}
+{% load custom_tags %}
+
+<script src="{{ STATIC_URL }}lib/jquery/jquery.tablesorter.min.js"></script>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container view-amf">
+	<div class="col-md-4">
+		<h2 style="padding-bottom:20px;">{{ amf.name }}</h2>
+
+	</div>
+    <div class="col-md-4">
+        <h4 style="padding-bottom:20px;padding-top:20px;">Delivery and Invoicing:</h4>
+
+    </div>
+    <div class="col-md-4">
+        <h4 style="padding-bottom:20px;padding-top:20px;">Requirements:</h4>
+
+    </div>
+    <div class="col-md-12">
+        <h3>Contacts</h3>
+        <table id='Contacts' class='table table-striped footable'>
+            <thead> 
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Mobile</th>
+                <th>Fax</th>
+                <th>Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contact in amf.contacts.all %}
+            <tr>
+                <td>{{ contact }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{% phonenumber contact.phone %}</td>
+                <td>{% phonenumber contact.mobile %}</td>
+                <td>{% phonenumber contact.fax %}</td>
+                <td>{{ contact.address }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12">
+        <h3>Properties/Appraisals</h3>
+        <div  class="btn-group">
+            <button type="button" class="btn btn-default active" id="BtnActive">Active</button>
+            <button type="button" class="btn btn-default" id="BtnHistorical">Historical</button>
+        </div>
+
+        <table id='Active' class='table table-striped footable'>
+            <thead> 
+            <tr>
+                <th>Job Number</th>
+                <th>Property</th>
+                <th>Client</th>
+                <th>Appraiser</th>
+                <th>Due Date</th>
+                <th>Fee</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for appraisal in amf.get_appraisals %}
+            <tr>
+                <td><a href="{{ appraisal.get_absolute_url }}">{{ appraisal.job_number }}</a></td>
+                <td><a href="/property/{{ appraisal.property.id }}">{{ appraisal.property }}</a></td>
+                <td><a href="{{ appraisal.property.client.get_absolute_url }}">{{ appraisal.property.client }}</a></td>
+                <td>{{ appraisal.lead_appraiser.employee.name|default:'' }}</td>
+                <td>{{ appraisal.due_date }}</td>
+                <td>${{ appraisal.fee }}</td>
+                <td>{{ appraisal.get_status_display }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <table id='Historical' class='table table-striped footable'>
+            <thead> 
+            <tr>
+                <th>Job Number</th>
+                <th>Property</th>
+                <th>Client</th>
+                <th>Appraiser</th>
+                <th>Due Date</th>
+                
+    <th data-type="numerical">Final Value</th>
+                <th data-type="numerical">Fee</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for appraisal in amf.get_historical_appraisals %}
+            <tr>
+                <td><a href="{{ appraisal.get_absolute_url }}">{{ appraisal.job_number }}</a></td>
+                <td><a href="/property/{{ appraisal.property.id }}">{{ appraisal.property }}</a></td>
+                <td><a href="{{ appraisal.property.client.get_absolute_url }}">{{ appraisal.property.client }}</a></td>
+                <td>{{ appraisal.lead_appraiser.employee.name|default:'' }}</td>
+                <td>{{ appraisal.due_date }}</td>
+                <td data-value="{{ appraisal.final_value }}">{{ appraisal.final_value|currency }}</td>
+                <td data-value="{{appraisal.fee}}">{{ appraisal.fee|currency }}</td>
+                <td>{{ appraisal.get_status_display }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+     </div>
+</div>
+
+{% endblock %}
+
+
+{% block bodyend %}
+<script>
+    NPVNexus.View_AMF.init();
+</script>
+{% endblock %}

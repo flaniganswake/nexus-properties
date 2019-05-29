@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Nexus - Log In{% endblock %}
+
+{% block htmlhead %}
+
+
+{% endblock %}
+
+{% block body %}
+
+<div>
+
+{% if form.errors %}
+<p class="error">Your username and password are invalid. Please try again.</p>
+{% endif %}
+<div class="login"><h2>Log In</h2>
+<form method="post" class="user" action="{% url 'django.contrib.auth.views.login' %}">
+{% csrf_token %}
+<table>
+<tr>
+    <td>{{ form.username.label_tag }}</td>
+    <td><input type="text" name="username" maxlength="254" id="id_username" class="form-control"></td>
+</tr>
+<tr>
+    <td>{{ form.password.label_tag }}</td>
+    <td><input type="password" name="password" id="id_password" class="form-control"></td>
+</tr>
+</table>
+
+
+
+    <input type="submit" value="login" class="btn btn-default pull-right npvBtn " />
+<input type="hidden" name="next" value="{{ next }}" />
+    <div class="clear"></div>
+</form>
+    <div>
+</div>
+
+</div>
+
+{% endblock %}

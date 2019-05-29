@@ -1,0 +1,94 @@
+{# Property address list requires property.js #}
+
+<form role="form" class="form-horizontal">
+  <div id="PropertyAddresses" class="panel-group">
+  </div>
+</form>
+
+<script type="text/template" id="AddressTemplate">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" data-parent="#PropertyAddresses"
+         href="#collapse-addy-<%= id %>"><%= title %></a>
+      <% if (is_new) { %>
+      <span class="label label-default new-label">new</span>
+      <% } %>
+    </h4>
+  </div>
+
+  <div id="collapse-addy-<%= id %>" class="panel-collapse collapse">
+    <div class="panel-body">
+    <i class="required">*</i> indicates required
+      <div class="form-group">
+        <div class="col-xs-1"></div>
+        <label class="col-xs-3 control-label"><i class="required">*</i>Street 1</label>
+        <div class="col-xs-5">
+          <input type="text" value="<%= address1 %>"
+                 class="form-control input-sm address-input address1">
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-1"></div>
+        <label class="col-xs-3 control-label">Street 2</label>
+        <div class="col-xs-5">
+          <input type="text" value="<%= address2 %>"
+                 class="form-control input-sm address-input address2">
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-1"></div>
+        <label class="col-xs-3 control-label"><i class="required">*</i>City</label>
+        <div class="col-xs-5">
+          <input type="text" value="<%= city %>"
+                 class="form-control input-sm address-input city">
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-1"></div>
+        <label class="col-xs-3 control-label"><i class="required">*</i>County</label>
+        <div class="col-xs-5">
+          <input type="text" value="<%= county %>"
+                 class="form-control input-sm address-input county">
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-1"></div>
+        <label class="col-xs-3 control-label"><i class="required">*</i>State</label>
+        <div class="col-xs-5">
+          <input type="text" value="<%= state %>"
+                 class="form-control input-sm address-input state">
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-1"></div>
+        <label class="col-xs-3 control-label"><i class="required">*</i>Zipcode</label>
+        <div class="col-xs-5">
+          <input type="text" value="<%= zipcode %>"
+                 class="form-control input-sm address-input zipcode">
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+
+      <% if (is_empty) { %>
+      <div class="form-group empty">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-5">
+          <button class="btn btn-primary add-new-address">Add New Address</button>
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+      <% } %>
+
+    </div>
+  </div>
+</script>

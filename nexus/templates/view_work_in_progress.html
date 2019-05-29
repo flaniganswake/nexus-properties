@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block body %}
+{% load custom_tags %}
+
+<div class="work-in-progress">
+
+    <a id="Export" href="/work-in-progress-csv/">Export</a>
+<div>
+    <h2>Chicago Office {{ chicagoTot.fee__sum|currency }}</h2>
+    <h4 class="panel-title"></h4>
+    <table class="table chicago">
+        <thead>
+            <tr>
+                <th>Appraiser</th>
+                <th class="date">Due Date</th>
+                <th class="jobId">Job #</th>
+                <th>Client</th>
+                <th>Property</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Fee</th>
+                <th>Expenses</th>
+                <th>Expenses Held</th>
+                <th>Invoiced</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for assignment in chicago %}
+           
+           {% if assignment.fee > 0 %}
+            <tr class="line-item">
+                <td class="name">{{ assignment.employee.name }}</td>
+                <td>{{ assignment.appraisal.due_date }}</td>
+                <td>{{ assignment.appraisal.job_number }}</td>
+                <td>{{ assignment.appraisal.engagement_property.property.client.name }}</td>
+                <td>{{ assignment.appraisal.engagement_property.property.name }}</td>
+                <td>{{ assignment.appraisal.engagement_property.property.base_address.city }}</td>
+                <td>{{ assignment.appraisal.engagement_property.property.base_address.state }}</td>
+                <td data-val="{{ assignment.fee }}" class="fee">{{ assignment.fee|currency }}</td>
+                <td class="expenses"><script>document.write(('{{ assignment.appraisal.expenses }}' == 'None') ? "$0.00" : '${{ assignment.appraisal.expenses }}')</script></td>
+                <td class="expenses"><script>document.write(('{{ assignment.appraisal.expenses_held }}' == 'None') ? "$0.00" : '${{ assignment.appraisal.expenses_held }}')</script></td>
+                <td><script>document.write(NPVNexus.Formatters.friendlyName('{{ assignment.appraisal.invoice_sent }}'))</script></td>
+            </tr>
+      {% endif %}
+    {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <h2>Atlanta Office {{ atlantaTot.fee__sum|currency }}</h2>
+    <h4 class="panel-title"></h4>
+    <table class="table atlanta">
+        <thead>
+            <tr>
+                <th>Appraiser</th>
+                <th class="date">Due Date</th>
+                <th class="jobId">Job #</th>
+                <th>Client</th>
+                <th>Property</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Fee</th>
+                <th>Expenses</th>
+                <th>Expenses Held</th>
+                <th>Invoiced</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for assignment in atlanta %}
+        {% if assignment.fee > 0 %}
+            <tr class="line-item">
+                <td class="name">{{ assignment.employee.name }}</td>
+                <td>{{ assignment.appraisal.due_date }}</td>
+                <td>{{ assignment.appraisal.job_number }}</td>
+                <td>{{ assignment.appraisal.engagement_property.property.client.name }}</td>
+                <td>{{ assignment.appraisal.engagement_property.property.name }}</td>
+                <td>{{ assignment.appraisal.engagement_property.property.base_address.city }}</td>
+                <td>{{ assignment.appraisal.engagement_property.property.base_address.state }}</td>
+                <td data-val="{{ assignment.fee }}" class="fee">{{ assignment.fee|currency }}</td>
+                <td class="expenses"><script>document.write(('{{ assignment.appraisal.expenses }}' == 'None') ? "$0.00" : '${{ assignment.appraisal.expenses }}')</script></td>
+                <td class="expenses"><script>document.write(('{{ assignment.appraisal.expenses_held }}' == 'None') ? "$0.00" : '${{ assignment.appraisal.expenses_held }}')</script></td>
+                <td><script>document.write(('{{ assignment.appraisal.invoice_sent }}' == 'True') ? "<span class='glyphicon glyphicon-ok'></span>" : "<span class='glyphicon glyphicon-remove'></span>")</script></td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+ 
+</div>
+<div>
+    <h2>Newport Beach Office {{ newportBTot.fee__sum|currency }}</h2>
+    <h4 class="panel-title"></h4>
+    <table class="table newport">
+        <thead>
+            <tr>
+                <th>Appraiser</th>
+                <th class="date">Due Date</th>
+                <th class="jobId">Job #</th>
+                <th>Client</th>
+                <th>Property</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Fee</th>
+                <th>Expenses</th>
+                <th>Expenses Held</th>
+                <th>Invoiced</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for assignment in newportB %}
+        {% if assignment.fee > 0 %}
+            <tr class="line-item">
+                <td class="name">{{ assignment.employee.name }}</td>
+                <td>{{ assignment.appraisal.due_date }}</td>
+                <td>{{ assignment.appraisal.job_number }}</td>
+                <td>{{ assignment.appraisal.engagement_property.property.client.name }}</td>
+                <td>{{ assignment.appraisal.engagement_property.property.name }}</td>
+                <td>{{ assignment.appraisal.engagement_property.property.base_address.city }}</td>
+                <td>{{ assignment.appraisal.engagement_property.property.base_address.state }}</td>
+                <td data-val="{{ assignment.fee }}" class="fee">{{ assignment.fee|currency }}</td>
+                <td class="expenses"><script>document.write(('{{ assignment.appraisal.expenses }}' == 'None') ? "$0.00" : '${{ assignment.appraisal.expenses }}')</script></td>
+                <td class="expenses"><script>document.write(('{{ assignment.appraisal.expenses_held }}' == 'None') ? "$0.00" : '${{ assignment.appraisal.expenses_held }}')</script></td>
+                <td><script>document.write(('{{ assignment.appraisal.invoice_sent }}' == 'True') ? "<span class='glyphicon glyphicon-ok'></span>" : "<span class='glyphicon glyphicon-remove'></span>")</script></td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+</div>
+{% endblock %}
+
+{% block htmlhead %}
+
+<link href="{{ STATIC_URL }}lib/bootstrap-formhelpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block bodyend %}
+<script src="{{ STATIC_URL }}lib/bootstrap-formhelpers/js/bootstrap-formhelpers.min.js"></script>
+<script>
+    NPVNexus.View_Work_In_Progress.init();
+</script>
+{% endblock %}

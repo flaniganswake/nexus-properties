@@ -1,0 +1,380 @@
+@import '../../lib/bootstrap/css/bootstrap.min.css';
+@import '../../lib/jquery/css/footable-0.1.css';
+
+/*Variables*/
+@clrRed: #d2252c;
+@clrGrey: #ccc;
+@clrGreyDrk: #666;
+@clrBlue: #003e7e;
+@fontSerif: "Arial";
+@fontSansSerif: "Arial";
+
+/*General Styles*/
+html, body { height: 100%; }
+body { width: 100%; }
+a { color: @clrBlue;
+    &:focus { color: @clrBlue; }
+}
+select::-ms-expand { display: none; }
+label { font-weight: normal; }
+.clear { clear: both; }
+.alignR { text-align: right; }
+
+/*Navigation bar*/
+.navbar-default { z-index: 999; background: url(images/navBack.jpg) repeat-x; border-top: 3px solid @clrRed; box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.6); border-bottom: none; border-radius: 0;
+    .navbar-header { /*margin-right: -25px;*/ .logo { height: 50px; line-height: 50px; padding: 0;
+            img { max-height: 50px; vertical-align: top; }
+        }
+    }
+    .navbar-nav {
+        >li {
+            &:last-child { border-right: none; }
+            &.active {
+                a { background: none; }
+            }
+            >a { color: #fff; font-weight: 700; font-size: 13px;
+                &:hover, &:focus { background: none !important; }
+            }
+            &.open {
+                >a { box-shadow: rgba(0,0,0,.4) 0px 5px 6px inset; color: #fff !important; background: rgba(0,0,0,.2) !important; }
+            }
+        }
+    }
+    .navbar-toggle { background: #ddd;
+        &:hover {
+            span { background: @clrBlue; }
+        }
+    }
+    .navbar-collapse { max-height: 100%;
+        &.in { background: @clrGreyDrk; overflow: visible;
+            ul { margin: 0; }
+            .dropdown { border-bottom: 1px solid #e5e5e5;
+                &.open { border: 0; }
+                ul { background: #ccc; }
+                li {
+                    a { color: #666 !important;
+                        &:hover { color: #999 !important; }
+                    }
+                }
+            }
+            .navbar-right {
+                .dropdown { border: none; }
+            }
+        }
+    }
+}
+
+/*Main content*/
+#Content { /*background: url(images/footer.jpg) repeat-x scroll 0 bottom;*/ clear: both; min-height: 100%; padding-bottom: 50px; overflow-x: hidden;
+    >.container { padding-bottom: 0; padding-top: 15px; }
+    h2 { color: @clrRed; }
+    /*View-Appraisal*/ .view-appraisal, .view_property {
+        .addy {
+            br { display: none; }
+        }
+        h4 {
+            &.left, &.right { float: left; width: 50%; }
+        }
+        .status {
+            h4 { display: inline-block; float: left;
+                label { width: auto; }
+            }
+            #Status { max-width: 70%; border: 0 !important; border-top: 2px solid @clrRed !important; border-radius: 0; -webkit-appearance: none; /*Removes default chrome and safari style*/ -moz-appearance: none; /*Removes default style Firefox*/ background: #eee url(images/downArrow.png) no-repeat center right; text-indent: 0.01px; text-overflow: ""; font-size: 18px; padding: 5px 12px 0; box-shadow: 0 5px 10px rgba(0,0,0,.2); float: right; }
+        }
+        .boxit { background: #eee; border-top: 2px solid @clrRed; padding: 10px; margin-bottom: 20px; box-shadow: 0 5px 10px rgba(0,0,0,.2);
+            .records { clear: both;
+                h4 { float: left; display: inline-block; margin-right: 3%; min-width: 35%; }
+                input { max-width: 55%; float: left; }
+            }
+            #update { float: right; margin: 5px 8px 0 0; font-size: 16px; }
+        }
+        #MapCanvas { box-shadow: 0 5px 10px rgba(0,0,0,.2); }
+        #Historical, #Similar { display: none; }
+        .expenses {
+            h4 { float: left; }
+            input { float: right; width: 50%; }
+        }
+    }
+    /*View Appraisals*/ #Appraisals_wrapper {
+        #Appraisals {
+            th { padding-left: 0 !important;
+                &:hover { cursor: pointer; }
+                &.sorting_asc {
+                    >.footable-sort-indicator { background-position: 0 -16px; }
+                }
+                &.sorting_desc {
+                    >.footable-sort-indicator { background-position: 0 -32px; }
+                }
+            }
+            .state, .city,.type { min-width: 70px; }
+            .status { min-width: 90px; }
+            .invoiced { min-width: 80px; }
+            .address { min-width: 80px; }
+            .appraiser { min-width: 100px; }
+            td {
+                .glyphicon { width: 100%; text-align: center;
+                    &.glyphicon-remove { color: @clrRed; }
+                    &.glyphicon-ok { color: green; }
+                }
+               .expand{width:auto; margin:0 2px;}
+            }
+            .footable-row-detail {
+                .glyphicon { width: auto; }
+            }
+        }
+    }
+    /*View-Property*/ .view_property { margin-top: 20px;
+        h2 { margin-top: 0; }
+    }
+    /*View-Portfolio*/ .view_portfolio {
+        #Historical { display: none; }
+    }
+    /*View-Client*/ .view-client {
+        #Historical { display: none; }
+        #ViewReq { display: none; float: right; width: auto; margin-top: 5px; }
+        .reqTable { border: 1px solid #ddd; }
+    }
+    /*View-Client-List*/ .view-client-list {
+        h2 { float: left; line-height: 35px; }
+        .count { float: right; line-height: 35px; margin-top: 20px; }
+    }
+    /*View State Licensing*/ .view-state-licensing {
+        #StateNames { max-width: 70%; float: right; clear: both; }
+        .mapWrapper { position: relative; margin: 0 auto; width: 730px;
+            #Map { width: 930px; left: 0; position: absolute; padding: 0; margin: 0;
+                svg { float: left; }
+            }
+            #MapBack { position: absolute; top: 2px; left: 6px; max-width: 100%; width: 730px; }
+            .point { position: fixed; display: none; padding: 10px 15px; background: #f2f2f2; font-size: 14px; font-weight: bold; border: 1px solid #262626; -moz-border-radius: 4px; /* FF1-3.6 */ -webkit-border-radius: 4px; /* Saf3-4, iOS 1-3.2, Android <1.6 */ border-radius: 4px 4px 4px 4px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */ /* useful if you don't want a bg color from leaking outside the border: */ -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; }
+        }
+    }
+    /*Edit Engagement Property*/ .edit_engagement_property {
+        .headings { margin: 25px 0 5px; font-size: 20px; }
+        .input-group-addon { background: @clrGreyDrk; color: #fff;
+            &.visual { background-color: @clrGrey; }
+        }
+        #PropProposed { width: auto; }
+        .fee-group { float: left; width: 80%; }
+        .assn-row:last-child button.assn-add, .assn-row button.assn-remove { display: inline-block; margin: 5px 0 0 5px; }
+        #SchedTable .edit { display: none; }
+
+        #SchedTable .editing:last-child { margin-bottom: -1px; }
+
+        #SchedTable .editing .edit { display: block; }
+
+        #SchedTable .editing .view { display: none; }
+
+        #SchedTable td.scheduled { background-color: #fff; }
+
+        #SchedTable td.existing { background-color: @clrGrey; }
+
+        #SchedTable td.active-appraisal { background-color: #dff0d8; }
+
+        #SchedTable td:empty { background-color: #fcf8e3; }
+
+        #SchedTable td.scheduled .restricted:hover,
+        #SchedTable td.existing.active-appraisal .restricted:hover { cursor: pointer; background-color: #428bca; /* bootstrap "primary" color */ }
+
+        #SchedTable td.scheduled .fee:hover,
+        #SchedTable td.existing.active-appraisal .fee:hover { cursor: pointer; }
+
+        .assn-row button.assn-add { display: none; }
+
+        .assn-row:last-child button.assn-remove { display: none; }
+
+        #Assignmentslist .row { padding-top: 2px; padding-bottom: 2px; }
+
+        #Assignmentslist .hr { border-bottom: 1px solid @clrGrey; margin-bottom: 2px; margin-top: 2px; }
+        .sched-cell.historical { cursor: pointer; position: relative; overflow: hidden; }
+    }
+    /*Employee Appraisals*/ .employee-appraisals {
+        .emp-link { display: block; padding-left: 30px; background: url(/static/lib/jquery/css/img/plus.png) no-repeat scroll 0px center;
+            &.opened { background: url(/static/lib/jquery/css/img/minus.png) no-repeat scroll 0px center; }
+            &:focus { outline: none; }
+        }
+        .panel-collapse { display: none; }
+        .dates { display: none; }
+        .date { min-width: 100px; }
+        .invoice { min-width: 90px; }
+        td {
+            .glyphicon { width: 100%; text-align: center;
+                &.glyphicon-remove { color: @clrRed; }
+                &.glyphicon-ok { color: green; }
+            }
+        }
+        .footable-row-detail {
+            .glyphicon { width: auto; }
+        }
+    }
+    /*Work In Progress*/ .work-in-progress {
+        .summary { border-bottom: 2px solid #000; }
+        #Print { display: none; }
+        h2 { font-size: 18px; }
+        td { font-size: 10px; padding: 1px !important;
+            .glyphicon { width: 100%; text-align: center;
+                &.glyphicon-remove { color: @clrRed; }
+                &.glyphicon-ok { color: green; }
+            }
+        }
+        .date { min-width: 100px; }
+        .jobId { min-width: 75px; }
+    }
+    /*VIEW-AMF*/ .view-amf {
+        #Historical { display: none; }
+    }
+    /*Edit-AMF*/ .edit-amf {
+        #SaveBtn { width: auto; float: right; }
+    }
+    /* Employee Home*/.employee-home{
+                          .type{min-width:80px;}
+                          .status{min-width:90px;}
+                      }
+    .contacts {
+        .contactListing {
+            .remove { float: right; margin-right: 5px; color: @clrRed; 
+                      &:hover{text-decoration:none;color:@clrGreyDrk;}
+            }
+        }
+    }
+    /*TootTip Icon*/ .tooltipicon { color: @clrBlue; font-size: 12px;
+                                    &:hover{cursor:pointer;}
+                     }
+    /*Required*/ .required { color: @clrRed; font-size: 15px; padding: 0 3px; }
+    /*Error Styles*/ .error { border-left: 3px solid @clrRed; }
+    /*404*/ .error-page { width: 300px; position: absolute; top: 50%; left: 50%; margin: -50px 0 0 - 150px; }
+}
+
+/* Pagination */
+div.pagination { display: block; text-align: center;
+    ul { display: inline-block; }
+}
+/*Contacts*/
+.contact-collapse {
+    #Save { float: right; width: auto; }
+}
+/*Select Lists*/
+.npvSelect { border: 0 !important; border-top: 2px solid @clrRed !important; border-radius: 0; -webkit-appearance: none; /*Removes default chrome and safari style*/ -moz-appearance: none; /*Removes default style Firefox*/ background: #eee url(images/downArrow.png) no-repeat center right; text-indent: 0.01px; text-overflow: ""; font-size: 16px; padding: 2px 12px 0; box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    &[disabled], &[readonly] { color: #EEEEEE; }
+    &[disabled] { border-top: 2px solid @clrGreyDrk !important; background-image: none; }
+    &.selectize-control { padding-right: 30px; }
+    &.selectize-control.single .selectize-input:after { border: none; }
+    &.selectize-dropdown { border: none !important; }
+}
+
+/*Buttons*/
+.npvBtn { background: @clrGreyDrk; color: #fff; font-family: @fontSansSerif; text-transform: uppercase; box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    &:hover { background: @clrGrey; color: @clrGreyDrk; text-decoration: none;cursor:pointer; }
+    &:selected { background: @clrGreyDrk; color: #fff; }
+    &.editBtn { display: inline-block; width: auto; float: right; }
+}
+#Roles { background: #fff; }
+
+/*Filters*/
+.filters { margin: 0 0 45px;
+    .title { font-weight: 500; color: @clrGreyDrk; line-height: 30px; font-size: 18px; }
+    .input-group-addon { background: @clrGreyDrk; color: #fff; }
+    .npvBtn { position: relative; top: 30px; float: right; }
+    &.top { margin-bottom: 25px; }
+}
+
+/*Totals*/
+.totals, .total-records { text-align: right; }
+#TableHead {
+    .totals { float: right; }
+}
+
+/* Alerts*/
+#StatusAlert { color: transparent; position: fixed; top: 0px; right: 0px; z-index: 9999; min-height: 60px; overflow: hidden; width: 0; background-color: transparent; box-shadow: 0 5px 10px rgba(0,0,0,.2); font: 700 16px/20px @fontSansSerif; /*transition: background-color ease .5s; -webkit-transition: background-color ease .5s; -moz-transition: background-color ease .5s;*/
+    @borderwidth: 10px;
+    @width: 300px;
+    border-radius: 5px;
+    &.error { color: #333; background-color: rgb(204,204,204); border-bottom: @borderwidth solid rgb(255, 0, 0); width: @width; padding: 15px; }
+    &.success { color: #333; background-color: rgb(204,204,204); border-bottom: @borderwidth solid rgb(0, 255, 33); width: @width; padding: 15px; }
+    &.loading { color: #333; background-color: rgb(204,204,204); border-bottom: @borderwidth solid @clrGreyDrk; width: @width; padding: 15px; }
+}
+
+/* Google Maps*/
+.google-map-canvas,
+.google-map-canvas * { box-sizing: content-box; }
+#MapCanvas { width: 100%; height: 360px; overflow:hidden; background:#C4C4C4;
+             img{max-width:100%;}
+}
+
+/*Calendar Overrides*/
+.bfh-datepicker-calendar > table.calendar { width: 286px !important; }
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td { padding: 6px; }
+.bfh-datepicker-calendar > table.calendar > tbody > tr > td.today { background: @clrBlue !important; }
+
+/* FOO TABLE OVERRIDES*/
+.footable { background: #fff;
+    .noRecords { display: table-cell !important; padding-left: 5px !important; background-image: none !important; }
+    >tbody > tr {
+        &:hover { background: #f0efef; }
+    }
+
+    &.contentCollapse { border: none; margin-bottom: 20px;
+        thead { display: none; }
+        h4 { margin: 0; }
+        > thead > tr > th, .footable > thead > tr > td { background: #fff; border: none; padding: 0; }
+        > tbody > tr > td, .footable > thead > tr > th { border: none; }
+        &.breakpoint > tbody > tr > td.expand { background-color: #eee; padding: 10px 30px 10px 40px; border-top: 2px solid @clrRed; border-collapse: separate; box-shadow: 0 5px 10px rgba(0,0,0,.2); }
+        &.breakpoint > tbody > tr.footable-detail-show > td.expand { }
+    }
+    > thead > tr > th, .footable > thead > tr > td { background: #eee; }
+    .hours, .state, .jobNum { min-width: 75px; }
+    .date { min-width: 100px; }
+}
+.footable-cell-detail { display: table-cell !important; }
+.footable-row-detail-name { float: left; margin-right: 5px; font-weight: 700; }
+.footable-row-detail-value {
+    ul { clear: both; }
+}
+#Appraisals_paginate {
+    a {display:inline-block;border-radius:4px; padding: 6px 12px; background: @clrGreyDrk; color: #fff; font-family: @fontSansSerif; text-transform: uppercase; box-shadow: 0 5px 10px rgba(0,0,0,.2);
+        &:hover { background: @clrGrey; color: @clrGreyDrk; text-decoration: none; cursor:pointer;}
+    }
+    .paginate_disabled_previous, .paginate_disabled_next { display: none; }
+    .paginate_enabled_next{float:right;}
+}
+/* DataTables Override*/
+#Appraisals_filter { width: 50%; display: inline-block; 
+                     input{background-color: #FFFFFF;
+background-image: none;
+border: 1px solid #CCCCCC;
+border-radius: 4px;
+box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+color: #555555;
+display: inline-block;
+font-size: 14px;
+height: 34px;
+line-height: 1.42857;
+padding: 6px 12px;
+transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+}
+.dataTables_scrollHead { background: #eee; border-top: 1px solid #CCCCCC !important; border-bottom: 1px solid #CCCCCC !important; }
+.dataTables_scrollHeadInner { height: 33px; width: 100% !important;
+    table { width: 100% !important; border: none; }
+}
+.dataTables_scrollBody{overflow-y:scroll; -webkit-overflow-scrolling: touch;}
+
+/*Login*/
+.login { width: 260px; box-shadow: 0 5px 10px rgba(0,0,0,.2); padding: 5px 15px 15px; position: absolute; top: 50%; left: 50%; margin: -81px 0 0 -130px;
+    h2 { margin-top: 0; }
+    td { padding-bottom: 10px; padding-left: 10px; }
+}
+
+@media (max-width:991px) {
+    /*Main content*/
+    #Content {
+        .col-md-4 { margin: 15px 0; }
+    }
+}
+
+@media (max-width:730px) {
+    /*Main content*/
+    #Content {
+        >.container { padding-top: 10px; }
+        .col-md-4 { margin: 15px 0; }
+    }
+}

@@ -1,0 +1,854 @@
+@import '../../lib/bootstrap/css/bootstrap.min.css';
+
+@import '../../lib/jquery/css/footable-0.1.css';
+/*Variables*/
+/*General Styles*/
+html,
+body {
+  height: 100%;
+}
+body {
+  width: 100%;
+}
+a {
+  color: #003e7e;
+}
+a:focus {
+  color: #003e7e;
+}
+select::-ms-expand {
+  display: none;
+}
+label {
+  font-weight: normal;
+}
+.clear {
+  clear: both;
+}
+.alignR {
+  text-align: right;
+}
+/*Navigation bar*/
+.navbar-default {
+  z-index: 999;
+  background: url(images/navBack.jpg) repeat-x;
+  border-top: 3px solid #d2252c;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.6);
+  border-bottom: none;
+  border-radius: 0;
+}
+.navbar-default .navbar-header {
+  /*margin-right: -25px;*/
+}
+.navbar-default .navbar-header .logo {
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+}
+.navbar-default .navbar-header .logo img {
+  max-height: 50px;
+  vertical-align: top;
+}
+.navbar-default .navbar-nav > li:last-child {
+  border-right: none;
+}
+.navbar-default .navbar-nav > li.active a {
+  background: none;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  background: none !important;
+}
+.navbar-default .navbar-nav > li.open > a {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 6px inset;
+  color: #fff !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+.navbar-default .navbar-toggle {
+  background: #ddd;
+}
+.navbar-default .navbar-toggle:hover span {
+  background: #003e7e;
+}
+.navbar-default .navbar-collapse {
+  max-height: 100%;
+}
+.navbar-default .navbar-collapse.in {
+  background: #666666;
+  overflow: visible;
+}
+.navbar-default .navbar-collapse.in ul {
+  margin: 0;
+}
+.navbar-default .navbar-collapse.in .dropdown {
+  border-bottom: 1px solid #e5e5e5;
+}
+.navbar-default .navbar-collapse.in .dropdown.open {
+  border: 0;
+}
+.navbar-default .navbar-collapse.in .dropdown ul {
+  background: #ccc;
+}
+.navbar-default .navbar-collapse.in .dropdown li a {
+  color: #666 !important;
+}
+.navbar-default .navbar-collapse.in .dropdown li a:hover {
+  color: #999 !important;
+}
+.navbar-default .navbar-collapse.in .navbar-right .dropdown {
+  border: none;
+}
+/*Main content*/
+#Content {
+  /*background: url(images/footer.jpg) repeat-x scroll 0 bottom;*/
+  clear: both;
+  min-height: 100%;
+  padding-bottom: 50px;
+  overflow-x: hidden;
+  /*View-Appraisal*/
+  /*View Appraisals*/
+  /*View-Property*/
+  /*View-Portfolio*/
+  /*View-Client*/
+  /*View-Client-List*/
+  /*View State Licensing*/
+  /*Edit Engagement Property*/
+  /*Employee Appraisals*/
+  /*Work In Progress*/
+  /*VIEW-AMF*/
+  /*Edit-AMF*/
+  /* Employee Home*/
+  /*TootTip Icon*/
+  /*Required*/
+  /*Error Styles*/
+  /*404*/
+}
+#Content > .container {
+  padding-bottom: 0;
+  padding-top: 15px;
+}
+#Content h2 {
+  color: #d2252c;
+}
+#Content .view-appraisal .addy br,
+#Content .view_property .addy br {
+  display: none;
+}
+#Content .view-appraisal h4.left,
+#Content .view_property h4.left,
+#Content .view-appraisal h4.right,
+#Content .view_property h4.right {
+  float: left;
+  width: 50%;
+}
+#Content .view-appraisal .status h4,
+#Content .view_property .status h4 {
+  display: inline-block;
+  float: left;
+}
+#Content .view-appraisal .status h4 label,
+#Content .view_property .status h4 label {
+  width: auto;
+}
+#Content .view-appraisal .status #Status,
+#Content .view_property .status #Status {
+  max-width: 70%;
+  border: 0 !important;
+  border-top: 2px solid #d2252c !important;
+  border-radius: 0;
+  -webkit-appearance: none;
+  /*Removes default chrome and safari style*/
+  -moz-appearance: none;
+  /*Removes default style Firefox*/
+  background: #eeeeee url(images/downArrow.png) no-repeat center right;
+  text-indent: 0.01px;
+  text-overflow: "";
+  font-size: 18px;
+  padding: 5px 12px 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  float: right;
+}
+#Content .view-appraisal .boxit,
+#Content .view_property .boxit {
+  background: #eee;
+  border-top: 2px solid #d2252c;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+#Content .view-appraisal .boxit .records,
+#Content .view_property .boxit .records {
+  clear: both;
+}
+#Content .view-appraisal .boxit .records h4,
+#Content .view_property .boxit .records h4 {
+  float: left;
+  display: inline-block;
+  margin-right: 3%;
+  min-width: 35%;
+}
+#Content .view-appraisal .boxit .records input,
+#Content .view_property .boxit .records input {
+  max-width: 55%;
+  float: left;
+}
+#Content .view-appraisal .boxit #update,
+#Content .view_property .boxit #update {
+  float: right;
+  margin: 5px 8px 0 0;
+  font-size: 16px;
+}
+#Content .view-appraisal #MapCanvas,
+#Content .view_property #MapCanvas {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+#Content .view-appraisal #Historical,
+#Content .view_property #Historical,
+#Content .view-appraisal #Similar,
+#Content .view_property #Similar {
+  display: none;
+}
+#Content .view-appraisal .expenses h4,
+#Content .view_property .expenses h4 {
+  float: left;
+}
+#Content .view-appraisal .expenses input,
+#Content .view_property .expenses input {
+  float: right;
+  width: 50%;
+}
+#Content #Appraisals_wrapper #Appraisals th {
+  padding-left: 0 !important;
+}
+#Content #Appraisals_wrapper #Appraisals th:hover {
+  cursor: pointer;
+}
+#Content #Appraisals_wrapper #Appraisals th.sorting_asc > .footable-sort-indicator {
+  background-position: 0 -16px;
+}
+#Content #Appraisals_wrapper #Appraisals th.sorting_desc > .footable-sort-indicator {
+  background-position: 0 -32px;
+}
+#Content #Appraisals_wrapper #Appraisals .state,
+#Content #Appraisals_wrapper #Appraisals .city,
+#Content #Appraisals_wrapper #Appraisals .type {
+  min-width: 70px;
+}
+#Content #Appraisals_wrapper #Appraisals .status {
+  min-width: 90px;
+}
+#Content #Appraisals_wrapper #Appraisals .invoiced {
+  min-width: 80px;
+}
+#Content #Appraisals_wrapper #Appraisals .address {
+  min-width: 80px;
+}
+#Content #Appraisals_wrapper #Appraisals .appraiser {
+  min-width: 100px;
+}
+#Content #Appraisals_wrapper #Appraisals td .glyphicon {
+  width: 100%;
+  text-align: center;
+}
+#Content #Appraisals_wrapper #Appraisals td .glyphicon.glyphicon-remove {
+  color: #d2252c;
+}
+#Content #Appraisals_wrapper #Appraisals td .glyphicon.glyphicon-ok {
+  color: green;
+}
+#Content #Appraisals_wrapper #Appraisals td .expand {
+  width: auto;
+  margin: 0 2px;
+}
+#Content #Appraisals_wrapper #Appraisals .footable-row-detail .glyphicon {
+  width: auto;
+}
+#Content .view_property {
+  margin-top: 20px;
+}
+#Content .view_property h2 {
+  margin-top: 0;
+}
+#Content .view_portfolio #Historical {
+  display: none;
+}
+#Content .view-client #Historical {
+  display: none;
+}
+#Content .view-client #ViewReq {
+  display: none;
+  float: right;
+  width: auto;
+  margin-top: 5px;
+}
+#Content .view-client .reqTable {
+  border: 1px solid #ddd;
+}
+#Content .view-client-list h2 {
+  float: left;
+  line-height: 35px;
+}
+#Content .view-client-list .count {
+  float: right;
+  line-height: 35px;
+  margin-top: 20px;
+}
+#Content .view-state-licensing #StateNames {
+  max-width: 70%;
+  float: right;
+  clear: both;
+}
+#Content .view-state-licensing .mapWrapper {
+  position: relative;
+  margin: 0 auto;
+  width: 730px;
+}
+#Content .view-state-licensing .mapWrapper #Map {
+  width: 930px;
+  left: 0;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+#Content .view-state-licensing .mapWrapper #Map svg {
+  float: left;
+}
+#Content .view-state-licensing .mapWrapper #MapBack {
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  max-width: 100%;
+  width: 730px;
+}
+#Content .view-state-licensing .mapWrapper .point {
+  position: fixed;
+  display: none;
+  padding: 10px 15px;
+  background: #f2f2f2;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #262626;
+  -moz-border-radius: 4px;
+  /* FF1-3.6 */
+  -webkit-border-radius: 4px;
+  /* Saf3-4, iOS 1-3.2, Android <1.6 */
+  border-radius: 4px 4px 4px 4px;
+  /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+  /* useful if you don't want a bg color from leaking outside the border: */
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+#Content .edit_engagement_property .headings {
+  margin: 25px 0 5px;
+  font-size: 20px;
+}
+#Content .edit_engagement_property .input-group-addon {
+  background: #666666;
+  color: #fff;
+}
+#Content .edit_engagement_property .input-group-addon.visual {
+  background-color: #cccccc;
+}
+#Content .edit_engagement_property #PropProposed {
+  width: auto;
+}
+#Content .edit_engagement_property .fee-group {
+  float: left;
+  width: 80%;
+}
+#Content .edit_engagement_property .assn-row:last-child button.assn-add,
+#Content .edit_engagement_property .assn-row button.assn-remove {
+  display: inline-block;
+  margin: 5px 0 0 5px;
+}
+#Content .edit_engagement_property #SchedTable .edit {
+  display: none;
+}
+#Content .edit_engagement_property #SchedTable .editing:last-child {
+  margin-bottom: -1px;
+}
+#Content .edit_engagement_property #SchedTable .editing .edit {
+  display: block;
+}
+#Content .edit_engagement_property #SchedTable .editing .view {
+  display: none;
+}
+#Content .edit_engagement_property #SchedTable td.scheduled {
+  background-color: #fff;
+}
+#Content .edit_engagement_property #SchedTable td.existing {
+  background-color: #cccccc;
+}
+#Content .edit_engagement_property #SchedTable td.active-appraisal {
+  background-color: #dff0d8;
+}
+#Content .edit_engagement_property #SchedTable td:empty {
+  background-color: #fcf8e3;
+}
+#Content .edit_engagement_property #SchedTable td.scheduled .restricted:hover,
+#Content .edit_engagement_property #SchedTable td.existing.active-appraisal .restricted:hover {
+  cursor: pointer;
+  background-color: #428bca;
+  /* bootstrap "primary" color */
+}
+#Content .edit_engagement_property #SchedTable td.scheduled .fee:hover,
+#Content .edit_engagement_property #SchedTable td.existing.active-appraisal .fee:hover {
+  cursor: pointer;
+}
+#Content .edit_engagement_property .assn-row button.assn-add {
+  display: none;
+}
+#Content .edit_engagement_property .assn-row:last-child button.assn-remove {
+  display: none;
+}
+#Content .edit_engagement_property #Assignmentslist .row {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+#Content .edit_engagement_property #Assignmentslist .hr {
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+#Content .edit_engagement_property .sched-cell.historical {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+#Content .employee-appraisals .emp-link {
+  display: block;
+  padding-left: 30px;
+  background: url(/static/lib/jquery/css/img/plus.png) no-repeat scroll 0px center;
+}
+#Content .employee-appraisals .emp-link.opened {
+  background: url(/static/lib/jquery/css/img/minus.png) no-repeat scroll 0px center;
+}
+#Content .employee-appraisals .emp-link:focus {
+  outline: none;
+}
+#Content .employee-appraisals .panel-collapse {
+  display: none;
+}
+#Content .employee-appraisals .dates {
+  display: none;
+}
+#Content .employee-appraisals .date {
+  min-width: 100px;
+}
+#Content .employee-appraisals .invoice {
+  min-width: 90px;
+}
+#Content .employee-appraisals td .glyphicon {
+  width: 100%;
+  text-align: center;
+}
+#Content .employee-appraisals td .glyphicon.glyphicon-remove {
+  color: #d2252c;
+}
+#Content .employee-appraisals td .glyphicon.glyphicon-ok {
+  color: green;
+}
+#Content .employee-appraisals .footable-row-detail .glyphicon {
+  width: auto;
+}
+#Content .work-in-progress .summary {
+  border-bottom: 2px solid #000;
+}
+#Content .work-in-progress #Print {
+  display: none;
+}
+#Content .work-in-progress h2 {
+  font-size: 18px;
+}
+#Content .work-in-progress td {
+  font-size: 10px;
+  padding: 1px !important;
+}
+#Content .work-in-progress td .glyphicon {
+  width: 100%;
+  text-align: center;
+}
+#Content .work-in-progress td .glyphicon.glyphicon-remove {
+  color: #d2252c;
+}
+#Content .work-in-progress td .glyphicon.glyphicon-ok {
+  color: green;
+}
+#Content .work-in-progress .date {
+  min-width: 100px;
+}
+#Content .work-in-progress .jobId {
+  min-width: 75px;
+}
+#Content .view-amf #Historical {
+  display: none;
+}
+#Content .edit-amf #SaveBtn {
+  width: auto;
+  float: right;
+}
+#Content .employee-home .type {
+  min-width: 80px;
+}
+#Content .employee-home .status {
+  min-width: 90px;
+}
+#Content .contacts .contactListing .remove {
+  float: right;
+  margin-right: 5px;
+  color: #d2252c;
+}
+#Content .contacts .contactListing .remove:hover {
+  text-decoration: none;
+  color: #666666;
+}
+#Content .tooltipicon {
+  color: #003e7e;
+  font-size: 12px;
+}
+#Content .tooltipicon:hover {
+  cursor: pointer;
+}
+#Content .required {
+  color: #d2252c;
+  font-size: 15px;
+  padding: 0 3px;
+}
+#Content .error {
+  border-left: 3px solid #d2252c;
+}
+#Content .error-page {
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 -150px;
+}
+/* Pagination */
+div.pagination {
+  display: block;
+  text-align: center;
+}
+div.pagination ul {
+  display: inline-block;
+}
+/*Contacts*/
+.contact-collapse #Save {
+  float: right;
+  width: auto;
+}
+/*Select Lists*/
+.npvSelect {
+  border: 0 !important;
+  border-top: 2px solid #d2252c !important;
+  border-radius: 0;
+  -webkit-appearance: none;
+  /*Removes default chrome and safari style*/
+  -moz-appearance: none;
+  /*Removes default style Firefox*/
+  background: #eeeeee url(images/downArrow.png) no-repeat center right;
+  text-indent: 0.01px;
+  text-overflow: "";
+  font-size: 16px;
+  padding: 2px 12px 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.npvSelect[disabled],
+.npvSelect[readonly] {
+  color: #EEEEEE;
+}
+.npvSelect[disabled] {
+  border-top: 2px solid #666666 !important;
+  background-image: none;
+}
+.npvSelect.selectize-control {
+  padding-right: 30px;
+}
+.npvSelect.selectize-control.single .selectize-input:after {
+  border: none;
+}
+.npvSelect.selectize-dropdown {
+  border: none !important;
+}
+/*Buttons*/
+.npvBtn {
+  background: #666666;
+  color: #fff;
+  font-family: "Arial";
+  text-transform: uppercase;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.npvBtn:hover {
+  background: #cccccc;
+  color: #666666;
+  text-decoration: none;
+  cursor: pointer;
+}
+.npvBtn:selected {
+  background: #666666;
+  color: #fff;
+}
+.npvBtn.editBtn {
+  display: inline-block;
+  width: auto;
+  float: right;
+}
+#Roles {
+  background: #fff;
+}
+/*Filters*/
+.filters {
+  margin: 0 0 45px;
+}
+.filters .title {
+  font-weight: 500;
+  color: #666666;
+  line-height: 30px;
+  font-size: 18px;
+}
+.filters .input-group-addon {
+  background: #666666;
+  color: #fff;
+}
+.filters .npvBtn {
+  position: relative;
+  top: 30px;
+  float: right;
+}
+.filters.top {
+  margin-bottom: 25px;
+}
+/*Totals*/
+.totals,
+.total-records {
+  text-align: right;
+}
+#TableHead .totals {
+  float: right;
+}
+/* Alerts*/
+#StatusAlert {
+  color: transparent;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 9999;
+  min-height: 60px;
+  overflow: hidden;
+  width: 0;
+  background-color: transparent;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  font: 700 16px/20px "Arial";
+  /*transition: background-color ease .5s; -webkit-transition: background-color ease .5s; -moz-transition: background-color ease .5s;*/
+
+  border-radius: 5px;
+}
+#StatusAlert.error {
+  color: #333;
+  background-color: #cccccc;
+  border-bottom: 10px solid #ff0000;
+  width: 300px;
+  padding: 15px;
+}
+#StatusAlert.success {
+  color: #333;
+  background-color: #cccccc;
+  border-bottom: 10px solid #00ff21;
+  width: 300px;
+  padding: 15px;
+}
+#StatusAlert.loading {
+  color: #333;
+  background-color: #cccccc;
+  border-bottom: 10px solid #666666;
+  width: 300px;
+  padding: 15px;
+}
+/* Google Maps*/
+.google-map-canvas,
+.google-map-canvas * {
+  box-sizing: content-box;
+}
+#MapCanvas {
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+  background: #C4C4C4;
+}
+#MapCanvas img {
+  max-width: 100%;
+}
+/*Calendar Overrides*/
+.bfh-datepicker-calendar > table.calendar {
+  width: 286px !important;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 6px;
+}
+.bfh-datepicker-calendar > table.calendar > tbody > tr > td.today {
+  background: #003e7e !important;
+}
+/* FOO TABLE OVERRIDES*/
+.footable {
+  background: #fff;
+}
+.footable .noRecords {
+  display: table-cell !important;
+  padding-left: 5px !important;
+  background-image: none !important;
+}
+.footable > tbody > tr:hover {
+  background: #f0efef;
+}
+.footable.contentCollapse {
+  border: none;
+  margin-bottom: 20px;
+}
+.footable.contentCollapse thead {
+  display: none;
+}
+.footable.contentCollapse h4 {
+  margin: 0;
+}
+.footable.contentCollapse > thead > tr > th,
+.footable.contentCollapse .footable > thead > tr > td {
+  background: #fff;
+  border: none;
+  padding: 0;
+}
+.footable.contentCollapse > tbody > tr > td,
+.footable.contentCollapse .footable > thead > tr > th {
+  border: none;
+}
+.footable.contentCollapse.breakpoint > tbody > tr > td.expand {
+  background-color: #eee;
+  padding: 10px 30px 10px 40px;
+  border-top: 2px solid #d2252c;
+  border-collapse: separate;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.footable > thead > tr > th,
+.footable .footable > thead > tr > td {
+  background: #eee;
+}
+.footable .hours,
+.footable .state,
+.footable .jobNum {
+  min-width: 75px;
+}
+.footable .date {
+  min-width: 100px;
+}
+.footable-cell-detail {
+  display: table-cell !important;
+}
+.footable-row-detail-name {
+  float: left;
+  margin-right: 5px;
+  font-weight: 700;
+}
+.footable-row-detail-value ul {
+  clear: both;
+}
+#Appraisals_paginate a {
+  display: inline-block;
+  border-radius: 4px;
+  padding: 6px 12px;
+  background: #666666;
+  color: #fff;
+  font-family: "Arial";
+  text-transform: uppercase;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+#Appraisals_paginate a:hover {
+  background: #cccccc;
+  color: #666666;
+  text-decoration: none;
+  cursor: pointer;
+}
+#Appraisals_paginate .paginate_disabled_previous,
+#Appraisals_paginate .paginate_disabled_next {
+  display: none;
+}
+#Appraisals_paginate .paginate_enabled_next {
+  float: right;
+}
+/* DataTables Override*/
+#Appraisals_filter {
+  width: 50%;
+  display: inline-block;
+}
+#Appraisals_filter input {
+  background-color: #FFFFFF;
+  background-image: none;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  color: #555555;
+  display: inline-block;
+  font-size: 14px;
+  height: 34px;
+  line-height: 1.42857;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+.dataTables_scrollHead {
+  background: #eee;
+  border-top: 1px solid #CCCCCC !important;
+  border-bottom: 1px solid #CCCCCC !important;
+}
+.dataTables_scrollHeadInner {
+  height: 33px;
+  width: 100% !important;
+}
+.dataTables_scrollHeadInner table {
+  width: 100% !important;
+  border: none;
+}
+.dataTables_scrollBody {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+/*Login*/
+.login {
+  width: 260px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  padding: 5px 15px 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -81px 0 0 -130px;
+}
+.login h2 {
+  margin-top: 0;
+}
+.login td {
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+@media (max-width: 991px) {
+  /*Main content*/
+  #Content .col-md-4 {
+    margin: 15px 0;
+  }
+}
+@media (max-width: 730px) {
+  /*Main content*/
+  #Content > .container {
+    padding-top: 10px;
+  }
+  #Content .col-md-4 {
+    margin: 15px 0;
+  }
+}

@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block page_title %} - {% if engagement %}Edit{% else %}Enter{% endif %} Engagement{% endblock %}
+
+
+{% block body %}
+
+<div class="container">
+
+    <h2>{% if engagement %}Edit{% else %}Enter a new{% endif %} Engagement</h2>
+  <form id="EngagementForm" role="form" class="form-horizontal">
+    <i class="required">*</i> indicates required
+    <div class="form-group">
+      <label class="col-xs-3 control-label"><i class="required">*</i> Client</label>
+      <div class="col-xs-7">
+        <select id="Client" class="form-control input-sm npvSelect">
+          <option value="">Select client</option>
+          {% for client in clients %}
+          <option data-client-pk="{{ client.pk }}" value="{{ client.uri }}"{% if engagement.client.pk == client.pk %} selected{% endif %}>{{ client.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-xs-3 control-label"><i class="required">*</i> Client Contact</label>
+      <div class="col-xs-7">
+        <select id="ClientContact" class="form-control input-sm npvSelect" disabled>
+          <option value="" selected>Select contact</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-xs-3 control-label">Appraisal Management Firm</label>
+      <div class="col-xs-7">
+        <select id="Amf" class="form-control input-sm npvSelect">
+          <option value=""{% if not engagment.amf %} selected{% endif %}>Select...</option>
+          {% for amf in amfs %}
+          <option data-amf-pk="{{ amf.pk }}" value="{{ amf.uri }}"{% if engagement.amf.pk == amf.pk %} selected{% endif %}>{{ amf.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div id="AmfContactGroup" class="form-group"{% if not engagement.amf %} style="display: none;"{% endif %}>
+      <label class="col-xs-3 control-label"><i class="required">*</i> AMF Contact</label>
+      <div class="col-xs-7">
+        <select id="AmfContact" class="form-control input-sm npvSelect">
+          <option value="" selected>Select contact</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-xs-3 control-label">Borrower</label>
+      <div class="col-xs-7">
+        <input type="text" class="form-control input-sm" placeHolder="Borrower"
+               id="Borrower" value="{{ engagement.borrower|default:"" }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-xs-3 control-label">Single Property / Portolio</label>
+      <div class="col-xs-7">
+        <div class="btn-group btn-group-sm pop-group" data-toggle="buttons">
+          <label class="btn btn-default disabled">
+            <input type="radio" name="property_or_portfolio" id="ForProperty"
+                   value="property">
+            Property
+          </label>
+          <label class="btn btn-default disabled">
+            <input type="radio" name="property_or_portfolio" id="ForPortfolio"
+                   value="portfolio">
+            Portfolio
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div id="PropertyGroup" class="form-group pop-property"
+         style="display:none">
+      <label class="col-xs-3 control-label"><i class="required">*</i> Property</label>
+      <div class="col-xs-7">
+        <select id="Property" placeholder="Select or create property"
+                class="npvSelect">
+        </select>
+      </div>
+    </div>
+
+    <div id="PropertySetupGroup" class="form-group pop-property"
+         style="display:none">
+      <label class="col-xs-3 control-label"></label>
+      <div class="col-xs-7">
+        <a role="button" class="btn npvBtn">Setup Engagement Property</a>
+      </div>
+    </div>
+
+    <div id="PortfolioGroup" class="form-group" style="display:none">
+      <label class="col-xs-3 control-label">Portfolio</label>
+      <div class="col-xs-7">
+        <select id="Portfolio" placeholder="Select or create portfolio"
+                class="npvSelect">
+        </select>
+      </div>
+    </div>
+
+    {# TODO: notes text area #}
+  </form>
+
+  <h3 class="prop-list">Properties</h3>
+
+  {# TODO: indicate occr-sched setup status for prop in this list #}
+
+  <div id="PropertiesList" class="list-group prop-list"></div>
+
+  <form id="NewPortfolioPropertyForm" role="form" class="form-horizontal">
+    <div id="NewPortfolioPropertyGroup" class="form-group prop-list">
+      <label class="col-xs-3 control-label">Add New Property</label>
+      <div class="col-xs-7">
+        <input id="NewPortfolioProperty" placeholder="name"/>
+        <a id="NewPortfolioPropertyBtn" role="button" class="btn npvBtn">Add</a>
+      </div>
+    </div>
+  </form>
+
+  {# TODO: "add new property to portfolio" UI control #}
+
+</div>
+{% endblock %}
+
+
+{% block htmlhead %}
+  <link href="{{ STATIC_URL }}lib/selectize.js/css/selectize.bootstrap3.css" rel="stylesheet">
+
+{% if not engagement %}
+<style>
+.prop-list {
+    display: none;
+}
+</style>
+{% endif %}
+
+{% endblock %}
+
+{% block bodyend %}
+
+<script src="{{ STATIC_URL }}lib/selectize.js/js/standalone/selectize.min.js"></script>
+<script src="{{ STATIC_URL }}lib/backbone/backbone-min.js"></script>
+<script src="{{ STATIC_URL }}lib/cocktail/Cocktail.min.js"></script>
+
+<script src="{{ STATIC_URL }}common_bb.js"></script>
+<script src="{{ STATIC_URL }}engagement.js"></script>
+
+<script>
+$(function () {
+    // TODO: move away from this to a BB collection or window.nexus object.
+    $('body').data('contact-map', {{ contact_map|safe }});
+
+{% if engagement.client %}
+    $.extend(npv, { client: {{ engagement.client.json|safe }} });
+{% endif %}
+
+  
+});
+$(document).ready(function(){
+    window.app = new npv.EngagementView({{ engagement.json|default:''|safe }});
+});
+</script>
+
+{% endblock %}

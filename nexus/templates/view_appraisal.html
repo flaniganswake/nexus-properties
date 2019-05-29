@@ -1,0 +1,359 @@
+{% extends "base.html" %}
+
+{% block page_title %} - {{ appraisal.property.name }}{% endblock %}
+{% load custom_tags %}
+{% block htmlhead %}
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFaC5ulx84d9aO14GRv4EdJ2W-W7fCMJE&sensor=true"></script>
+
+{% endblock %}
+
+{% block body %}
+<div class="container view-appraisal">
+    <!--########### HARD CODED DEAN HOBART PERMISSIONS... NEEDS TO BE UPDATED IN PERMISSIONS EPIC ###########-->
+    {% if request.user.employee.title in Title.view_fee_titles or request.user.employee.id == 72 %}
+    <div class="row">
+        <div class="col-sm-12">
+            <!--TODO: Verbiage for what this actually edits...-->
+            <a href="{{ appraisal.edit_url }}" class="npvBtn form-control editBtn">EDIT</a>
+            <div class="clear"></div>
+        </div>
+    </div>
+    {% endif %}
+    <!--########### Start Top Row ###########-->
+    <div class="row">
+	<div class="col-sm-8">
+        <h4># {{ appraisal.job_number }}</h4>
+        <h2>
+        {% if appraisal.engagement_property.engagement.portfolio %}
+        <a href="{{ appraisal.engagement_property.engagement.portfolio.get_absolute_url }}">{{ appraisal.engagement_property.engagement.portfolio }}</a>
+        {% endif %}
+        {{ appraisal.engagement_property.property.name }}</h2>
+            <!--<h4>Address{{ appraisal.engagement_property.property.address_set.all|pluralize }}</h4>-->
+        <ul class="addresses">
+            {% for address in appraisal.engagement_property.property.address_set.all %}
+		<li class="addy">
+            
+    <a href="/property/{{appraisal.engagement_property.property.id}}">
+ 			{{ address.address1 }}<br />
+			{% if address.address2 %}{{ address.address2 }}<br />{% endif %}
+			{{ address.city }}, {{ address.state }} {{ address.zipcode }}
+		    </a>
+            </li>
+            {% endfor %}
+        </ul>
+		<h4 class="left">Type: <span>{{ appraisal.engagement_property.property.get_property_type_display }}</span></h4>
+		<h4 class="right">Subtype: <span>{{ appraisal.engagement_property.property.property_subtype }}</span></h4>
+        {% if appraisal.engagement_property.property.proposed %}
+        <h4 class="left">Proposed:  <span><script>document.write(NPVNexus.Formatters.friendlyName('{{ appraisal.engagement_property.property.proposed }}'))</script></span></h4>
+        {% endif %}
+        {% if appraisal.engagement_property.engagement.borrower %}
+        <h4 class="right">Borrower:  <span>{{appraisal.engagement_property.engagement.borrower}}</span></h4>
+        {% endif %}
+	</div>
+         <div class="col-sm-4">
+                <h4>Due Date: <span>{{ appraisal.due_date }}</span></h4>
+               <h4>Fee: <span>${{ appraisal.fee }}</span></h4>
+             <div class="status">
+              <h4><label for="status">Status: </label></h4>
+                        <select class='form-control' id='Status'>
+                            <option value="DRAFT_SENT"
+                            {% if appraisal.status == "DRAFT_SENT" %} selected="true"
+                            {% endif %}
+                            >Draft Sent</option>
+
+                            <option value="INFO_NEEDED"
+                            {% if appraisal.status == "INFO_NEEDED" %} selected="true"
+                            {% endif %}
+                            >Info Needed</option>
+
+                            <option value="IN_PROGRESS"
+                            {% if appraisal.status == "IN_PROGRESS" %} selected="true"
+                            {% endif %}
+                            >In Progress</option>
+
+                            <option value="COMPLETED"
+                            {% if appraisal.status == "COMPLETED" %} selected="true"
+                            {% endif %}
+                            >Completed</option>
+
+                            <option value="CANCELLED"
+                            {% if appraisal.status == "CANCELLED" %} selected="true"
+                            {% endif %}
+                            >Cancelled</option>
+                        </select>
+                 </div>
+             
+        </div>
+        </div>
+    <!--########### End Top Row ###########-->
+
+    <!--########### Start Middle Row ###########-->
+    <div class="row">
+        <div class="col-md-4 col-sm-6">
+               <!--Start Map-->
+              <div  id="MapCanvas">
+              {% if appraisal.engagement_property.property.address_set %}
+                <img src="/static/images/nexusV1/No-Address.jpg" />
+              {% endif %}
+              </div>
+               <!--End Map-->
+          </div>
+          <div class="col-md-4 col-sm-6"> 
+            <!--Start Client Info-->
+            <table class="footable contentCollapse">
+                <thead>
+                    <tr>
+                        <th data-class="expand" data-sort-ignore="true" >  </th>
+                        <th data-hide="phone,tablet">Contacts</th>
+                        <th data-hide="phone,tablet">Requirements</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><h4>Client: <a href="{{ appraisal.engagement_property.engagement.client.get_absolute_url }}">{{ appraisal.engagement_property.engagement.client.name }}</a></h4></td>
+                        <td>
+                            <ul>
+                            {% for contact in appraisal.engagement_property.engagement.client.contacts.all %}
+                                <li><a href="{{ appraisal.engagement_property.engagement.client.get_absolute_url }}">{{ contact }}</a></li>
+                            {% endfor %}
+                            </ul>
+                        </td>
+                        {% if appraisal.engagement_property.engagement.client.requirements_url  %} 
+                        <td><a target="_blank" href="{{ appraisal.engagement_property.engagement.client.requirements_url }}">Client Requirements</a></td>
+                        {% endif %}
+                        </tr>
+                </tbody>
+            </table>
+            <!--End Client Info-->
+            {% if appraisal.engagement.amf %}
+            <table class="footable contentCollapse">
+                <thead>
+                    <tr>
+                        <th data-class="expand" data-sort-ignore="true" >  </th>
+                        <th data-hide="phone,tablet">Contacts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><h4>AMF: <a href="{{ appraisal.engagement_property.engagement.amf.get_absolute_url }}">{{ appraisal.engagement_property.engagement.amf }}</a></h4></td>
+                        <td>
+                            <ul>
+                                <li><a href="{{ appraisal.engagement_property.engagement.amf.get_absolute_url }}">{{ appraisal.engagement_property.engagement.amf_contact }}</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            {% endif %}
+            {% if appraisal.engagement_property.client_provided_id1 %}
+            <h4>Client Id:  <span>{{ appraisal.engagement_property.client_provided_id1 }}</span></h4>
+            {% endif %}
+            {% if appraisal.engagement_property.client_provided_id2 %}
+            <h4>Client Id:  <span>{{ appraisal.engagement_property.client_provided_id2 }}</span></h4>
+            {% endif %}
+            {% if appraisal.engagement_property.client_provided_id1 or appraisal.engagement_property.client_provided_id2  %}
+            <p>&nbsp;</p>
+            {% endif %}
+            {% for assign in appraisal.assignments.all %}
+            <h4>{{assign.get_role_display}}: <span>{{ assign.employee.name }} {% if assign.fee %} - {{assign.fee|currency|default:'' }} {% endif %}</span></h4>
+            {% endfor %}
+            <h4><strong>Procurer</strong>: <br /><span>{{ appraisal.assignments_grouped.PROCURER.0.employee.name|default:'Principal' }}</span></h4>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="boxit showhideoptions">
+                <p><i class="required">*</i> indicates required</p>
+                <div class="records">
+                    <h4>
+                        <label for="HoursSpent"><i class="required">*</i>Hours Spent</label>
+                    </h4>
+                    <input class="form-control" id='HoursSpent' type='number' value={{ appraisal.hours_spent }}></div>
+                    <div class="records"> <h4> <label for="FinalValue"><i class="required">*</i>Final Value &nbsp;</label></h4>
+                        <input type="text" class="form-control" id="FinalValue" value="{{ appraisal.final_value }}" />
+                    </div>
+                    <div class="clear"></div>
+                    <a id='Update'  href="/api/v1/appraisal/{{ appraisal.pk }}/" ><i class="glyphicon glyphicon-floppy-disk"></i> Save</a>
+                    <div class="clear"></div>
+            </div>
+            <div class="expenses">
+                <div>
+                <h4>Expenses:</h4>
+                <input type="text" id="Expenses" class="form-control" placeholder="0.00" value="{% if appraisal.expenses %}{{appraisal.expenses}}{% endif %}" />
+                <div class="clear"></div>
+                </div>
+                <div>
+                <h4>Expenses Held:</h4>
+                <input type="text" id="ExpensesHeld" class="form-control" placeholder="0.00" value="{% if appraisal.expenses_held %}{{appraisal.expenses_held}}{% endif %}" />
+                <div class="clear"></div>
+                </div>
+            </div>
+            <h4>Invoice Delivery: <span>{{ appraisal.engagement_property.property.client.invoice_delivery }}</span></h4>
+            <h4 ><label for="InvoiceSent">Invoice Sent:</label>  <input type="checkbox" id="InvoiceSent"
+            {% if appraisal.invoice_sent %} checked />
+            {% else %} />
+            {% endif %}</h4>
+            <h4>Report Delivery: <span>{{ appraisal.engagement_property.property.client.report_delivery }}</span></h4>
+            <h4>Invoice Timing: <span>{{ appraisal.engagement_property.property.client.get_invoice_timing_display }}</span></h4>
+        </div>
+        <div class="clear"></div>
+    </div>
+<!--########### End Middle Row ###########-->
+<!--########### Start Bottom Row ###########-->
+    <div class="row">
+        
+        <div class="col-md-12">
+            <h3>Related Appraisals</h3>
+            <div  class="btn-group">
+                <button type="button" class="btn btn-default tablebtn active" id="BtnActive">Future</button>
+                <button type="button" class="btn btn-default tablebtn" id="BtnHistorical">Historical</button>
+                <button type="button" class="btn btn-default tablebtn" id="BtnSimilar">Related</button>
+            </div>
+            
+    <table id='Active' class="footable table-striped">
+              <thead>
+                <tr>
+                  <th data-sort-initial="descending"  data-hide="phone,tablet">Job Number</th>
+                  <th  data-class="expand">Property</th>
+                  <th data-hide="phone,tablet">Client</th>
+                  <th data-hide="phone,tablet" >Appraiser</th>
+                  <th class="footable-sortable" data-type="numeric">Due Date</th>
+                  <th data-hide="phone,tablet"  class="footable-sortable">Final Value</th>
+                  <th data-hide="phone"  class="footable-sortable">Fee</th>
+                  <th data-hide="phone,tablet">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if appraisal.engagement_property.property.get_appraisals.all.count > 1 %}
+            {# Since by default it can return itself, it will reject itself and nothing will display. So the count > 1 #}
+                {% for app in appraisal.engagement_property.property.get_appraisals.all %}
+                    {% if app.pk != appraisal.pk %}
+                    <tr>
+                        <td><a href="{{ app.get_absolute_url }}">{{ app.job_number }}</a></td>
+                        <td><a href="/property/{{ app.engagement_property.property.id }}">{{ app.engagement_property.property }}</a></td>
+                        <td><a href="{{ app.engagement_property.property.client.get_absolute_url }}">{{ app.engagement_property.property.client }}</a></td>
+                        <td>{{ app.lead_appraiser.employee.name|default:'' }}</td>
+                        <td data-value="{{ app.due_date|date:"Ymd" }}">{{ app.due_date }}</td>
+                        <td>${{ app.final_value }}</td>
+                        <td>${{ app.fee }}</td>
+                        <td>{{ app.get_status_display }}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td class="noRecords" colspan="8">There are no appraisals to display</td>
+                </tr>
+            {% endif %}
+            </tbody>
+    </table>
+    <table id='Historical' class="footable table-striped">
+            <thead>
+                <tr>
+                  <th data-sort-initial="descending"  data-hide="phone,tablet">Job Number</th>
+                  <th  data-class="expand">Property</th>
+                  <th data-hide="phone,tablet">Client</th>
+                  <th data-hide="phone,tablet" >Appraiser</th>
+                  <th class="footable-sortable" data-type="numeric">Due Date</th>
+                  <th data-hide="phone,tablet"  class="footable-sortable">Final Value</th>
+                  <th data-hide="phone"  class="footable-sortable">Fee</th>
+                  <th data-hide="phone,tablet">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+             {% if appraisal.engagement_property.property.get_historical_appraisals.count > 0 %}
+                {% for app in appraisal.engagement_property.property.get_historical_appraisals %}
+                    {% if app.pk != appraisal.pk %}
+                    <tr>
+                        <td><a href="{{ app.get_absolute_url }}">{{ app.job_number }}</a></td>
+                        <td><a href="/property/{{ app.engagement_property.property.id }}">{{ app.engagement_property.property }}</a></td>
+                        <td><a href="{{ app.engagement_property.property.client.get_absolute_url }}">{{ app.engagement_property.property.client }}</a></td>
+                        <td>{{ app.lead_appraiser.employee.name|default:'' }}</td>
+                        <td data-value="{{ app.due_date|date:"Ymd" }}">{{ app.due_date }}</td>
+                        <td>${{ app.final_value }}</td>
+                        <td>${{ app.fee }}</td>
+                        <td>{{ app.get_status_display }}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+             {% else %}
+                <tr>
+                    <td class="noRecords" colspan="8">There are no appraisals to display</td>
+                </tr>
+             {% endif %}
+            </tbody>
+    </table>
+    <table id='Similar' class="footable table-striped">
+            <thead>
+                <tr>
+                  <th data-sort-initial="descending"  data-hide="phone,tablet">Job Number</th>
+                  <th  data-class="expand">Property</th>
+                  <th data-hide="phone,tablet">Client</th>   
+                  <th data-hide="phone"  class="footable-sortable">Appraiser</th>
+                  <th data-hide="phone" >Zipcode</th>
+                  <th class="footable-sortable" data-hide="phone,tablet">Type</th>
+                  <th data-hide="phone,tablet"  class="footable-sortable">Subtype</th>
+                  <th class="footable-sortable">Final Value</th>
+                  <th class="footable-sortable"  data-hide="phone,tablet" >Status</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if appraisal.related_appraisals.all.count > 0 %}
+                {% for app in appraisal.related_appraisals.all %}
+                <tr>
+                    <td><a href="{{ app.get_absolute_url }}">{{ app.job_number }}</a></td>
+                    <td><a href="/property/{{ app.engagement_property.property.id }}">{{ app.engagement_property.property }}</a></td>
+                    <td><a href="{{ app.engagement_property.property.client.get_absolute_url }}">{{ app.engagement_property.property.client }}</a></td>
+                    <td>{{ app.lead_appraiser.employee.name|default:'' }}</td>
+                    <td>{{ app.engagement_property.property.address_set.first.zipcode }}</td>
+                    <td>{{ app.engagement_property.property.property_type }}</td>
+                    <td>{{ app.engagement_property.property.property_subtype }}</td>
+                    <td>${{ app.final_value }}</td>
+                    <td>{{ app.get_status_display }}</td>
+            </tr>
+                {% endfor %}
+            {% else %}
+            <tr>
+                <td class="noRecords" colspan="8">There are no appraisals to display</td>
+            </tr>
+            {% endif %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+<!--########### End Bottom Row ###########-->
+</div>
+
+{% endblock %}
+
+{% block bodyend %}
+<script>
+    NPVNexus.View_Appraisal.init();
+    var coords = []
+    {% for add in appraisal.engagement_property.property.address_set.all %}
+    if({{add.latitude}} != null && {{add.longitude}} != null){
+        var c = [{{add.latitude}}, {{add.longitude}}];
+        coords.push(c);
+    }else{
+        //Get Lat and Lon from API
+        var geocoder = new google.maps.Geocoder();
+        address =("address={{add.address1}},{{add.city}}, {{add.state}}").replace(/ /g ,"+");
+        geocoder.geocode( { 'address': address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                var latitude = results[0].geometry.location.lat();
+                var longitude = results[0].geometry.location.lng(); 
+                console.log("NEED TO SAVE:"+latitude+":"+longitude);
+                var c = [latitude, longitude];
+                coords.push(c);
+            } 
+        }); 
+    }
+    {% endfor %}
+
+    //Init MAP
+    function initialize() {
+        var elm = document.getElementById("MapCanvas");
+        NPVNexus.View_Appraisal.setUpMap(elm,coords);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+{% endblock %}

@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block page_title %} - {{ property.name }}{% endblock %}
+
+{% block htmlhead %}
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFaC5ulx84d9aO14GRv4EdJ2W-W7fCMJE&sensor=true"></script>
+
+{% endblock %}
+
+{% block body %}
+{% load custom_tags %}
+<div class="container view_property">
+<!--########### Start Top Row ###########-->
+    <div class="row">
+        <div class="col-sm-8">
+            <h2>{% if property.portfolio %}
+        <a href="{{ property.portfolio.get_absolute_url }}">{{ property.portfolio }}</a>
+                {% endif %}
+                {{ property.name }}</h2>
+            <ul class="addresses">
+            {% for address in property.address_set.all %}
+                <li class="addy">
+                {{ address.address1 }}
+                {% if address.address2 %}{{ address.address2 }} {% endif %}
+                {{ address.city }}, {{ address.state }} {{ address.zipcode }}
+                </li>
+            {% endfor %}
+            </ul>
+            <h4 class="left">Type: <span>{{ property.get_property_type_display }}</span></h4>
+            {% if property.property_subtype %}
+            <h4 class="right">Subtype: <span>{{ property.property_subtype }}</span></h4>
+            {% endif %}
+        </div>
+        <div class="col-sm-4">
+        <!--    {% if fee %}<h4>Value: <span>{{fee|currency}}</span></h4>{% endif %}-->
+        </div>
+    </div>
+<!--########### End Top Row ###########-->
+<!--########### Start Middle Row ###########-->
+    <div class="row">
+        <div class="col-md-4 col-sm-6">
+        <!--Start Map-->
+            <div id="MapCanvas">
+            {% if property.address_set %}
+                <img src="/static/images/nexusV1/No-Address.jpg" />
+            {% endif %}
+            </div>
+        <!--End Map-->
+        </div>
+    <div class="col-md-4 col-sm-6">
+    {% if property.client %}
+     <table class="footable contentCollapse table">
+        <thead>
+            <tr>
+                <th data-class="expand" data-sort-ignore="true"></th>
+                <th data-hide="phone,tablet">Contacts</th>
+                <th data-hide="phone,tablet">Requirements</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><h4>Client: <a href="{{ property.client.get_absolute_url }}">{{ property.client.name }}</a></h4></td>
+            <td>
+                <ul>
+                {% for contact in property.client.contacts.all %}
+                    <li><a href="{{ property.client.get_absolute_url }}">{{ contact }}</a></li>
+                {% endfor %}
+                </ul>
+            </td>
+                {% if property.client.requirements_url  %} 
+            <td><a target="_blank" href="{{ property.client.requirements_url }}">Client Requirements</a></td>
+                {% endif %}
+            </tr>
+            </tbody>
+        </table>
+    {% endif %}
+    {% if property.contact %}
+    <h4>Contact: {{ property.contact }}</h4>
+    {% endif %}
+    </div>
+    <div class="col-md-4 col-sm-6">
+    {% if property.notes %}
+    <h4>Notes:</h4>
+    <p>{{ property.notes }}</p>
+    {% endif %}
+    </div>
+    </div>
+    <!--########### End Middle Row ###########-->
+    <!--########### Start Bottom Row ###########-->
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Historical Appraisals</h3>
+            <table class="footable table-striped">
+                    <thead>
+                        <tr>
+                            <th data-sort-initial="descending"  data-hide="phone,tablet">Job Number</th>
+                            <th  data-class="expand">Property</th>
+                            <th data-hide="phone,tablet">Client</th>
+                            <th data-hide="phone,tablet" >Appraiser</th>
+                            <th class="footable-sortable" data-type="numeric">Due Date</th>
+                            <th data-hide="phone,tablet"  class="footable-sortable">Final Value</th>
+                            <th data-hide="phone"  class="footable-sortable">Fee</th>
+                            <th data-hide="phone,tablet">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for app in hist_apps %}
+                        <tr>
+                            <td><a href="{{ app.get_absolute_url }}">{{ app.job_number }}</a></td>
+                            <td><a href="/property/{{ app.engagement_property.property.id}}">{{ app.engagement_property.property }}</a></td>
+                            <td><a href="{{ app.engagement_property.property.client.get_absolute_url }}">{{ app.engagement_property.property.client }}</a></td>
+                            <td>{{ app.lead_appraiser.employee.name|default:'' }}</td>
+                            <td data-value="{{ app.due_date|date:"Ymd" }}">{{ app.due_date }}</td>
+                            <td>${{ app.final_value }}</td>
+                            <td>${{ app.fee }}</td>
+                            <td>{{ app.get_status_display }}</td>
+                        </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+<!--########### End Bottom Row ###########-->
+</div>
+
+{% endblock %}
+
+{% block bodyend %}
+<script>
+    NPVNexus.View_Property.init();
+    var coords = []
+        {% for add in property.address_set.all %}
+        if('{{add.latitude}}' != 'None' && '{{add.longitude}}' != 'None'){
+            var c = [{{add.latitude}}, {{add.longitude}}];
+            coords.push(c);
+        }else{
+            //Get Lat and Lon from API
+            var geocoder = new google.maps.Geocoder();
+            address =("address={{add.address1}},{{add.city}}, {{add.state}}").replace(/ /g ,"+");
+            geocoder.geocode( { 'address': address}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    var latitude = results[0].geometry.location.lat();
+                    var longitude = results[0].geometry.location.lng(); 
+                    console.log("NEED TO SAVE:"+latitude+":"+longitude);
+                    var c = [latitude, longitude];
+                    coords.push(c);
+                } 
+            }); 
+        }
+        {% endfor %}
+    //Init MAP
+    function initialize() {
+        var elm = document.getElementById("MapCanvas");
+        NPVNexus.View_Appraisal.setUpMap(elm,coords);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+{% endblock %}

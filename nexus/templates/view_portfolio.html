@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block page_title %} - {{ property.name }}{% endblock %}
+
+{% block htmlhead %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container view_portfolio">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>{{ portfolio.name }}</h2>
+            <h4>Client: <a href="{{ portfolio.client.get_absolute_url }}">{{ portfolio.client.name }}</a></h4>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-md-12">
+        <h3>Properties/Appraisals</h3>
+        <div  class="btn-group">
+            <button type="button" class="btn btn-default tablebtn active" id="BtnActive">Active</button>
+            <button type="button" class="btn btn-default tablebtn" id="BtnHistorical">Historical</button>
+        </div>
+        <table id='Active' class='table table-striped tablesorter'>
+            <thead> 
+            <tr>
+                <th data-class="expand">Job Number</th>
+                <th>Property</th>
+                <th data-hide="tablet,phone">Client</th>
+                <th data-hide="tablet,phone">Appraiser</th>
+                <th data-hide="phone">Due Date</th>
+                <th>Final Value</th>
+                <th data-hide="tablet,phone">Fee</th>
+                <th data-hide="tablet,phone">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for appraisal in portfolio.get_appraisals %}
+            <tr>
+                <td><a href="{{ appraisal.get_absolute_url }}">{{ appraisal.job_number }}<a /></td>
+                <td><a href="{{ appraisal.engagement_property.property.get_absolute_url }}">{{ appraisal.engagement_property.property }}</a></td>
+                <td><a href="{{ appraisal.engagement_property.property.client.get_absolute_url }}">{{ appraisal.engagement_property.property.client }}</a></td>
+                <td>{{ appraisal.lead_appraiser.employee.name|default:'' }}</td>
+                <td>{{ appraisal.due_date }}</td>
+                <td>${{ appraisal.final_value }}</td>
+                <td>${{ appraisal.fee }}</td>
+                <td>{{ appraisal.get_status_display }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="8">Total Value: {{ portfolio.get_aggreagate_fee }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <table id='Historical' class='table table-striped tablesorter'>
+            <thead> 
+            <tr>
+                <th data-class="expand">Job Number</th>
+                <th>Property</th>
+                <th data-hide="tablet,phone">Client</th>
+                <th data-hide="tablet,phone">Appraiser</th>
+                <th data-hide="phone">Due Date</th>
+                <th>Final Value</th>
+                <th data-hide="tablet,phone">Fee</th>
+                <th data-hide="tablet,phone">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for appraisal in portfolio.get_historical_appraisals %}
+            <tr>
+                <td>{{ appraisal.job_number }}</td>
+                <td><a href="{{ appraisal.get_absolute_url }}">{{ appraisal.engagement_property.property }}</a></td>
+                <td><a href="{{ appraisal.engagement_property.property.client.get_absolute_url }}">{{ appraisal.engagement_property.property.client }}</a></td>
+                <td>{{ appraisal.lead_appraiser.employee.name|default:'' }}</td>
+                <td>{{ appraisal.due_date }}</td>
+                <td>${{ appraisal.final_value }}</td>
+                <td>${{ appraisal.fee }}</td>
+                <td>{{ appraisal.get_status_display }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+     </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block bodyend %}
+<script>
+    NPVNexus.View_Portfolio.init();
+   
+</script>
+
+{% endblock %}
+
+

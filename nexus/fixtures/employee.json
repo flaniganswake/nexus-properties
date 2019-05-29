@@ -1,0 +1,1658 @@
+[
+    {
+        "fields": {
+            "certifications": "MAI", 
+            "dob": "11/1/2011", 
+            "is_certified_general": true, 
+            "is_engagement_manager": true, 
+            "is_inspector": true, 
+            "is_procuring_agent": true, 
+            "is_reviewer": true, 
+            "office": 3, 
+            "split": 33, 
+            "ssn": "111-11-1111", 
+            "title": "Principal", 
+            "user": 1
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 1
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Programmer", 
+            "user": 2
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 2
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": null, 
+            "user": 3
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 3
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "10/28/1968", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "541-88-8759", 
+            "title": null, 
+            "user": 4
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 4
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "2/26/1978", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "480-06-5058", 
+            "title": "Associate", 
+            "user": 5
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 5
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "7/14/1989", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "256-77-3352", 
+            "title": null, 
+            "user": 6
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 6
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Admin", 
+            "user": 7
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 7
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "11/10/1987", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "151-82-9313", 
+            "title": "Associate", 
+            "user": 8
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 8
+    }, 
+    {
+        "fields": {
+            "certifications": "MAI", 
+            "dob": "7/30/1981", 
+            "is_certified_general": true, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": true, 
+            "office": 3, 
+            "split": 45, 
+            "ssn": "146-80-9592", 
+            "title": "Associate", 
+            "user": 9
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 9
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "3/11/1984", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": null, 
+            "ssn": "623-13-4211", 
+            "title": "Senior Research Associate", 
+            "user": 10
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 10
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Research Associate", 
+            "user": 11
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 11
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "9/28/1986", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "347-84-2745", 
+            "title": "Research Associate", 
+            "user": 12
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 12
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "4/10/1978", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": 35, 
+            "ssn": "426-33-3395", 
+            "title": "Director", 
+            "user": 13
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 13
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": true, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Associate", 
+            "user": 14
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 14
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": null, 
+            "user": 15
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 15
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "5/17/1981", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "479-04-4460", 
+            "title": null, 
+            "user": 16
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 16
+    }, 
+    {
+        "fields": {
+            "certifications": "CRE, FRIC, MAI", 
+            "dob": "11/30/1970", 
+            "is_certified_general": true, 
+            "is_engagement_manager": true, 
+            "is_inspector": true, 
+            "is_procuring_agent": true, 
+            "is_reviewer": true, 
+            "office": 1, 
+            "split": 100, 
+            "ssn": "313-70-5487", 
+            "title": "Principal", 
+            "user": 17
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 17
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "7/25/1987", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": null, 
+            "ssn": "628-22-9603", 
+            "title": "Research Director", 
+            "user": 18
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 18
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "1/12/1987", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "594-02-0894", 
+            "title": "Research Director", 
+            "user": 19
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 19
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": 40, 
+            "ssn": null, 
+            "title": "Senior Associate", 
+            "user": 20
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 20
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "8/31/1968", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "328-56-6179", 
+            "title": "Admin", 
+            "user": 21
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 21
+    }, 
+    {
+        "fields": {
+            "certifications": "MAI", 
+            "dob": "3/26/1964", 
+            "is_certified_general": true, 
+            "is_engagement_manager": true, 
+            "is_inspector": true, 
+            "is_procuring_agent": true, 
+            "is_reviewer": true, 
+            "office": 3, 
+            "split": 100, 
+            "ssn": "352-60-1508", 
+            "title": "Principal", 
+            "user": 22
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 22
+    }, 
+    {
+        "fields": {
+            "certifications": "MAI", 
+            "dob": "9/6/1961", 
+            "is_certified_general": true, 
+            "is_engagement_manager": true, 
+            "is_inspector": true, 
+            "is_procuring_agent": true, 
+            "is_reviewer": true, 
+            "office": 2, 
+            "split": 100, 
+            "ssn": "052-42-2315", 
+            "title": "Principal", 
+            "user": 23
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 23
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Research Associate", 
+            "user": 24
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 24
+    }, 
+    {
+        "fields": {
+            "certifications": "MAI, CCIM", 
+            "dob": "7/14/1960", 
+            "is_certified_general": true, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": 50, 
+            "ssn": "528-04-6522", 
+            "title": "Director", 
+            "user": 25
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 25
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "8/14/1986", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": 32.5, 
+            "ssn": "134-74-4151", 
+            "title": "Associate", 
+            "user": 26
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 26
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "9/26/1969", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": null, 
+            "ssn": "544-80-6367", 
+            "title": "Admin", 
+            "user": 27
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 27
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "5/12/1972", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": true, 
+            "office": 1, 
+            "split": 50, 
+            "ssn": "346-70-5626", 
+            "title": "Director", 
+            "user": 28
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 28
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "12/27/1958", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": 45, 
+            "ssn": "049-40-7216", 
+            "title": "Director", 
+            "user": 29
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 29
+    }, 
+    {
+        "fields": {
+            "certifications": "MAI, CRE", 
+            "dob": "2/3/1944", 
+            "is_certified_general": true, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": true, 
+            "office": 1, 
+            "split": 100, 
+            "ssn": "355-36-1493", 
+            "title": "Advisory", 
+            "user": 30
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 30
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "5/4/1989", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "152-86-7286", 
+            "title": "Senior Research Associate", 
+            "user": 31
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 31
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "8/15/1992", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": null, 
+            "ssn": "615-17-3169", 
+            "title": "Intern", 
+            "user": 32
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 32
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "11/13/1939", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "337-34-7715", 
+            "title": "Admin", 
+            "user": 33
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 33
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "8/9/1976", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": true, 
+            "office": 1, 
+            "split": 45, 
+            "ssn": "321-80-1305", 
+            "title": "Senior Associate", 
+            "user": 34
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 34
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "6/17/1956", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": 40, 
+            "ssn": "358-52-0904", 
+            "title": "Senior Associate", 
+            "user": 35
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 35
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "9/15/1977", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": null, 
+            "ssn": "567-99-0562", 
+            "title": "Associate", 
+            "user": 36
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 36
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "12/5/1986", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": 30, 
+            "ssn": "618-12-7263", 
+            "title": "Associate", 
+            "user": 37
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 37
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "9/1/1980", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": null, 
+            "ssn": "484-98-3656", 
+            "title": "Associate", 
+            "user": 38
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 38
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "4/22/1991", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "351-86-3799", 
+            "title": "Research", 
+            "user": 39
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 39
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "4/24/1992", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "318-88-1120", 
+            "title": "Intern", 
+            "user": 40
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 40
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Programmer", 
+            "user": 41
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 41
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "8/31/1987", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": null, 
+            "ssn": "622-01-7100", 
+            "title": "Research", 
+            "user": 42
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 42
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "8/22/1990", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "287-92-5374", 
+            "title": "Research Associate", 
+            "user": 43
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 43
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Research Associate", 
+            "user": 44
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 44
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": null, 
+            "user": 45
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 45
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "6/8/1977", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "576-08-5554", 
+            "title": null, 
+            "user": 46
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 46
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "5/28/1986", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": 30, 
+            "ssn": "223-39-9224", 
+            "title": "Associate", 
+            "user": 47
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 47
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "11/24/1980", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": 40, 
+            "ssn": "513-90-7421", 
+            "title": "Director", 
+            "user": 48
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 48
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "7/12/1980", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": 37.5, 
+            "ssn": "626-38-7123", 
+            "title": "Senior Associate", 
+            "user": 49
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 49
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "8/6/1990", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "378-13-7047", 
+            "title": "Research", 
+            "user": 50
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 50
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "2/4/1971", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": null, 
+            "ssn": "260-15-5650", 
+            "title": "Associate", 
+            "user": 51
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 51
+    }, 
+    {
+        "fields": {
+            "certifications": "MAI", 
+            "dob": null, 
+            "is_certified_general": true, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": 50, 
+            "ssn": null, 
+            "title": "Director", 
+            "user": 52
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 52
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Associate", 
+            "user": 53
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 53
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "1/13/1936", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "", 
+            "title": "Advisory", 
+            "user": 54
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 54
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "6/18/1986", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": 30, 
+            "ssn": "493-92-1332", 
+            "title": "Associate", 
+            "user": 55
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 55
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "2/9/1975", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": 45, 
+            "ssn": "377-98-5675", 
+            "title": "Director", 
+            "user": 56
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 56
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "9/9/1966", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": null, 
+            "ssn": "252-45-9196", 
+            "title": "Research Director", 
+            "user": 57
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 57
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Programmer", 
+            "user": 58
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 58
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "6/11/1975", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "316-94-3832", 
+            "title": "Director", 
+            "user": 59
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 59
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "12/21/1986", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": 30, 
+            "ssn": "081-78-1438", 
+            "title": "Research Director", 
+            "user": 60
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 60
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "2/11/1985", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": 30, 
+            "ssn": "623-16-4041", 
+            "title": "Associate", 
+            "user": 61
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 61
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "11/14/1976", 
+            "is_certified_general": false, 
+            "is_engagement_manager": true, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": true, 
+            "office": 1, 
+            "split": 47.5, 
+            "ssn": "377-98-7051", 
+            "title": "Principal", 
+            "user": 62
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 62
+    }, 
+    {
+        "fields": {
+            "certifications": "MAI", 
+            "dob": "10/10/1979", 
+            "is_certified_general": true, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": true, 
+            "office": 3, 
+            "split": 45, 
+            "ssn": "131-62-3149", 
+            "title": "Director", 
+            "user": 63
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 63
+    }, 
+    {
+        "fields": {
+            "certifications": "MAI", 
+            "dob": "2/19/1959", 
+            "is_certified_general": true, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": true, 
+            "office": 1, 
+            "split": 45, 
+            "ssn": "334-58-3892", 
+            "title": "Senior Associate", 
+            "user": 64
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 64
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "1/8/1989", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": null, 
+            "ssn": "220-35-8703", 
+            "title": "Intern", 
+            "user": 65
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 65
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": 42.5, 
+            "ssn": null, 
+            "title": "Senior Associate", 
+            "user": 66
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 66
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": null, 
+            "ssn": null, 
+            "title": null, 
+            "user": 67
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 67
+    }, 
+    {
+        "fields": {
+            "certifications": "MAI", 
+            "dob": null, 
+            "is_certified_general": true, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": 40, 
+            "ssn": null, 
+            "title": "Senior Associate", 
+            "user": 68
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 68
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": null, 
+            "ssn": null, 
+            "title": null, 
+            "user": 69
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 69
+    }, 
+    {
+        "fields": {
+            "certifications": "MAI", 
+            "dob": "8/11/1963", 
+            "is_certified_general": true, 
+            "is_engagement_manager": true, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": true, 
+            "office": 1, 
+            "split": 45, 
+            "ssn": "225-19-1690", 
+            "title": "Director", 
+            "user": 70
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 70
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Associate", 
+            "user": 71
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 71
+    }, 
+    {
+        "fields": {
+            "certifications": "AIA", 
+            "dob": "4/7/1957", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": 45, 
+            "ssn": "464-96-5759", 
+            "title": "Director", 
+            "user": 72
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 72
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": null, 
+            "user": 73
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 73
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Intern", 
+            "user": 74
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 74
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Associate", 
+            "user": 75
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 75
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "7/7/1987", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": null, 
+            "ssn": "623-32-4892", 
+            "title": "Associate", 
+            "user": 76
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 76
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "4/10/1986", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": 30, 
+            "ssn": "322-84-7860", 
+            "title": "Associate", 
+            "user": 77
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 77
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Programmer", 
+            "user": 78
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 78
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "3/18/1984", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": 42.5, 
+            "ssn": "223-35-7133", 
+            "title": "Senior Associate", 
+            "user": 79
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 79
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "9/18/1959", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": null, 
+            "ssn": "388-76-5912", 
+            "title": null, 
+            "user": 80
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 80
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Associate", 
+            "user": 81
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 81
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "1/11/1984", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": null, 
+            "ssn": "253-91-7142", 
+            "title": null, 
+            "user": 82
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 82
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "11/14/1983", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": null, 
+            "ssn": "796-35-7371", 
+            "title": "Associate", 
+            "user": 83
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 83
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "9/2/1956", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": 45, 
+            "ssn": "566-08-6797", 
+            "title": "Director", 
+            "user": 84
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 84
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "9/27/1985", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": null, 
+            "ssn": "354-86-0722", 
+            "title": "Research Associate", 
+            "user": 85
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 85
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 3, 
+            "split": null, 
+            "ssn": null, 
+            "title": "Research Associate", 
+            "user": 86
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 86
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "9/24/1989", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": null, 
+            "ssn": "259-71-3480", 
+            "title": "Associate", 
+            "user": 87
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 87
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "2/28/1961", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": 35, 
+            "ssn": "338-56-0157", 
+            "title": "Senior Associate", 
+            "user": 88
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 88
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "12/8/1957", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": 40, 
+            "ssn": "253-04-6785", 
+            "title": "Associate", 
+            "user": 89
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 89
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "5/25/1979", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": "489-84-2851", 
+            "title": "Associate", 
+            "user": 90
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 90
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": null, 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": false, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 1, 
+            "split": null, 
+            "ssn": null, 
+            "title": null, 
+            "user": 91
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 91
+    }, 
+    {
+        "fields": {
+            "certifications": null, 
+            "dob": "8/2/1958", 
+            "is_certified_general": false, 
+            "is_engagement_manager": false, 
+            "is_inspector": true, 
+            "is_procuring_agent": false, 
+            "is_reviewer": false, 
+            "office": 2, 
+            "split": 47.5, 
+            "ssn": "025-52-1858", 
+            "title": "Associate", 
+            "user": 92
+        }, 
+        "model": "nexus.Employee", 
+        "pk": 92
+    }
+]

@@ -1,0 +1,35 @@
+[
+    {
+        "fields": {
+            "contact": null, 
+            "default_engagement_principal": 17, 
+            "default_engagement_procurer": 17, 
+            "default_engagement_researcher": 60, 
+            "name": "Chicago"
+        }, 
+        "model": "nexus.Office", 
+        "pk": 1
+    }, 
+    {
+        "fields": {
+            "contact": null, 
+            "default_engagement_principal": 23, 
+            "default_engagement_procurer": 23, 
+            "default_engagement_researcher": 57, 
+            "name": "Atlanta"
+        }, 
+        "model": "nexus.Office", 
+        "pk": 2
+    }, 
+    {
+        "fields": {
+            "contact": null, 
+            "default_engagement_principal": 22, 
+            "default_engagement_procurer": 22, 
+            "default_engagement_researcher": 18, 
+            "name": "Newport Beach"
+        }, 
+        "model": "nexus.Office", 
+        "pk": 3
+    }
+]

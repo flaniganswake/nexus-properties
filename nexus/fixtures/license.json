@@ -1,0 +1,1382 @@
+[
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2015-04-30", 
+            "number": "31940", 
+            "state": "Arizona"
+        }, 
+        "model": "nexus.License", 
+        "pk": 1
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2013-12-31", 
+            "number": "100013857", 
+            "state": "Colorado"
+        }, 
+        "model": "nexus.License", 
+        "pk": 2
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2014-02-28", 
+            "number": "GA10992", 
+            "state": "District of Columbia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 3
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2014-11-30", 
+            "number": "255600", 
+            "state": "Georgia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 4
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2015-09-30", 
+            "number": "553.001505", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 5
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2014-06-30", 
+            "number": "CG40600019", 
+            "state": "Indiana"
+        }, 
+        "model": "nexus.License", 
+        "pk": 6
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2014-06-30", 
+            "number": "G-2025", 
+            "state": "Kansas"
+        }, 
+        "model": "nexus.License", 
+        "pk": 7
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2014-06-30", 
+            "number": "004556", 
+            "state": "Kentucky"
+        }, 
+        "model": "nexus.License", 
+        "pk": 8
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2016-10-23", 
+            "number": "30034", 
+            "state": "Maryland"
+        }, 
+        "model": "nexus.License", 
+        "pk": 9
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2015-07-31", 
+            "number": "1201005423", 
+            "state": "Michigan"
+        }, 
+        "model": "nexus.License", 
+        "pk": 10
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2015-08-31", 
+            "number": "40295644", 
+            "state": "Minnesota"
+        }, 
+        "model": "nexus.License", 
+        "pk": 11
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2014-12-31", 
+            "number": "A.0007106-CG", 
+            "state": "Nevada"
+        }, 
+        "model": "nexus.License", 
+        "pk": 12
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2015-11-9", 
+            "number": "46000043122", 
+            "state": "New York"
+        }, 
+        "model": "nexus.License", 
+        "pk": 13
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2014-05-22", 
+            "number": "2001022486", 
+            "state": "Ohio"
+        }, 
+        "model": "nexus.License", 
+        "pk": 14
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2013-11-30", 
+            "number": "C000867", 
+            "state": "Oregon"
+        }, 
+        "model": "nexus.License", 
+        "pk": 15
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2015-06-30", 
+            "number": "GA003483", 
+            "state": "Pennsylvania"
+        }, 
+        "model": "nexus.License", 
+        "pk": 16
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2014-12-31", 
+            "number": "TX 1331723-G", 
+            "state": "Texas"
+        }, 
+        "model": "nexus.License", 
+        "pk": 17
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2015-11-30", 
+            "number": "4001012826", 
+            "state": "Virginia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 18
+    }, 
+    {
+        "fields": {
+            "employee": 17, 
+            "expiration_date": "2015-12-14", 
+            "number": "1672-10", 
+            "state": "Wisconsin"
+        }, 
+        "model": "nexus.License", 
+        "pk": 19
+    }, 
+    {
+        "fields": {
+            "employee": 30, 
+            "expiration_date": "2014-12-31", 
+            "number": "100036203", 
+            "state": "Colorado"
+        }, 
+        "model": "nexus.License", 
+        "pk": 20
+    }, 
+    {
+        "fields": {
+            "employee": 30, 
+            "expiration_date": "2015-09-30", 
+            "number": "553.000208", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 21
+    }, 
+    {
+        "fields": {
+            "employee": 30, 
+            "expiration_date": "2014-06-30", 
+            "number": "CG40700690", 
+            "state": "Indiana"
+        }, 
+        "model": "nexus.License", 
+        "pk": 22
+    }, 
+    {
+        "fields": {
+            "employee": 30, 
+            "expiration_date": "2014-07-31", 
+            "number": "1201002445", 
+            "state": "Michigan"
+        }, 
+        "model": "nexus.License", 
+        "pk": 23
+    }, 
+    {
+        "fields": {
+            "employee": 30, 
+            "expiration_date": "2014-08-31", 
+            "number": "4003155", 
+            "state": "Minnesota"
+        }, 
+        "model": "nexus.License", 
+        "pk": 24
+    }, 
+    {
+        "fields": {
+            "employee": 30, 
+            "expiration_date": "2015-12-14", 
+            "number": "224 \u2013 010", 
+            "state": "Wisconsin"
+        }, 
+        "model": "nexus.License", 
+        "pk": 25
+    }, 
+    {
+        "fields": {
+            "employee": 30, 
+            "expiration_date": "2014-06-30", 
+            "number": "TX1323953-G", 
+            "state": "Texas"
+        }, 
+        "model": "nexus.License", 
+        "pk": 26
+    }, 
+    {
+        "fields": {
+            "employee": 62, 
+            "expiration_date": "2013-10-31", 
+            "number": "X1-0000586", 
+            "state": "Delaware"
+        }, 
+        "model": "nexus.License", 
+        "pk": 27
+    }, 
+    {
+        "fields": {
+            "employee": 62, 
+            "expiration_date": "2015-09-30", 
+            "number": "553.001897", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 28
+    }, 
+    {
+        "fields": {
+            "employee": 62, 
+            "expiration_date": "2015-07-31", 
+            "number": "1201072027", 
+            "state": "Michigan"
+        }, 
+        "model": "nexus.License", 
+        "pk": 29
+    }, 
+    {
+        "fields": {
+            "employee": 62, 
+            "expiration_date": "2014-06-28", 
+            "number": "2013001091", 
+            "state": "Ohio"
+        }, 
+        "model": "nexus.License", 
+        "pk": 30
+    }, 
+    {
+        "fields": {
+            "employee": 62, 
+            "expiration_date": "2014-06-30", 
+            "number": "CG6597", 
+            "state": "South Carolina"
+        }, 
+        "model": "nexus.License", 
+        "pk": 31
+    }, 
+    {
+        "fields": {
+            "employee": 62, 
+            "expiration_date": "2014-06-30", 
+            "number": "A7168", 
+            "state": "North Carolina"
+        }, 
+        "model": "nexus.License", 
+        "pk": 32
+    }, 
+    {
+        "fields": {
+            "employee": 62, 
+            "expiration_date": "2015-12-14", 
+            "number": "1971-10", 
+            "state": "Wisconsin"
+        }, 
+        "model": "nexus.License", 
+        "pk": 33
+    }, 
+    {
+        "fields": {
+            "employee": 70, 
+            "expiration_date": "2015-09-30", 
+            "number": "553.001940", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 34
+    }, 
+    {
+        "fields": {
+            "employee": 70, 
+            "expiration_date": "2014-06-30", 
+            "number": "CG41001340", 
+            "state": "Indiana"
+        }, 
+        "model": "nexus.License", 
+        "pk": 35
+    }, 
+    {
+        "fields": {
+            "employee": 70, 
+            "expiration_date": "2015-07-31", 
+            "number": "1201073807", 
+            "state": "Michigan"
+        }, 
+        "model": "nexus.License", 
+        "pk": 36
+    }, 
+    {
+        "fields": {
+            "employee": 70, 
+            "expiration_date": "2014-09-11", 
+            "number": "2013002913", 
+            "state": "Ohio"
+        }, 
+        "model": "nexus.License", 
+        "pk": 37
+    }, 
+    {
+        "fields": {
+            "employee": 70, 
+            "expiration_date": "2014-06-30", 
+            "number": "A7793", 
+            "state": "North Carolina"
+        }, 
+        "model": "nexus.License", 
+        "pk": 38
+    }, 
+    {
+        "fields": {
+            "employee": 70, 
+            "expiration_date": "2014-11-30", 
+            "number": "4001016352", 
+            "state": "Virginia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 39
+    }, 
+    {
+        "fields": {
+            "employee": 28, 
+            "expiration_date": "2015-12-31", 
+            "number": "100040786", 
+            "state": "Colorado"
+        }, 
+        "model": "nexus.License", 
+        "pk": 40
+    }, 
+    {
+        "fields": {
+            "employee": 28, 
+            "expiration_date": "2015-09-30", 
+            "number": "553.001670", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 41
+    }, 
+    {
+        "fields": {
+            "employee": 28, 
+            "expiration_date": "2014-07-31", 
+            "number": "1201071022", 
+            "state": "Michigan"
+        }, 
+        "model": "nexus.License", 
+        "pk": 42
+    }, 
+    {
+        "fields": {
+            "employee": 28, 
+            "expiration_date": "2014-08-31", 
+            "number": "40307239", 
+            "state": "Minnesota"
+        }, 
+        "model": "nexus.License", 
+        "pk": 43
+    }, 
+    {
+        "fields": {
+            "employee": 28, 
+            "expiration_date": "2014-06-30", 
+            "number": "2006001352", 
+            "state": "Missouri"
+        }, 
+        "model": "nexus.License", 
+        "pk": 44
+    }, 
+    {
+        "fields": {
+            "employee": 28, 
+            "expiration_date": "2014-12-31", 
+            "number": "CG260142R", 
+            "state": "Nebraska"
+        }, 
+        "model": "nexus.License", 
+        "pk": 45
+    }, 
+    {
+        "fields": {
+            "employee": 28, 
+            "expiration_date": "2014-06-28", 
+            "number": "2013001531", 
+            "state": "Ohio"
+        }, 
+        "model": "nexus.License", 
+        "pk": 46
+    }, 
+    {
+        "fields": {
+            "employee": 72, 
+            "expiration_date": "2014-04-30", 
+            "number": "CG249837", 
+            "state": "Georgia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 47
+    }, 
+    {
+        "fields": {
+            "employee": 72, 
+            "expiration_date": "2015-09-30", 
+            "number": "553.001951", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 48
+    }, 
+    {
+        "fields": {
+            "employee": 72, 
+            "expiration_date": "2014-06-30", 
+            "number": "CG41001311", 
+            "state": "Indiana"
+        }, 
+        "model": "nexus.License", 
+        "pk": 49
+    }, 
+    {
+        "fields": {
+            "employee": 72, 
+            "expiration_date": "2015-07-31", 
+            "number": "1201068783", 
+            "state": "Michigan"
+        }, 
+        "model": "nexus.License", 
+        "pk": 50
+    }, 
+    {
+        "fields": {
+            "employee": 72, 
+            "expiration_date": "2015-08-31", 
+            "number": "40295643", 
+            "state": "Minnesota"
+        }, 
+        "model": "nexus.License", 
+        "pk": 51
+    }, 
+    {
+        "fields": {
+            "employee": 72, 
+            "expiration_date": "2015-05-1", 
+            "number": "46000039228", 
+            "state": "New York"
+        }, 
+        "model": "nexus.License", 
+        "pk": 52
+    }, 
+    {
+        "fields": {
+            "employee": 72, 
+            "expiration_date": "2014-07-27", 
+            "number": "2012001617", 
+            "state": "Ohio"
+        }, 
+        "model": "nexus.License", 
+        "pk": 53
+    }, 
+    {
+        "fields": {
+            "employee": 72, 
+            "expiration_date": "2015-06-30", 
+            "number": "GA003525", 
+            "state": "Pennsylvania"
+        }, 
+        "model": "nexus.License", 
+        "pk": 54
+    }, 
+    {
+        "fields": {
+            "employee": 72, 
+            "expiration_date": "2014-03-31", 
+            "number": "1380131G", 
+            "state": "Texas"
+        }, 
+        "model": "nexus.License", 
+        "pk": 55
+    }, 
+    {
+        "fields": {
+            "employee": 64, 
+            "expiration_date": "2015-09-30", 
+            "number": "553.000292", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 56
+    }, 
+    {
+        "fields": {
+            "employee": 64, 
+            "expiration_date": "2014-06-30", 
+            "number": "CG41200027", 
+            "state": "Indiana"
+        }, 
+        "model": "nexus.License", 
+        "pk": 57
+    }, 
+    {
+        "fields": {
+            "employee": 64, 
+            "expiration_date": "2015-06-30", 
+            "number": "CG03220", 
+            "state": "Iowa"
+        }, 
+        "model": "nexus.License", 
+        "pk": 58
+    }, 
+    {
+        "fields": {
+            "employee": 64, 
+            "expiration_date": "2015-07-31", 
+            "number": "1201074333", 
+            "state": "Michigan"
+        }, 
+        "model": "nexus.License", 
+        "pk": 59
+    }, 
+    {
+        "fields": {
+            "employee": 64, 
+            "expiration_date": "2014-08-31", 
+            "number": "40238291", 
+            "state": "Minnesota"
+        }, 
+        "model": "nexus.License", 
+        "pk": 60
+    }, 
+    {
+        "fields": {
+            "employee": 64, 
+            "expiration_date": "2014-08-19", 
+            "number": "2011001602", 
+            "state": "Ohio"
+        }, 
+        "model": "nexus.License", 
+        "pk": 61
+    }, 
+    {
+        "fields": {
+            "employee": 64, 
+            "expiration_date": "2014-09-30", 
+            "number": "CG441", 
+            "state": "West Virginia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 62
+    }, 
+    {
+        "fields": {
+            "employee": 64, 
+            "expiration_date": "2015-12-14", 
+            "number": "1822-10", 
+            "state": "Wisconsin"
+        }, 
+        "model": "nexus.License", 
+        "pk": 63
+    }, 
+    {
+        "fields": {
+            "employee": 88, 
+            "expiration_date": "2015-09-30", 
+            "number": "553.001935", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 64
+    }, 
+    {
+        "fields": {
+            "employee": 88, 
+            "expiration_date": "2015-07-31", 
+            "number": "1201073505", 
+            "state": "Michigan"
+        }, 
+        "model": "nexus.License", 
+        "pk": 65
+    }, 
+    {
+        "fields": {
+            "employee": 88, 
+            "expiration_date": "2014-09-30", 
+            "number": "TX1380181-G", 
+            "state": "Texas"
+        }, 
+        "model": "nexus.License", 
+        "pk": 66
+    }, 
+    {
+        "fields": {
+            "employee": 34, 
+            "expiration_date": "2015-12-31", 
+            "number": "100040702", 
+            "state": "Colorado"
+        }, 
+        "model": "nexus.License", 
+        "pk": 67
+    }, 
+    {
+        "fields": {
+            "employee": 34, 
+            "expiration_date": "2015-09-30", 
+            "number": "553.002199", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 68
+    }, 
+    {
+        "fields": {
+            "employee": 34, 
+            "expiration_date": "2014-08-31", 
+            "number": "TX1380170-G", 
+            "state": "Texas"
+        }, 
+        "model": "nexus.License", 
+        "pk": 69
+    }, 
+    {
+        "fields": {
+            "employee": null, 
+            "expiration_date": "2015-09-30", 
+            "number": "553.000192", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 70
+    }, 
+    {
+        "fields": {
+            "employee": 56, 
+            "expiration_date": "2015-09-30", 
+            "number": "Associate  557.005546", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 71
+    }, 
+    {
+        "fields": {
+            "employee": 47, 
+            "expiration_date": null, 
+            "number": "September 30, 2015", 
+            "state": "Illinois Trainee    557.005972"
+        }, 
+        "model": "nexus.License", 
+        "pk": 72
+    }, 
+    {
+        "fields": {
+            "employee": 5, 
+            "expiration_date": "2015-09-30", 
+            "number": "Trainee    557.005938", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 73
+    }, 
+    {
+        "fields": {
+            "employee": 5, 
+            "expiration_date": "2014-07-31", 
+            "number": "Limited    1201074674", 
+            "state": "Michigan"
+        }, 
+        "model": "nexus.License", 
+        "pk": 74
+    }, 
+    {
+        "fields": {
+            "employee": 55, 
+            "expiration_date": "2015-09-30", 
+            "number": "Trainee    557.006001", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 75
+    }, 
+    {
+        "fields": {
+            "employee": 22, 
+            "expiration_date": "2013-12-31", 
+            "number": "31192", 
+            "state": "Arizona"
+        }, 
+        "model": "nexus.License", 
+        "pk": 76
+    }, 
+    {
+        "fields": {
+            "employee": 22, 
+            "expiration_date": "2015-10-4", 
+            "number": "AG014220", 
+            "state": "California"
+        }, 
+        "model": "nexus.License", 
+        "pk": 77
+    }, 
+    {
+        "fields": {
+            "employee": 22, 
+            "expiration_date": null, 
+            "number": "100000907   December 31, 2015", 
+            "state": "Colorado"
+        }, 
+        "model": "nexus.License", 
+        "pk": 78
+    }, 
+    {
+        "fields": {
+            "employee": 22, 
+            "expiration_date": "2013-12-31", 
+            "number": "CGA-965", 
+            "state": "Hawaii"
+        }, 
+        "model": "nexus.License", 
+        "pk": 79
+    }, 
+    {
+        "fields": {
+            "employee": 22, 
+            "expiration_date": "2015-09-30", 
+            "number": "553.002276", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 80
+    }, 
+    {
+        "fields": {
+            "employee": 22, 
+            "expiration_date": "2014-03-31", 
+            "number": "5485073-CG00", 
+            "state": "Utah"
+        }, 
+        "model": "nexus.License", 
+        "pk": 81
+    }, 
+    {
+        "fields": {
+            "employee": 22, 
+            "expiration_date": "2014-03-26", 
+            "number": "1100942", 
+            "state": "Washington"
+        }, 
+        "model": "nexus.License", 
+        "pk": 82
+    }, 
+    {
+        "fields": {
+            "employee": 63, 
+            "expiration_date": "2014-04-10", 
+            "number": "AG043876", 
+            "state": "California"
+        }, 
+        "model": "nexus.License", 
+        "pk": 83
+    }, 
+    {
+        "fields": {
+            "employee": 29, 
+            "expiration_date": "2013-12-31", 
+            "number": "31289", 
+            "state": "Arizona"
+        }, 
+        "model": "nexus.License", 
+        "pk": 84
+    }, 
+    {
+        "fields": {
+            "employee": 29, 
+            "expiration_date": "2015-12-27", 
+            "number": "AG005579", 
+            "state": "California"
+        }, 
+        "model": "nexus.License", 
+        "pk": 85
+    }, 
+    {
+        "fields": {
+            "employee": 29, 
+            "expiration_date": "2014-08-31", 
+            "number": "A0206606-CG", 
+            "state": "Nevada"
+        }, 
+        "model": "nexus.License", 
+        "pk": 86
+    }, 
+    {
+        "fields": {
+            "employee": 29, 
+            "expiration_date": "2013-12-27", 
+            "number": "1102070", 
+            "state": "Washington"
+        }, 
+        "model": "nexus.License", 
+        "pk": 87
+    }, 
+    {
+        "fields": {
+            "employee": 9, 
+            "expiration_date": "2014-05-1", 
+            "number": "AG043926", 
+            "state": "California"
+        }, 
+        "model": "nexus.License", 
+        "pk": 88
+    }, 
+    {
+        "fields": {
+            "employee": 9, 
+            "expiration_date": "2015-07-31", 
+            "number": "C001018", 
+            "state": "Oregon"
+        }, 
+        "model": "nexus.License", 
+        "pk": 89
+    }, 
+    {
+        "fields": {
+            "employee": 9, 
+            "expiration_date": "2015-07-31", 
+            "number": "1102049", 
+            "state": "Washington"
+        }, 
+        "model": "nexus.License", 
+        "pk": 90
+    }, 
+    {
+        "fields": {
+            "employee": 48, 
+            "expiration_date": "2013-11-30", 
+            "number": "31757", 
+            "state": "Arizona"
+        }, 
+        "model": "nexus.License", 
+        "pk": 91
+    }, 
+    {
+        "fields": {
+            "employee": 48, 
+            "expiration_date": "2014-06-8", 
+            "number": "AG044306", 
+            "state": "California"
+        }, 
+        "model": "nexus.License", 
+        "pk": 92
+    }, 
+    {
+        "fields": {
+            "employee": 49, 
+            "expiration_date": "2014-08-19", 
+            "number": "AG044055", 
+            "state": "California"
+        }, 
+        "model": "nexus.License", 
+        "pk": 93
+    }, 
+    {
+        "fields": {
+            "employee": 35, 
+            "expiration_date": "2014-09-30", 
+            "number": "31670", 
+            "state": "Arizona"
+        }, 
+        "model": "nexus.License", 
+        "pk": 94
+    }, 
+    {
+        "fields": {
+            "employee": 35, 
+            "expiration_date": "2015-04-10", 
+            "number": "AG042361", 
+            "state": "California"
+        }, 
+        "model": "nexus.License", 
+        "pk": 95
+    }, 
+    {
+        "fields": {
+            "employee": 35, 
+            "expiration_date": "2014-07-31", 
+            "number": "1201074279", 
+            "state": "Michigan"
+        }, 
+        "model": "nexus.License", 
+        "pk": 96
+    }, 
+    {
+        "fields": {
+            "employee": 25, 
+            "expiration_date": "2015-07-31", 
+            "number": "AG014473", 
+            "state": "California"
+        }, 
+        "model": "nexus.License", 
+        "pk": 97
+    }, 
+    {
+        "fields": {
+            "employee": 25, 
+            "expiration_date": "2013-12-31", 
+            "number": "100031818", 
+            "state": "Colorado"
+        }, 
+        "model": "nexus.License", 
+        "pk": 98
+    }, 
+    {
+        "fields": {
+            "employee": 25, 
+            "expiration_date": "2014-07-14", 
+            "number": "CGA-3540", 
+            "state": "Idaho"
+        }, 
+        "model": "nexus.License", 
+        "pk": 99
+    }, 
+    {
+        "fields": {
+            "employee": 25, 
+            "expiration_date": "2013-12-31", 
+            "number": "CGA-996", 
+            "state": "Hawaii"
+        }, 
+        "model": "nexus.License", 
+        "pk": 100
+    }, 
+    {
+        "fields": {
+            "employee": 25, 
+            "expiration_date": "2014-04-30", 
+            "number": "03255-G", 
+            "state": "New Mexico"
+        }, 
+        "model": "nexus.License", 
+        "pk": 101
+    }, 
+    {
+        "fields": {
+            "employee": 25, 
+            "expiration_date": "2015-07-31", 
+            "number": "5450553-CG00", 
+            "state": "Utah"
+        }, 
+        "model": "nexus.License", 
+        "pk": 102
+    }, 
+    {
+        "fields": {
+            "employee": 23, 
+            "expiration_date": "2014-11-30", 
+            "number": "RZ2887", 
+            "state": "Florida"
+        }, 
+        "model": "nexus.License", 
+        "pk": 103
+    }, 
+    {
+        "fields": {
+            "employee": 23, 
+            "expiration_date": "2014-09-30", 
+            "number": "235", 
+            "state": "Georgia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 104
+    }, 
+    {
+        "fields": {
+            "employee": 23, 
+            "expiration_date": "2015-09-30", 
+            "number": "553.002275", 
+            "state": "Illinois"
+        }, 
+        "model": "nexus.License", 
+        "pk": 105
+    }, 
+    {
+        "fields": {
+            "employee": 23, 
+            "expiration_date": "2015-03-31", 
+            "number": "GA-992", 
+            "state": "Mississippi"
+        }, 
+        "model": "nexus.License", 
+        "pk": 106
+    }, 
+    {
+        "fields": {
+            "employee": 23, 
+            "expiration_date": "2014-04-9", 
+            "number": "46000046556", 
+            "state": "New York"
+        }, 
+        "model": "nexus.License", 
+        "pk": 107
+    }, 
+    {
+        "fields": {
+            "employee": 23, 
+            "expiration_date": "2014-06-30", 
+            "number": "A6008", 
+            "state": "North Carolina"
+        }, 
+        "model": "nexus.License", 
+        "pk": 108
+    }, 
+    {
+        "fields": {
+            "employee": 23, 
+            "expiration_date": "2014-06-30", 
+            "number": "6786", 
+            "state": "South Carolina"
+        }, 
+        "model": "nexus.License", 
+        "pk": 109
+    }, 
+    {
+        "fields": {
+            "employee": 23, 
+            "expiration_date": "2014-11-30", 
+            "number": "00004618", 
+            "state": "Tennessee"
+        }, 
+        "model": "nexus.License", 
+        "pk": 110
+    }, 
+    {
+        "fields": {
+            "employee": 23, 
+            "expiration_date": "2015-02-28", 
+            "number": "4001-015341", 
+            "state": "Virginia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 111
+    }, 
+    {
+        "fields": {
+            "employee": 52, 
+            "expiration_date": "2014-02-28", 
+            "number": "GA12025", 
+            "state": "District of Columbia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 112
+    }, 
+    {
+        "fields": {
+            "employee": 52, 
+            "expiration_date": "2014-11-30", 
+            "number": "RZ2885", 
+            "state": "Florida"
+        }, 
+        "model": "nexus.License", 
+        "pk": 113
+    }, 
+    {
+        "fields": {
+            "employee": 52, 
+            "expiration_date": "2014-03-31", 
+            "number": "2384", 
+            "state": "Georgia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 114
+    }, 
+    {
+        "fields": {
+            "employee": 52, 
+            "expiration_date": "2013-12-31", 
+            "number": "42RG00239000", 
+            "state": "New Jersey"
+        }, 
+        "model": "nexus.License", 
+        "pk": 115
+    }, 
+    {
+        "fields": {
+            "employee": 52, 
+            "expiration_date": "2014-06-30", 
+            "number": "A5907", 
+            "state": "North Carolina"
+        }, 
+        "model": "nexus.License", 
+        "pk": 116
+    }, 
+    {
+        "fields": {
+            "employee": 52, 
+            "expiration_date": "2015-06-30", 
+            "number": "GA003954", 
+            "state": "Pennsylvania"
+        }, 
+        "model": "nexus.License", 
+        "pk": 117
+    }, 
+    {
+        "fields": {
+            "employee": 92, 
+            "expiration_date": "2015-09-30", 
+            "number": "G01098", 
+            "state": "Alabama"
+        }, 
+        "model": "nexus.License", 
+        "pk": 118
+    }, 
+    {
+        "fields": {
+            "employee": 92, 
+            "expiration_date": "2014-08-31", 
+            "number": "351044", 
+            "state": "Georgia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 119
+    }, 
+    {
+        "fields": {
+            "employee": 92, 
+            "expiration_date": "2014-06-30", 
+            "number": "6329", 
+            "state": "South Carolina"
+        }, 
+        "model": "nexus.License", 
+        "pk": 120
+    }, 
+    {
+        "fields": {
+            "employee": 68, 
+            "expiration_date": "2014-11-30", 
+            "number": "RZ3495", 
+            "state": "Florida"
+        }, 
+        "model": "nexus.License", 
+        "pk": 121
+    }, 
+    {
+        "fields": {
+            "employee": 68, 
+            "expiration_date": "2014-04-30", 
+            "number": "329813", 
+            "state": "Georgia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 122
+    }, 
+    {
+        "fields": {
+            "employee": 68, 
+            "expiration_date": "2016-03-7", 
+            "number": "31666", 
+            "state": "Maryland"
+        }, 
+        "model": "nexus.License", 
+        "pk": 123
+    }, 
+    {
+        "fields": {
+            "employee": 68, 
+            "expiration_date": "2013-12-31", 
+            "number": "42RG00235900", 
+            "state": "New Jersey"
+        }, 
+        "model": "nexus.License", 
+        "pk": 124
+    }, 
+    {
+        "fields": {
+            "employee": 68, 
+            "expiration_date": "2014-06-30", 
+            "number": "A7521", 
+            "state": "North Carolina"
+        }, 
+        "model": "nexus.License", 
+        "pk": 125
+    }, 
+    {
+        "fields": {
+            "employee": null, 
+            "expiration_date": "2014-04-30", 
+            "number": "344490", 
+            "state": "Georgia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 126
+    }, 
+    {
+        "fields": {
+            "employee": null, 
+            "expiration_date": "2014-02-28", 
+            "number": "348257", 
+            "state": "Georgia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 127
+    }, 
+    {
+        "fields": {
+            "employee": 87, 
+            "expiration_date": "2014-09-30", 
+            "number": "353767", 
+            "state": "Georgia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 128
+    }, 
+    {
+        "fields": {
+            "employee": 20, 
+            "expiration_date": "2014-08-31", 
+            "number": "254958", 
+            "state": "Georgia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 129
+    }, 
+    {
+        "fields": {
+            "employee": 20, 
+            "expiration_date": "2014-06-30", 
+            "number": "A7730", 
+            "state": "North Carolina"
+        }, 
+        "model": "nexus.License", 
+        "pk": 130
+    }, 
+    {
+        "fields": {
+            "employee": null, 
+            "expiration_date": "2014-05-31", 
+            "number": "326565", 
+            "state": "Georgia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 131
+    }, 
+    {
+        "fields": {
+            "employee": null, 
+            "expiration_date": "2014-10-31", 
+            "number": "GA-1046", 
+            "state": "Mississippi"
+        }, 
+        "model": "nexus.License", 
+        "pk": 132
+    }, 
+    {
+        "fields": {
+            "employee": null, 
+            "expiration_date": "2014-06-30", 
+            "number": "A7638", 
+            "state": "North Carolina"
+        }, 
+        "model": "nexus.License", 
+        "pk": 133
+    }, 
+    {
+        "fields": {
+            "employee": null, 
+            "expiration_date": "2014-08-31", 
+            "number": "00004789", 
+            "state": "Tennessee"
+        }, 
+        "model": "nexus.License", 
+        "pk": 134
+    }, 
+    {
+        "fields": {
+            "employee": 79, 
+            "expiration_date": null, 
+            "number": "343393  March 31, 2014", 
+            "state": "Georgia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 135
+    }, 
+    {
+        "fields": {
+            "employee": 79, 
+            "expiration_date": "2014-07-31", 
+            "number": "00004772", 
+            "state": "Tennessee"
+        }, 
+        "model": "nexus.License", 
+        "pk": 136
+    }, 
+    {
+        "fields": {
+            "employee": 79, 
+            "expiration_date": "2015-08-31", 
+            "number": "4001-015678", 
+            "state": "Virginia"
+        }, 
+        "model": "nexus.License", 
+        "pk": 137
+    }, 
+    {
+        "fields": {
+            "employee": 79, 
+            "expiration_date": "2014-06-30", 
+            "number": "6916", 
+            "state": "South Carolina"
+        }, 
+        "model": "nexus.License", 
+        "pk": 138
+    }
+]

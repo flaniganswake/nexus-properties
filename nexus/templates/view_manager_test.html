@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container">
+
+    <h1>Test</h1>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<tr>
+					<td><h4>Office:</h4></td>
+					<td>
+						<select id="office-list" class="form-control">
+							<option>All</option>
+							{% for o in office %}
+							<option>{{ o.name }}</option>
+							{% endfor %}
+						</select>
+					</td>
+					<td>
+						<button id="btn-office" class="btn btn-success">
+							Filter
+						</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel-group" id="employees-div">
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/template" id="appraiser-template">
+	<div class="panel panel-default">
+		<div class="panel-heading">	
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#employees-div" href="#<%= item.id %>" class="emp-link">
+					<span class="glyphicon glyphicon-chevron-down"></span>
+					<%= item.first_name %> <%= item.last_name %>
+				</a> &nbsp; - &nbsp; Total Billings: $<%= item.total_fee %>
+			</h4>
+		</div>
+		<div id="<%= item.id %>" class="panel-collapse collapse">
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Due Date</th>
+								<th>Job #</th>
+								<th>Client</th>
+								<th>Property</th>
+								<th>Expense</th>
+								<th>Fee</th>
+								<th>Role</th>
+								<th>Status</th>
+								<th>Hours</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%
+								_.each(item.assignments, function(assignment){
+							%>
+							<tr>
+								<td><%= assignment.date %></td>
+								<td><%= assignment.job_num %></td>
+								<td><%= assignment.client %></td>
+								<td><%= assignment.property %></td>
+								<td></td>
+								<td><%= assignment.fee %></td>
+								<td><%= assignment.role %></td>
+								<td><%= assignment.status %></td>
+								<td><%= assignment.hours %></td>
+							</tr>
+							<%
+								});
+							%>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+{% endblock %}
+
+{% block htmlhead %}
+<link href="{{ STATIC_URL }}lib/bootstrap-formhelpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block bodyend %}
+<script src="{{ STATIC_URL }}lib/bootstrap-formhelpers/js/bootstrap-formhelpers.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var employees = {{employees|safe}};
+		var appraisals = {{appraisals|safe}};
+		var clients = {{clients|safe}};
+		
+		function popEmp(data) {
+			var empStr = "";
+			var appraisals_dict = [];
+			for(var i in data) {
+				var item = data[i];
+				var template = $("#appraiser-template").html();
+				var date = "";
+				var job_num = "";
+				var status = "";
+				var hours = "";
+				var property = "";
+				var client = "";
+				var role = "";
+				var fee = "";
+				var totalFee = 0;
+				var item_object = {
+					"first_name": item.first_name,
+					"last_name": item.last_name,
+					"id": item.id,
+					"assignments": [],
+				};
+				for(var a in item.assignments) {
+					assignment = item.assignments[a];
+					for(var ap in appraisals){
+						if(assignment.appraisal == appraisals[ap][0]) {
+							date = appraisals[ap][1].due_date;
+							job_num = appraisals[ap][1].appraisal_number;
+							status = appraisals[ap][1].status;
+							hours = appraisals[ap][1].hours_spent;
+							property = appraisals[ap][1].property.name;
+							fee = assignment.fee;
+							role = assignment.role;
+							for(var c in clients){
+								if(appraisals[ap][1].engagement.client == clients[c][0]){
+									client = clients[c][1];
+								}
+							}
+							item_object.assignments.push(
+								{"date":date, "job_num": job_num, "status":status, "hours": hours, "property": property, "client": client, "fee": fee, "role": role}
+								);
+							totalFee += parseInt(fee);
+						}
+					}
+				}
+				item_object.total_fee = totalFee;
+				empStr += _.template(template,{item:item_object});
+			}
+			return empStr;
+		};
+		$("#employees-div").html(popEmp(employees));
+
+
+		//Filter by Office
+
+		$("#btn-office").click(function() {
+			var url = "/api/v1/employee/";
+			if($("#office-list").val() != "All"){
+				url += "?office__name="+
+				$("#office-list").val();
+			}
+			$.ajax({
+				url: url,
+				type: "GET",
+				dataType: "json",
+				contentType: "application/json",
+				success: function(response) {
+					$("#employees-div").html(popEmp(response.objects));
+				},
+				error: function(response) {
+					console.log(response);
+				}
+			});
+		});
+
+		$('.panel-title').click(function () {
+			var glyph = $(this).find(".glyphicon");
+			if (glyph.hasClass("glyphicon-chevron-down")) {
+				glyph.removeClass("glyphicon-chevron-down");
+				glyph.addClass("glyphicon-chevron-up");
+			} else {
+				glyph.removeClass("glyphicon-chevron-up");
+				glyph.addClass("glyphicon-chevron-down");
+			}
+		});
+
+		$(".emp-link").click(function() {
+			var employee = $(this).attr('href');
+			console.log($(employee).html());
+			console.log(employee);
+		});
+	});
+</script>
+{% endblock %}

@@ -1,0 +1,554 @@
+{% extends "base.html" %}
+
+{% block page_title %} - Engagement - Property{% endblock %}
+
+
+{% block body %}
+
+<div class="container edit_engagement_property">
+
+    <h1>
+      Engagement Property<br>
+      <small>{{ engagement.client.name }}{% if engagement.portfolio %} - {{ engagement.portfolio.name }}{% endif %}</small>
+    </h1>
+  <ul id="Tabs" class="nav nav-tabs">
+    <li class="active">
+      <a href="#Property" data-toggle="tab">Property</a>
+    </li>
+    <li>
+      <a href="#Schedule" data-toggle="tab">Appraisal Schedule</a>
+    </li>
+    <li>
+      <a href="#Assignments" data-toggle="tab">Role Assignments</a>
+    </li>
+    {# TODO: <li><p class="navbar-text">1 of 14</p></li> #}
+    {# TODO: completeness state indication + dirty state #}
+    <li class="navbar-right">
+      <button id="BackBtn" class="btn btn-default">Engagement</button>
+      <button id="SaveBtn" class="btn btn-default" autocomplete="off"
+              data-loading-text="Saving..." disabled>
+        Save
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+
+  <div class="tab-pane active" id="Property">
+    <h2>
+      Property Details
+      <small class="base-job-number job-number"></small>
+      <small class="property-name">{{ property.name }}</small>
+    </h2>
+    <i class="required">*</i> indicates required
+    <form id="PropForm" action="{{ property.uri }}" role="form" class="form-horizontal" style="padding-top: 12px;">
+      <div class="form-group">
+        <label class="col-xs-3 control-label"><i class="required">*</i> Property Name</label>
+        <div class="col-xs-7">
+        <input id="PropName" type="text" class="form-control input-sm property propertyName" value="{{ property.name }}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">Proposed</label>
+        <div class="col-xs-7">
+          <input id="PropProposed" type="checkbox" class="form-control input-sm property"{% if property.proposed %} checked{% endif %}>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label"><i class="required">*</i> Property Type</label>
+        <div class="col-xs-7">
+          <select id="PropType" class="form-control input-sm property npvSelect">
+            {% if not engagement_property.property.property_type %}
+            <option value="">Select...</option>
+            {% endif %}
+              {% for prop_type in property_types %}
+            <option value="{{ prop_type.1 }}"{% if prop_type.1 == property.property_type %}selected{% endif %}>{{ prop_type.1 }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">Property Sub-type</label>
+        <div class="col-xs-7">
+          <select id="PropSubtype" class="form-control input-sm property npvSelect">
+            <option value="" >Select...</option>
+            {% for subtype in cur_subtypes %}
+            <option value="{{ subtype }}"{% if subtype == property.property_subtype %}selected{% endif %}>{{ subtype }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </form>
+
+    <form id="EngagementPropertyForm" role="form" class="form-horizontal">
+      <div class="form-group">
+        <label class="col-xs-3 control-label">Client Provided ID 1</label>
+        <div class="col-xs-7">
+          <input id="ClientId1" type="text"
+                 class="form-control input-sm clientId"
+                 value="{{ engagement_property.client_provided_id1|default:'' }}">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-3 control-label">Client Provided ID 2</label>
+        <div class="col-xs-7">
+          <input id="ClientId2" type="text"
+                 class="form-control input-sm clientId"
+                 value="{{ engagement_property.client_provided_id2|default:'' }}">
+        </div>
+      </div>
+    </form>
+
+    <h2>Addresses</h2>
+
+    {# TODO: remove address #}
+
+    {% include "partials/property_addresses.html" %}
+    <a href="#" class="btn btn-default to-tab pull-right npvBtn"
+       data-tab="Schedule">
+      Appraisal Schedule
+    </a>
+
+  </div>
+
+
+  <div class="tab-pane" id="Schedule">
+    <h2>
+      Appraisal Schedule
+      <small class="base-job-number job-number">
+        {{ engagement_property.job_number_middle }}
+      </small>
+      <small class="property-name">{{ property.name }}</small>
+    </h2>
+
+    <form id="SchedForm" role="form" class="form-horizontal"
+          style="padding-top: 12px;">
+      <div class="form-group">
+        <div class="col-xs-2"></div>
+        <label class="col-xs-3 control-label">Repeat</label>
+        <div class="col-xs-3">
+          <select id="SchedRepeats" class="form-control input-sm npvSelect">
+            {% if not aos.occurrence_type %}<option selected disabled></option> {% endif %}
+            {% for occr_type in occurrence_types %}
+            <option value="{{ occr_type.0 }}"{% if aos.occurrence_type == occr_type.0 %} selected{% endif %}>{{ occr_type.1 }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-2"></div>
+        <label class="col-xs-3 control-label">Report Type</label>
+        <div class="col-xs-3">
+          <select id="ReportType" class="form-control input-sm npvSelect">
+            {% for report_type in ReportType.as_choices %}
+            <option value="{{ report_type.0 }}"{% if aos.report_type == report_type.0 %} selected{% endif %}>{{ report_type.1 }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-2"></div>
+        <label class="col-xs-3 control-label">Number of Years</label>
+        <div class="col-xs-3">
+          <input id="SchedNumYears" type="text" class="form-control bfh-number input-sm" value="{{ aos.years|default:1 }}" data-min="1">
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+      <div id="InitialFeeGroup" class="form-group">
+        <div class="col-xs-2"></div>
+        <label class="col-xs-3 control-label">Initial Fee</label>
+          <div class="col-xs-3">
+        <div class="input-group  input-group-sm">
+          <span class="input-group-addon visual">$</span>
+          <input id="InitialFee" type="text" class="form-control" value="{{ aos.initial_fee|default:'' }}">
+        </div>
+    </div>
+        <div class="col-xs-4"></div>
+      </div>
+      <div id="UpdateFeeGroup" class="form-group" style="display: none;">
+        <div class="col-xs-2"></div>
+        <label class="col-xs-3 control-label">Update Fee</label>
+        <div class="col-xs-3">
+        <div class="input-group input-group-sm">
+          <span class="input-group-addon visual">$</span>
+          <input id="UpdateFee" type="text" class="form-control" value="{{ aos.update_fee|default:'' }}">
+        </div>
+            </div>
+        <div class="col-xs-4"></div>
+      </div>
+      <div id="QuarterlyFeeGroup" class="form-group" style="display: none;">
+        <div class="col-xs-2"></div>
+        <label class="col-xs-3 control-label">Quarterly Fee</label>
+            <div class="col-xs-3">
+        <div class="input-group input-group-sm">
+          <span class="input-group-addon visual">$</span>
+          <input id="QuarterlyFee" type="text" class="form-control" value="{{ aos.quarterly_fee|default:'' }}">
+        </div>
+                </div>
+        <div class="col-xs-4"></div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-2"></div>
+        <label class="col-xs-3 control-label">Initial Due Date</label>
+        <div class="col-xs-3">
+          <div id="InitialDueDate" class="bfh-datepicker initial-due-date" data-format="y-m-d"  {# TODO: some breakage with past existing apprs data-min="today" #}></div>
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+    </form>
+
+    <script type="text/template" id="SchedTableCellTemplate">
+      <div class=".tooltip" data-placement="top" data-toggle="tooltip" title="<%= job_number %>">
+        <span class="view">
+          <span class="pull-left">
+            <span class="label label-default h5"><%= moment(due_date).format('M/D') %></span>
+            <span class="restricted label label-default h5"><%= restricted ? 'R' : 'A' %></span>
+          </span>
+
+          <span class="pull-right fee"><%= fee %></span>
+        </span>
+        <% if (appraisalType === 'scheduled' || active) { %>
+        <label class="edit pull-left">Fee</label>
+        <input type="text" class="edit pull-right" value="<%= fee %>">
+        <% } %>
+      </div>
+    </script>
+
+    <script type="text/template" id="SchedTableRowTemplate">
+      <tr class="<%= year %>">
+        <th class="text-right"><%= year %></th>
+        <td class="text-center Q1"></td>
+        <td class="text-center Q2"></td>
+        <td class="text-center Q3"></td>
+        <td class="text-center Q4"></td>
+      </tr>
+    </script>
+
+    <table id="SchedTable" class="table table-bordered">
+      <tr class="header">
+        <th class="col-xs-1" style="background-color: white;"></th>
+        <th class="text-center col-xs-2">Q1</th>
+        <th class="text-center col-xs-2">Q2</th>
+        <th class="text-center col-xs-2">Q3</th>
+        <th class="text-center col-xs-2">Q4</th>
+      </tr>
+      <tr class="empty-row">
+        <td colspan="5" class="text-center text-muted">Nothing to see yet</td>
+      </tr>
+    </table>
+    <a href="#" class="btn btn-default to-tab npvBtn"
+       data-tab="Property">Property</a>
+    <a href="#" class="btn btn-default to-tab pull-right npvBtn"
+       data-tab="Assignments">Assignments</a>
+  </div>
+
+
+  <div class="tab-pane" id="Assignments">
+    <h2>
+      Role Assignments
+      <small class="base-job-number job-number">
+        {{ engagement_property.job_number_middle }}
+      </small>
+      <small class="property-name">{{ property.name }}</small>
+    </h2>
+
+    <div id="AssignmentsList" class="container">
+
+      <div class="row">
+        <div class="col-xs-2 text-right"><strong>Office</strong></div>
+        <div class="col-xs-8">
+          <div class="row">
+            <div class="col-xs-7">
+              {# NOTE: controlled by EngagementPropertyApp #}
+              <select id="Office" class="form-control npvSelect"
+                      placeholder="Select...">
+                {% if not engagement_property.office %}
+                <option value="" disabled selected>Select...</option>
+                {% endif %}
+                {% for office in offices %}
+                <option value="{{ office.uri }}" data-procurer="{% if office.default_engagement_procurer.title == 'Principal' %}{% else %}{{ office.default_engagement_procurer.uri }}{% endif %}" data-manager="{{ office.default_engagement_principal.uri }}" data-researcher="{{ office.default_engagement_researcher.uri }}"{% if engagement_property.office == office%} selected{% endif %}>{{ office.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-xs-5"></div>
+          </div>
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 hr"></div>
+      </div>
+
+      <div class="row headings">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-6"><strong>Employee</strong></div>
+        <div class="col-xs-4"><strong>Fee</strong></div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 hr"></div>
+      </div>
+
+      <div id="Roles">
+      {# roles here #}
+      </div>
+
+    </div>
+
+    <script type="text/template" id="RoleTemplate">
+    <div class="form-group">
+      <div class="row role">
+        <div class="col-xs-2 text-right"><strong><%= label %></strong></div>
+        <div class="col-xs-10 assns">
+          {# assignments here #}
+        </div>
+        </div>
+      <div class="row">
+        <div class="col-xs-12 hr"></div>
+      </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="SchedAssignmentTemplate">
+      <div class="col-xs-7">
+        <select class="form-control employee npvSelect">
+          {# TODO: a little fragile to rely on the label and not a constant #}
+          <% if (role.label == 'Procurer') { %>
+          <option value="">Principal</option>
+          <% } else { %>
+          <option value="" disabled>Select...</option>
+          <% } %>
+          {# filtered employee list goes here #}
+        </select>
+      </div>
+      {# if fee optional||required #}
+      <div class="col-xs-5">
+        <% if (role.fee != 'never') { %>
+        <div class="form-group fee-group {# has-success #}">
+          <input class="form-control fee col-xs-2" type="text"
+                 value="<%= fee %>">
+        </div>
+        <% } %>
+        <% if (role.multiple) { %>
+        {# if not only assn for role; well to clear perhaps? #}
+
+        <button class="btn btn-xs btn-danger assn-remove">
+          <span class="glyphicon glyphicon-minus"></span>
+        </button>
+        {# (hide/show handled by CSS) if last/only assn for role #}
+
+        <button type="button" class="btn btn-xs btn-success assn-add">
+          <span class="glyphicon glyphicon-plus"></span>
+        </button>
+
+        <% } %>
+      </div>
+      {# if multi #}
+
+    </script>
+
+    <a href="#" class="btn btn-default to-tab npvBtn" style="margin: 10px;"
+       data-tab="Schedule">Appraisal Schedule</a>
+  </div>
+
+  </div> {# closes tab-content TODO: re-indent HTML #}
+
+</div>
+
+{% endblock %}
+
+
+{% block htmlhead %}
+<link href="{{ STATIC_URL }}lib/bootstrap-formhelpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+
+
+{% endblock %}
+
+
+{% block bodyend %}
+<script src="{{ STATIC_URL }}lib/backbone/backbone-min.js"></script>
+<script src="{{ STATIC_URL }}lib/cocktail/Cocktail.min.js"></script>
+<script src="{{ STATIC_URL }}lib/collectionsubset/backbone.collectionsubset.min.js"></script>
+<script src="{{ STATIC_URL }}lib/moment/moment.min.js"></script>
+<script src="{{ STATIC_URL }}lib/bootstrap-formhelpers/js/bootstrap-formhelpers.min.js"></script>
+
+<script>
+    $(function () {
+
+        // TODO: move to a shared 'npv' object namespace and constants setup?
+        $.extend(npv, {ANNUALLY: 'ANNUALLY', SEMIANNUALLY: 'SEMIANNUALLY',
+            QUARTERLY: 'QUARTERLY'});
+
+        // TODO: Move to a single top-level namespace object.
+        npv.validate_idle_timeout = NPVNexus.Delay;
+
+        $.extend(npv.settings, {
+            // TODO: remove once scheduled-assignments are ported to eng-prop
+            engagement_uri: '{{ engagement.uri }}',
+            engagement_site_url: '{{ engagement.get_absolute_url }}',
+
+            engagement_property_uri: '{{ engagement_property.uri }}',
+
+            property_uri: '{{ property.uri }}',
+            address_uri: '{{ address_uri }}',
+
+            aos_uri: '{{ aos.uri }}',
+            scheduled_appraisals_base_uri: '{{ scheduled_appraisals_uri }}',
+            // TODO: this feels pretty wonky, can we do better here?
+            scheduled_appraisals_uri: '{{ scheduled_appraisals_uri }}?engagement_property={{ engagement_property.pk }}&flat=1',
+            appraisals_base_uri: '{{ appraisals_uri }}',
+
+            {# time window from now to consider an appraisal current-active #}
+            appraisal_activation_window: {
+               unit: '{{ settings.NX_ACTIVATE_APPRAISAL_WINDOW.0 }}',
+               amount: {{ settings.NX_ACTIVATE_APPRAISAL_WINDOW.1 }}
+            },
+
+            scheduled_assignments_base_uri: '{{ assignments_uri }}',
+            // TODO: this feels pretty wonky, can we do better here?
+            scheduled_assignments_uri: '{{ assignments_uri }}?engagement_property={{ engagement_property.pk }}&flat=1',
+
+            job_number_middle: '{{ engagement_property.job_number_middle }}'
+        });
+
+        // Available Property Subtypes for each Property Type map
+        $.extend(npv, {property_subtypes: {{ property_subtypes|safe }}});
+
+    });
+</script>
+
+<script src="{{ STATIC_URL }}common_bb.js"></script>
+<script src="{{ STATIC_URL }}property.js"></script>
+<script src="{{ STATIC_URL }}appraisals.js"></script>
+<script src="{{ STATIC_URL }}scheduled_assignments.js"></script>
+<script src="{{ STATIC_URL }}engagement_property.js"></script>
+
+<script>
+$(function () {
+
+{# Appraisals #}
+
+{# current active / historical appraisals #}
+var existing_apprs = [
+{% for appr in engagement_property.appraisals.all %}
+{{ appr.json|safe }}{% if not forloop.last %},{% endif %}
+{% endfor %}
+];
+
+{# existing scheduled appraisals #}
+var sched_apprs = {{ scheduled_appraisals|default:'[]'|safe }};
+
+{# Assignments #}
+
+{# TODO: can we specify less of this here or at least less typing? #}
+
+var employees = [
+{% for emp in employees %}
+    {{ emp.json|safe }}{% if not forloop.last %},{% endif %}
+{% endfor %}
+];
+
+{# we could certainly make this nicer and less to type, perhaps Selectize.js #}
+npv.role_employees = {
+  PROCURER: [
+  {% for emp in procurers %}
+     '{{ emp.uri }}'{% if not forloop.last %},{% endif %}
+  {% endfor %}
+  ],
+  MANAGER: [
+  {% for emp in managers %}
+     '{{ emp.uri }}'{% if not forloop.last %},{% endif %}
+  {% endfor %}
+  ],
+  INSPECTOR: [
+  {% for emp in inspectors %}
+     '{{ emp.uri }}'{% if not forloop.last %},{% endif %}
+  {% endfor %}
+  ],
+  APPRAISER: [
+  {% for emp in appraisers %}
+     '{{ emp.uri }}'{% if not forloop.last %},{% endif %}
+  {% endfor %}
+  ],
+  REVIEWER: [
+  {% for emp in reviewers %}
+     '{{ emp.uri }}'{% if not forloop.last %},{% endif %}
+  {% endfor %}
+  ],
+  PRINCIPAL_SIGNER: [
+  {% for emp in principal_signers %}
+     '{{ emp.uri }}'{% if not forloop.last %},{% endif %}
+  {% endfor %}
+  ],
+  SIGNER: [
+  {% for emp in signers %}
+     '{{ emp.uri }}'{% if not forloop.last %},{% endif %}
+  {% endfor %}
+  ],
+  ASSOCIATE: [
+  {% for emp in associates %}
+     '{{ emp.uri }}'{% if not forloop.last %},{% endif %}
+  {% endfor %}
+  ],
+  RESEARCHER: [
+  {% for emp in researchers %}
+     '{{ emp.uri }}'{% if not forloop.last %},{% endif %}
+  {% endfor %}
+  ]
+};
+
+var assns = [
+{% for assn in engagement_property.scheduled_assignments.all %}
+    {{ assn.json|safe }}{% if not forloop.last %},{% endif %}
+{% endfor %}
+];
+
+{# The top-level controlling "app" #}
+
+var options = {
+    engagement_property: {{ engagement_property.json|safe }},
+    property: {{ engagement_property.property.json|default:''|safe }},
+    addresses: {{ addresses |default:'[]'|safe }},
+    schedule: {{ aos_json|safe }},
+    scheduled_appraisals: sched_apprs,
+    existing_appraisals: existing_apprs,
+    employees: employees,
+    scheduled_assignments: assns
+};
+
+npv.engagement_property_app = new npv.EngagementPropertyApp(options);
+npv.engagement_property_app.render();
+
+
+// show the tab matching the fragment identifier in the URL if found
+if (window.location.hash) {
+    $('#Tabs a[href="' + window.location.hash + '"]').tab('show');
+}
+
+// confirm leaving page when there are unsaved changes that will be lost
+$(window).on('beforeunload', function() {
+    if (npv.engagement_property_app.isDirty()) {
+        return 'There are unsaved changes.';
+    }
+});
+
+// tab navigation buttons as the bottom of each tab content area
+$('.to-tab').on('click', function (e) {
+    e.preventDefault();
+    $('#Tabs a[href="#' + $(e.target).data('tab') + '"]').tab('show');
+});
+
+// set the URL fragment based on tab shown so reloads display same tab
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    window.location.hash = e.target.hash;
+});
+
+});
+</script>
+
+{% endblock %}

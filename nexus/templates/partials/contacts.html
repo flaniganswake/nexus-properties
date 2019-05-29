@@ -1,0 +1,86 @@
+{# contact list requires amf.js #}
+
+ 
+
+<div class="container">
+<form role="form" class="form-horizontal">
+    <div id="Contacts" class="panel-group">
+    </div>
+</form>
+    </div>
+<script type="text/template" id="ContactTemplate">
+  
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#Contacts" href="#collapse-cont-<%= id %>"><%= title %></a>
+                <% if (is_new) { %>
+           
+                <span class="label label-default new-label">new</span>
+                <% } %>
+        </h4>
+        </div>
+        <div id="collapse-cont-<%= id %>" class="panel-collapse collapse contact-collapse">
+            <i class="required">*</i> indicates required
+        <div class="form-group">
+            <label class="col-xs-3 control-label"><i class="required">*</i>First name</label><div class="col-xs-7">
+                <input type="text" class="first_name form-control" value="<%- first_name %>" />
+            </div>
+        </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label"><i class="required">*</i>Last Name</label><div class="col-xs-7">
+                    
+    <input type="text"  class="last_name form-control" value="<%- last_name %>" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Nickname</label><div class="col-xs-7">
+                    
+    <input type="text" class="nickname form-control" value="<%- nickname %>" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Salutation</label><div class="col-xs-7">
+                    
+    <input type="text" class="salutation form-control" value="<%- salutation %>" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label"><i class="required">*</i>Email</label><div class="col-xs-7">
+                    
+    <input type="text" class="email form-control" value="<%- email %>" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Phone</label><div class="col-xs-7">
+                    
+    <input type="text" class="phone form-control" value="<%- phone %>" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Mobile</label><div class="col-xs-7">
+                    
+    <input type="text" class="mobile form-control" value="<%- mobile %>" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Fax</label><div class="col-xs-7">
+                    
+    <input type="text" class="fax form-control" value="<%- fax %>" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Address</label><div class="col-xs-7">
+                    
+    <input type="text" class="address form-control" value="<%- address %>" />
+                </div>
+            </div>
+    <% if (is_empty) { %>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <input type="submit" id="Save" class="form-control npvBtn pullRight" value="Add Contact" />
+        </div>
+    </div>
+    <% } %>
+          
+        </div>
+</script>

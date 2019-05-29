@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container employee-appraisals">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row filters top">
+                <div class="col-md-3">
+                    <div class="title">Office:</div>
+                    <select id="OfficeList" class="form-control npvSelect">
+                        <option>ALL</option>
+                        {% for o in office %}
+                       
+                        <option>{{ o.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <div class="title">Status:</div>
+                    <select id="StatusFilter" class="form-control npvSelect">
+                        <option>ALL</option>
+                        <option selected="True">ALL w/o Cancelled</option>
+                        {% for status in statuses %}
+                        <option data-statuses="{{ status }}" value="{{ status }}"><script>document.write(NPVNexus.Formatters.friendlyName('{{status}}'));</script></option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            <div class="row filters">
+                <div class="col-md-3">
+                    <div class="title">Filter by:</div>
+                    <select id="Filter" class="form-control npvSelect">
+                        <option>Quarters</option>
+                        <option>Date Range</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <div class="quarters">
+                        <div class="title">Quarter:</div>
+                        <select id="QuartersQt" class="form-control npvSelect">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <div class="dates">
+                        <div class="title">From:</div>
+                        <div id="StDate" class="bfh-datepicker" data-format="y-m-d"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="quarters">
+                        <div class="title">Year:</div>
+                        <select id="QuarterYrs" class="form-control npvSelect">
+                        </select>
+                    </div>
+                    <div class="dates">
+                        <div class="title">To:</div>
+                        <div id="EndDate" class="bfh-datepicker" data-format="y-m-d"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="quarters">
+                        <button id="QuarterBtn" class="btn btn-small npvBtn">Filter</button>
+                    </div>
+                    <div class="dates">
+                        <button id="DateBtn" class="btn btn-small npvBtn">Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-group" id="EmployeesDiv">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/template" id="AppraiserTemplate">
+    <% 
+    _.each(rs,function(item){
+    %>
+<div class="panel panel-default">
+        <div class="panel-heading">
+            <a  data-parent="#employees-div" href="#<%= item.id %>" class="emp-link">
+                <h4 class="panel-title"><%= item.name %></h4>
+            </a>
+        </div>
+        <div id="<%= item.id %>" class="panel-collapse">
+            <div class="panel-body">
+                <h4 class="total-records">Total Jobs: <span></span></h4>
+                <table class="table footable table-striped" data-filter="#filter">
+                    <thead>
+                        <tr>
+                            <th data-class="expand" class="date">Due Date</th>
+                            <th class="jobId">Job #</th>
+                            <th>Client</th>
+                            <th>Property</th>
+                            <th data-hide="phone,tablet">City</th>
+                            <th class="state" data-hide="phone,tablet">State</th>
+                            {% if request.user.employee.title in Title.view_fee_titles %}
+                            <th data-hide="phone,tablet" class="fee" data-type="numeric">Fee</th>
+                            {% endif %}
+                            <th data-hide="phone,tablet">Status</th>
+                            <th class="invoice" data-hide="phone,tablet">Invoiced</th>
+                            <th class="hours" data-hide="phone,tablet">Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                {% if request.user.employee.title in Title.view_fee_titles %}
+                <h4 class="totals">Total Billings: <span></span></h4>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <% });%>
+</script>
+
+<script type="text/template" id="AppraisalTemplate">
+    <%      
+    var fee = 0;
+    if (rs != null) { 
+    _.each(rs, function(assignment){
+    var item;
+        if(assignment){
+            item = assignment.extra;
+        }
+        if(item){
+        var address = (item.base_address != null)? JSON.parse(item.base_address):"";
+    %>
+    <tr>
+        <td><%= item.due_date %></td>
+        <td><a href="/appraisal/<%= item.id %>"><%= item.job_number %></a></td>
+        <td><a href="/client/<%= item.engagement_property__property__client__id %>"><%- item.engagement_property__property__client__name %></a></td>
+
+        <td><a href="/property/<%= item.engagement_property__property__id %>"><%= item.engagement_property__property__name %></a></td>
+        <td><%- (address != "")? address.city:"" %></td>
+        <td><%- (address != "")? address.state:"" %></td>
+        <% fee+= parseFloat(assignment.fee) %>
+        {% if request.user.employee.title in Title.view_fee_titles %}
+        <td><%= NPVNexus.Formatters.currency(assignment.fee) %></td>
+        {% endif %}
+        <td><%= NPVNexus.Formatters.friendlyName(item.status) %></td>
+        <td><%= NPVNexus.Formatters.friendlyName(item.invoice_sent) %></td>
+        <td><%= item.hours_spent %></td>
+    </tr>
+    <%
+        }
+    });
+    } else {
+//console.log(rs);
+    %>
+        <tr>
+        <td colspan="10" class="noRecords">There are no appraisals to show</td>
+        </tr>
+    <%
+        }
+NPVNexus.View_Employee_Appraisals.fee = NPVNexus.Formatters.currency(fee);
+    %>
+</script>
+
+{% endblock %}
+
+{% block htmlhead %}
+<link href="{{ STATIC_URL }}lib/bootstrap-formhelpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block bodyend %}
+<script src="{{ STATIC_URL }}lib/bootstrap-formhelpers/js/bootstrap-formhelpers.min.js"></script>
+<script>
+    // var app = {{appraisals|safe}};
+    var cli = {{clients|safe}};
+    var emp = {{employees|safe}};
+    NPVNexus.View_Employee_Appraisals.init(cli,emp);
+</script>
+
+{% endblock %}

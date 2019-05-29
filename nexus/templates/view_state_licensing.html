@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block page_title %}State Licensing{% endblock %}
+
+{% block htmlhead %}
+<script src="{{ STATIC_URL }}lib/raphael/raphael.min.js"></script>
+<script src="{{ STATIC_URL }}lib/raphael/scale.raphael.js"></script>
+<script src="{{ STATIC_URL }}paths.js"></script>
+
+{% endblock %}
+
+{% block body %}
+<div  class="container view-state-licensing">
+    <h2 >State Licensing</h2>
+    <div class="mapWrapper">
+        <img id="MapBack" src="{{ STATIC_URL }}images/nexusV1/mapback.png" />
+        <div id="Map"></div>
+    </div>
+    <select id="StateNames" class="npvSelect" ></select>
+</div>
+
+<div class="container view-state-licensing">
+    <h3 >Expired</h3>
+    <table class='table table-striped footable'>
+        <thead>
+            <tr>
+                <th  data-class="expand">Employee</th>
+                <th data-hide="phone"  class="footable-sortable" >License</th>
+                <th data-type="numeric" >Expiration Date</th>
+                <th data-hide="phone,tablet">State</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for license_data in license_info %}
+        {% if license_data.is_expired %}
+            <tr>
+                <td>{{ license_data.employee_name }}</td>
+                <td>{{ license_data.number }}</td>
+                <td data-value="{{ license_data.expiration_date|date:'Ymd' }}">{{ license_data.expiration_date }}</td>
+                <td><a href="/license-info/{{ license_data.state_key }}">{{ license_data.state_name }}</a></td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="container view-state-licensing">
+    <h3>Expires Within Three Months</h3>
+    <table class='table table-striped tablesorter footable'>
+        <thead>
+            <tr>
+                <th  data-class="expand">Employee</th>
+                <th data-hide="phone"  class="footable-sortable" >License</th>
+                <th data-type="numeric" >Expiration Date</th>
+                <th data-hide="phone,tablet">State</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for license_data in license_info %}
+        {% if license_data.within_three_months %}
+            <tr>
+                <td>{{ license_data.employee_name }}</td>
+                <td>{{ license_data.number }}</td>
+                <td data-value="{{ license_data.expiration_date|date:'Ymd' }}">{{ license_data.expiration_date }}</td>
+                <td><a href="/license-info/{{ license_data.state_key }}">{{ license_data.state_name }}</a></td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="container view-state-licensing">
+    <h3>Expires Within Six Months</h3>
+    <table class='table table-striped footable'>
+        <thead>
+            <tr>
+                <th  data-class="expand">Employee</th>
+                <th data-hide="phone"  class="footable-sortable" >License</th>
+                <th data-type="numeric" >Expiration Date</th>
+                <th data-hide="phone,tablet">State</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for license_data in license_info %}
+        {% if license_data.within_six_months %}
+            <tr>
+                <td>{{ license_data.employee_name }}</td>
+                <td>{{ license_data.number }}</td>
+                <td data-value="{{ license_data.expiration_date|date:'Ymd' }}">{{ license_data.expiration_date }}</td>
+                <td><a href="/license-info/{{ license_data.state_key }}">{{ license_data.state_name }}</a></td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block bodyend %}
+<script>
+    NPVNexus.View_State_Licensing.init();
+</script>
+{% endblock %}
+
+
+

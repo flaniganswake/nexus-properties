@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block htmlhead %}
+{% load custom_tags %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+  {% if license_requirements %}
+  <div class="container">
+  <h3 style="padding-top:10px;">License Requirements for 
+    {% if license_requirements.source %}
+    <a href="{{ license_requirements.source }}"><h2>{{ state_name }}</h2></a>
+    {% else %}
+    {{ state_name }}
+    {% endif %}
+  </h3>
+
+  <h3>Contacts</h3>
+  <table id='Contacts' class='table table-striped footable'>
+    <thead> 
+    <tr>
+        <th data-class="expand">Name</th>
+        <th data-hide="phone,tablet">Email</th>
+        <th>Phone</th>
+        <th ata-hide="phone">Mobile</th>
+        <th data-hide="phone,tablet">Fax</th>
+        <th data-hide="phone,tablet">Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{ license_requirements.contact }}</td>
+        <td>{{ license_requirements.contact.email }}</td>
+        <td>{% phonenumber license_requirements.contact.phone %}</td>
+        <td>{% phonenumber license_requirements.contact.mobile %}</td>
+        <td>{% phonenumber license_requirements.contact.fax %}</td>
+        <td>{{ license_requirements.contact.address }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table id='ReqTable' class='table table-striped tablesorter'>
+    <thead> 
+    <tr>
+        <th>CG Required&nbsp;&nbsp;</th>
+        <th>Temp Limit</th>
+        <th>Inspector Temp</th>
+        <th>Signer Temp</th>
+        <th>Temp Fee</th>
+        <th>Permanent Fee</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{ license_requirements.temp_certification_required }}</td>
+        <td>{{ license_requirements.temp_limit }}</td>
+        <td>{{ license_requirements.inspector_temp_required }}</td>
+        <td>{{ license_requirements.signer_temp_required }}</td>
+        <td>{{ license_requirements.temp_fee }}</td>
+        <td>{{ license_requirements.perm_fee }}</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+  {% endif %}
+  <div  class="container">
+  <h3>Permanent Licenses</h3>
+  <table id='PermTable' class='table table-striped footable'>
+    <thead> 
+    <tr>
+        <th>Appraiser&nbsp;&nbsp;</th>
+        <th>License Number</th>
+        <th>Issue Date</th>
+        <th>Expiration Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if perm_license_info.count > 0 %}
+        {% for perm in perm_license_info %}
+        <tr>
+            <td>{{ perm.employee_name }}</td>
+            <td>{{ perm.number }}</td>
+            <td>{{ perm.issue_date }}</td>
+            <td>{{ perm.expiration_date }}</td>
+        </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td class="noRecords" colspan="8">There are no licenses to display</td>
+        </tr>
+    {% endif %}
+    </tbody>
+  </table>
+  </div>
+  <div class="container">
+  <h3>Temporary Licenses</h3>
+    <table id='TempTable' class='table table-striped footable'>
+      <thead> 
+        <tr>
+            <th>Appraiser&nbsp;&nbsp;</th>
+            <th>Appraisal Number</th>
+            <th>License Number</th>
+            <th>Issue Date</th>
+            <th>Expiration Date</th>
+            <th>Applied&nbsp;&nbsp;</th>
+            <th>Allowed</th>
+        </tr>
+     </thead>
+    <tbody>
+    {% if temp_license_info.count > 0 %}
+        {% for temp in temp_license_info %}
+        <tr>
+            <td>{{ temp.employee_name }}</td>
+            <td>?</td>
+            <td>{{ temp.number }}</td>
+            <td>{{ temp.issue_date }}</td>
+            <td>{{ temp.expiration_date }}</td>
+            <td>?</td>
+            <td>?</td>
+        </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td class="noRecords" colspan="8">There are no licenses to display</td>
+        </tr>
+    {% endif %}
+    </tbody>
+  </table>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block bodyend %}
+<script>
+    NPVNexus.View_State_Licensing_Info.init();
+</script>
+{% endblock %}

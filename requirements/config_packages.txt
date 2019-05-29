@@ -1,0 +1,119 @@
+
+... install steps on Ubuntu instance
+
+important note: if running a Vagrant Ubuntu instance
+insert LC_ALL='en_US.UTF-8' into the .bashrc and source it
+- otherwise everything will be installed as LANG=en_US
+also - insert config.vm.network "forwarded_port", guest: 8000, host:8080
+into VagrantFile - ./manage.py runserver 0.0.0.0:8000
+so it will be visible at http://127.0.0.1:8080
+
+- run ./install.sh
+# occasionally you will need to answer the prompt: y
+
+... or individually
+sudo apt-get update
+sudo apt-get install vim
+sudo apt-get install python-setuptools
+sudo apt-get install git
+sudo easy_install --upgrade django
+sudo apt-get install openssh-server openssh-client
+sudo apt-get install postgresql postgresql-contrib
+sudo apt-get install python-psycopg2
+sudo apt-get install python-dev libldap2-dev libsasl2-dev libssl-dev
+sudo apt-get install python-ldap
+sudo easy_install django-auth-ldap==1.1.7
+sudo apt-get install markdown
+sudo easy_install south
+sudo easy_install ajaxuploader==0.2.4
+sudo easy_install simplejson==3.3.1
+sudo easy_install django-tastypie==0.9.16
+sudo easy_install django-haystack==2.1.0
+sudo easy_install whoosh==2.5.6
+sudo easy_install django-debug-toolbar==0.9.4
+sudo easy_install django-filter==0.5.4
+sudo easy_install django-google-maps==0.2.2
+sudo easy_install apache2
+sudo apt-get install libapache2-mod-wsgi
+
+
+---------------------------------------------------------
+
+... setup/configuration steps
+
+(github)
+inside ~/.ssh create ssh private key and store public key on github
+ssh-keygen -t rsa -C "dev@npvadvisors.com" 
+(https://help.github.com/articles/generating-ssh-keys)
+sudo chown -R npv:npv /opt (if npv is the local user)
+cd /opt
+git clone git@github.com:NPVAdvisors/Nexus.git
+
+important!!! 
+
+- if development - before running ./reset_all.sh
+cp opt/Nexus/requirements/settings_local.py /nexus
+configure ~/nexus/settings_local.py appropriately
+
+(postgresql)
+- edit these two postgresql files:
+
+/etc/postgresql/9.1/main/pg_hba.conf
+- METHOD authentication:
+local   all             postgres                                trust
+local   all             nexus                                   trust # production only
+local   all             all                                     peer
+host    all             all             127.0.0.1/32            md5
+host    all             all             192.168.0.0 255.255.0.0 trust
+host    all             all             ::1/128                 md5
+
+/etc/postgresql/9.1/main/postgresql.conf
+- change listen_addresses = 'local' to listen_addresses = '*'
+- restart postgres...
+sudo /etc/init.d/postgresql restart
+
+(psql)
+psql -U postgres
+postgres=# create role [current user];
+CREATE
+postgres=# alter role [current user] login;
+ALTER ROLE
+postgres=# alter role [current user] createdb;
+ALTER ROLE
+postgres=# create database [current user]; (so [current user] can login)
+CREATE DATABASE
+Ctrl-d
+psql
+[current user]=# create database clarity;
+CREATE DATABASE
+Ctrl-d
+
+---------------------------------------------------------
+
+... production config steps
+
+sudo cp Nexus/deploy_prod.sh /usr/sbin
+
+- append /requirements/httpd.conf into /etc/apache2/httpd.conf 
+- append the following to /etc/apache2/sites-available/default
+
+<Directory /opt/Nexus/nexus>
+    Satisfy Any
+    Allow from all
+</Directory>
+
+---------------------------------------------------------
+
+... production run steps
+
+cd ~
+deploy_prod.sh
+
+---------------------------------------------------------
+
+... development run steps
+
+cd /opt/Nexus 
+/manage.py runserver 0.0.0.0:8000
+
+... setting up a Vagrant Ubuntu instance

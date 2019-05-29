@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block page_title %} - {{ appraisal.property.name }}{% endblock %}
+
+{% block htmlhead %}
+
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container edit-amf">
+    <h2>{% if amf %}Edit{% else %}Enter a new{% endif %} AMF</h2>
+    <form id="AmfForm" action="{{ amf.uri }}" role="form" class="form-horizontal">
+    <div class="form-group">
+        <div class="col-xs-12">
+            <input type="submit" id="Save" class="form-control npvBtn pullRight" value="Save" />
+        </div>
+    </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Name</label>
+            <div class="col-xs-7">
+            <input type="text" id="Amfname" class="name form-control" value="" />
+            </div>
+        </div>
+        <i class="required">*</i> Atleast one contact is required
+    </form>
+</div>
+
+{% include "partials/contacts.html" %}
+
+{% endblock %}
+
+{% block bodyend %}
+<script src="{{ STATIC_URL }}lib/backbone/backbone-min.js"></script>
+<script src="{{ STATIC_URL }}lib/cocktail/Cocktail.min.js"></script>
+<script src="{{ STATIC_URL }}common_bb.js"></script>
+<script src="{{ STATIC_URL }}contact.js"></script>
+<script src="{{ STATIC_URL }}amf.js"></script>
+<script>
+    $(document).ready(function(){
+    //Is this the best way to pass these objects into BB?
+    {% if amf %}
+        npv.EditAmf = new npv.AmfEditView({{ amf|default:''|safe }},{{ contacts|default:''|safe }});
+    {% else %}
+        npv.EditAmf = new npv.AmfEditView();
+    {% endif %}
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,737 @@
+[
+    {
+        "fields": {
+            "contact": 101, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.pearsonvue.com/dc/appraisers/", 
+            "state": "DC", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 1
+    }, 
+    {
+        "fields": {
+            "contact": 93, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://reab.state.al.us", 
+            "state": "AL", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 5
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 2
+    }, 
+    {
+        "fields": {
+            "contact": 95, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.azboa.gov", 
+            "state": "AZ", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 3
+    }, 
+    {
+        "fields": {
+            "contact": 96, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.arkansas.gov/alcb/", 
+            "state": "AR", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 2
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 4
+    }, 
+    {
+        "fields": {
+            "contact": 97, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.orea.ca.gov", 
+            "state": "CA", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 5
+    }, 
+    {
+        "fields": {
+            "contact": 98, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.dora.state.co.us/real-estate/appraiserlicensing.htm", 
+            "state": "CO", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 2
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 6
+    }, 
+    {
+        "fields": {
+            "contact": 99, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.ct.gov/dcp/site/default.asp?dcpNav_GID=1539", 
+            "state": "CT", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 7
+    }, 
+    {
+        "fields": {
+            "contact": 100, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.dpr.delaware.gov/boards/realestateappraisers/index.shtml", 
+            "state": "DE", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 8
+    }, 
+    {
+        "fields": {
+            "contact": 102, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.myflorida.com/dbpr/re/index.html", 
+            "state": "FL", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 9
+    }, 
+    {
+        "fields": {
+            "contact": 104, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.guamtax.com/", 
+            "state": "GA", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 10
+    }, 
+    {
+        "fields": {
+            "contact": 106, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://ibol.idaho.gov/IBOL/BoardPage.aspx?Bureau=REA", 
+            "state": "ID", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 11
+    }, 
+    {
+        "fields": {
+            "contact": 107, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.idfpr.com/dpr/re/APPRAISAL.asp", 
+            "state": "IL", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 12
+    }, 
+    {
+        "fields": {
+            "contact": 108, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.in.gov/pla/appraiser.htm", 
+            "state": "IN", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 3
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 13
+    }, 
+    {
+        "fields": {
+            "contact": 109, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.state.ia.us/government/com/prof/appraiser/home.html", 
+            "state": "IA", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 2
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 14
+    }, 
+    {
+        "fields": {
+            "contact": 110, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.kansas.gov/kreab/", 
+            "state": "KS", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 15
+    }, 
+    {
+        "fields": {
+            "contact": 111, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://kreab.ky.gov/", 
+            "state": "KY", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 16
+    }, 
+    {
+        "fields": {
+            "contact": 112, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.reab.state.la.us/", 
+            "state": "LA", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 17
+    }, 
+    {
+        "fields": {
+            "contact": 114, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "Not Specified", 
+            "state": "ME", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 18
+    }, 
+    {
+        "fields": {
+            "contact": 115, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.dllr.state.md.us/license/reahi/", 
+            "state": "MD", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 19
+    }, 
+    {
+        "fields": {
+            "contact": 116, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.mass.gov/ocabr/licensee/dpl-boards/ra/", 
+            "state": "MA", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 20
+    }, 
+    {
+        "fields": {
+            "contact": 117, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.michigan.gov/lara", 
+            "state": "MI", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 2
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 21
+    }, 
+    {
+        "fields": {
+            "contact": 118, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://mn.gov/commerce/", 
+            "state": "MN", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 22
+    }, 
+    {
+        "fields": {
+            "contact": 119, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.mrec.state.ms.us/mab/index_mab.html", 
+            "state": "MS", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 2
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 23
+    }, 
+    {
+        "fields": {
+            "contact": 120, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://pr.mo.gov/appraisers.asp", 
+            "state": "MO", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 24
+    }, 
+    {
+        "fields": {
+            "contact": 121, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://bsd.dli.mt.gov/license/bsd_boards/rea_board/board_page.asp", 
+            "state": "MT", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 25
+    }, 
+    {
+        "fields": {
+            "contact": 122, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.appraiser.ne.gov/", 
+            "state": "NE", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 26
+    }, 
+    {
+        "fields": {
+            "contact": 123, 
+            "inspector_temp_required": false, 
+            "perm_fee": null, 
+            "signer_temp_required": false, 
+            "source": "http://www.red.state.nv.us/", 
+            "state": "NV", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 27
+    }, 
+    {
+        "fields": {
+            "contact": 124, 
+            "inspector_temp_required": false, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.nh.gov/nhreab/", 
+            "state": "NH", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 2
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 28
+    }, 
+    {
+        "fields": {
+            "contact": 125, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.state.nj.us/lps/ca/nonmedical/reappraisers.htm", 
+            "state": "NJ", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 3
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 29
+    }, 
+    {
+        "fields": {
+            "contact": 126, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.rld.state.nm.us/boards/Real_Estate_Appraisers.aspx", 
+            "state": "NM", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 30
+    }, 
+    {
+        "fields": {
+            "contact": 127, 
+            "inspector_temp_required": false, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.dos.state.ny.us/lcns/realestate/", 
+            "state": "NY", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 31
+    }, 
+    {
+        "fields": {
+            "contact": 128, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.ncappraisalboard.org/", 
+            "state": "NC", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 32
+    }, 
+    {
+        "fields": {
+            "contact": 129, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.ndreab.org", 
+            "state": "ND", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 6
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 33
+    }, 
+    {
+        "fields": {
+            "contact": 130, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.com.ohio.gov/real/", 
+            "state": "OH", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 2
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 34
+    }, 
+    {
+        "fields": {
+            "contact": 131, 
+            "inspector_temp_required": false, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.reab.oid.ok.gov/", 
+            "state": "OK", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 35
+    }, 
+    {
+        "fields": {
+            "contact": 132, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.oregonaclb.org/", 
+            "state": "OR", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 36
+    }, 
+    {
+        "fields": {
+            "contact": 134, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.estado.gobierno.pr/", 
+            "state": "PA", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 3
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 37
+    }, 
+    {
+        "fields": {
+            "contact": 135, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.dbr.state.ri.us/divisions/commlicensing/realestate.php", 
+            "state": "RI", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 2
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 38
+    }, 
+    {
+        "fields": {
+            "contact": 136, 
+            "inspector_temp_required": false, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.llr.state.sc.us/POL/REAB/", 
+            "state": "SC", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 39
+    }, 
+    {
+        "fields": {
+            "contact": 137, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://dlr.sd.gov/reg/appraisers/appraiser.html", 
+            "state": "SD", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 40
+    }, 
+    {
+        "fields": {
+            "contact": 138, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.state.tn.us/commerce/boards/treac/index.shtml", 
+            "state": "TN", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 6
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 41
+    }, 
+    {
+        "fields": {
+            "contact": 139, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.talcb.texas.gov/AgencyInfo/default.asp", 
+            "state": "TX", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 42
+    }, 
+    {
+        "fields": {
+            "contact": 140, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.realestate.utah.gov/", 
+            "state": "UT", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 2
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 43
+    }, 
+    {
+        "fields": {
+            "contact": 142, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.dlca.vi.gov", 
+            "state": "VT", 
+            "temp_certification_required": false, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 44
+    }, 
+    {
+        "fields": {
+            "contact": 143, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.dpor.virginia.gov/boards/appraisers/", 
+            "state": "VA", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 45
+    }, 
+    {
+        "fields": {
+            "contact": 144, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.dol.wa.gov/business/appraisers/", 
+            "state": "WA", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 46
+    }, 
+    {
+        "fields": {
+            "contact": 145, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://www.appraiserboard.wv.gov/Pages/default.aspx", 
+            "state": "WV", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": 2
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 47
+    }, 
+    {
+        "fields": {
+            "contact": 146, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": "http://dsps.wi.gov/Default.aspx?Page=56b0c8df-796a-41cf-b8af-cd1419a55b3e", 
+            "state": "WI", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 48
+    }, 
+    {
+        "fields": {
+            "contact": null, 
+            "inspector_temp_required": true, 
+            "perm_fee": null, 
+            "signer_temp_required": true, 
+            "source": null, 
+            "state": "WY", 
+            "temp_certification_required": true, 
+            "temp_fee": null, 
+            "temp_limit": null
+        }, 
+        "model": "nexus.LicenseRequirements", 
+        "pk": 49
+    }
+]

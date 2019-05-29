@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block htmlhead %}
+{% load custom_tags %}
+
+{% endblock %}
+
+{% block body %}
+<div class="container view-client-list">
+    <h2>Clients - 2014 YTD </h2>
+    <div class="count">Showing <b>{{ clients|length }}</b> records</div>
+    <table id='ModelTable' class='table table-striped footable'>
+        <thead>
+            <tr>
+                <th data-class="expand">Client</th>
+                <!--<th class="footable-sortable" data-hide="phone,tablet" data-type="numeric">Engagements</th>-->
+                <th data-type="numeric" data-hide="phone">Appraisals <i class="glyphicon glyphicon-info-sign tooltipicon" data-toggle="tooltip" data-placement="top" title="Total number of appraisals for each client"></i></th>
+                <th data-type="numeric">Fee Sum <i class="glyphicon glyphicon-info-sign tooltipicon" data-toggle="tooltip" data-placement="top" title="Total sum of all appraisal fees for each client"></i></th>
+                <th data-hide="phone,tablet" data-type="numeric">States <i class="glyphicon glyphicon-info-sign tooltipicon" data-toggle="tooltip" data-placement="top" title="Number of states covered by appraisals for each client"></i></th>
+                <th data-hide="phone,tablet">Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+       
+            <tr>
+                <td><a href="{{ client.get_absolute_url }}">{{ client.name }}</a></td>
+                <td>{{ client.num_appraisals }}</td>
+                <td data-value="{{ client.fee_sum }}">{{ client.fee_sum|currency }}</td>
+                <td>{{ client.num_states }}</td>
+                <td>{{ client.get_client_type_display }}</td>
+            </tr>
+            {% endfor %}
+   
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+{% block bodyend %}
+<script>
+    NPVNexus.View_Client_List.init();
+</script>
+{% endblock %}
+

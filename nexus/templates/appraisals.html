@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row filters top">
+                <div class="col-md-3">
+                    <div class="title">Office:</div>
+                    <select id="OfficeList" class="form-control npvSelect">
+                        <option value="">ALL</option>
+                        {% for o in offices %}
+                        <option value="{{ o.pk }}">{{ o.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <div class="title">Status:</div>
+                    <select id="StatusFilter" class="form-control npvSelect">
+                        <option data-statuses="ALL">ALL</option>
+                        <option data-statuses="{% for s in statuses %}{% if s != 'CANCELLED' %}{{ s }},{% endif %}{% endfor %}"
+                                selected="True">ALL w/o Cancelled</option>
+                        {% for status in statuses %}
+                        <option data-statuses="{{ status }}" value="{{ status }}"><script>document.write(NPVNexus.Formatters.friendlyName('{{status}}'));</script></option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            <div class="row filters">
+                <div class="col-md-3">
+                    <div class="title">Filter by:</div>
+                    <select id="Filter" class="form-control npvSelect">
+                        <option>Quarters</option>
+                        <option>Date Range</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <div class="quarters">
+                        <div class="title">Quarter:</div>
+                        <select id="QuartersQt" class="form-control npvSelect">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <div class="dates">
+                        <div class="title">From:</div>
+                        <div id="StDate" class="bfh-datepicker" data-format="y-m-d"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="quarters">
+                        <div class="title">Year:</div>
+                        <select id="QuartersYrs" class="form-control npvSelect">
+                        </select>
+                    </div>
+                    <div class="dates">
+                        <div class="title">To:</div>
+                        <div id="EndDate" class="bfh-datepicker" data-format="y-m-d"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="quarters">
+                        <button id="QuarterBtn" class="btn btn-small npvBtn">Filter</button>
+                    </div>
+                    <div class="dates">
+                        <button id="DateBtn" class="btn btn-small npvBtn">Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" id="TableHead">
+            <div class="totals">Showing <b>0</b> records</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            
+    <table id="Appraisals" class="table footable table-striped" data-sort="false">
+                <thead>
+                    <tr>
+                        <th data-class="expand" class="date">Due Date</th>
+                        <th data-hide="phone,tablet">Job #</th>
+                        <th class="appraiser" >Appraiser</th>
+                        <th data-hide="phone,tablet" class="client">Client</th>
+                        <th data-hide="phone,tablet" class="type">Type</th>
+                        <th class="property">Property</th>
+                        <th data-hide="phone,tablet" class="address">Address</th>
+                        <th data-hide="phone,tablet">City</th>
+                        <th >State</th>
+                        <th class="status" data-hide="phone,tablet">Status</th>
+                        <th data-hide="phone,tablet">Invoiced</th>
+                        {% if request.user.employee.title in Title.view_fee_titles %}
+                        <th data-hide="phone,tablet" class="fee" data-type="numeric">Fee</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block htmlhead %}
+<link href="{{ STATIC_URL }}lib/bootstrap-formhelpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block bodyend %}
+<script src="{{ STATIC_URL }}lib/bootstrap-formhelpers/js/bootstrap-formhelpers.min.js"></script>
+<script>
+    var userRole = '{{request.user.employee.title}}';
+    var cli = {{clients|safe}};
+    var emp = {{employees|safe}};
+    var showFee = ({% if request.user.employee.title in Title.view_fee_titles %} true {% else%} false{% endif %} )?true:false;
+    NPVNexus.View_Appraisals.init(cli,emp,showFee);
+</script>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+# The base required packages used in all environments
+Django
+South
+django-auth-ldap
+django-filter
+django-google-maps
+psycopg2
+django-tastypie
+mimeparse
+python-dateutil

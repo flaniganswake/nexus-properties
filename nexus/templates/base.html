@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html ng-app="nexusApp">
+<head>
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ STATIC_URL }}/icons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ STATIC_URL }}/icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ STATIC_URL }}/icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ STATIC_URL }}/icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ STATIC_URL }}/icons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ STATIC_URL }}/icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ STATIC_URL }}/icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ STATIC_URL }}/icons/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}/icons/favicon-196x196.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}/icons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}/icons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}/icons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}/icons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>NPV Nexus {% block page_title %}{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ STATIC_URL }}lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ STATIC_URL }}lib/jquery/css/footable-0.1.css" rel="stylesheet" />
+  <link href="{{ STATIC_URL }}css/nexusV1/nexus.v1.css" rel="stylesheet">
+
+  {% if request.GET.debug %}
+  <script src="{{ STATIC_URL }}lib/jquery/jquery.min.js"></script>
+  <script src="{{ STATIC_URL }}lib/underscore/underscore-min.js"></script>
+  <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstraptooltip.min.js"></script>
+  <script src="{{ STATIC_URL }}lib/jquery/footable.js?v=2-0-1" type="text/javascript"></script>
+  <script src="{{ STATIC_URL }}lib/jquery/footable.sort.js" type="text/javascript"></script>
+  <script src="{{ STATIC_URL }}lib/jquery/datatables.js" type="text/javascript"></script>
+  <script src="{{ STATIC_URL }}FriendlyDictionary.js" type="text/javascript"></script>
+  <script src="{{ STATIC_URL }}Nexusv1.js" type="text/javascript"></script>
+  <script src="{{ STATIC_URL }}common.js"></script>
+  {% else %}
+  <script src="{{ STATIC_URL }}prod/NexusApp.min.js"></script>
+  {% endif %}
+
+  <script>
+      window.npv = window.npv || { settings: {} };
+  </script>
+
+  {% block htmlhead %}
+  {% endblock %}
+</head>
+
+<body>
+
+
+<div id="StatusAlert" ></div>
+
+<nav class="navbar navbar-default" role="navigation">
+<!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Collapse1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand logo" href="/"><img title="NPV Nexus" src="{{ STATIC_URL }}images/nexusV1/logo.png" /></a>
+  </div>
+<!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="Collapse1">
+    <ul class="nav navbar-nav">
+         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Create <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+           <li{% if request.path == '/engagement/'%} class="active"{% endif %}><a href="/engagement">Engagement</a></li>
+                <!--<li class="divider"></li>
+                <li><a href="#Client-TODO">Client or AMF</a></li>
+                <li class="divider"></li>
+                <li><a href="#Client-TODO">License</a></li>-->
+          </ul>
+         </li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li{% if request.path == '/state-licensing/'%} class="active"{% endif %}><a href="/state-licensing/">Licensing</a></li>
+                <li class="divider"></li>
+                <li{% if request.path == '/clients/'%} class="active"{% endif %}><a href="/clients/">All Clients</a></li>
+                <li class="divider"></li>
+                <li{% if request.path == '/appraisals/'%} class="active"{% endif %}><a href="/appraisals/">All Appraisals</a></li>
+                <li class="divider"></li>
+                <li{% if request.path == '/appraiser-home/'%} class="active"{% endif %}><a href="/assigned-appraisals/">My Appraisals</a></li>
+                <li class="divider"></li>
+                <li{% if request.path == '/employee-appraisals/'%} class="active"{% endif %}><a href="/employee-appraisals/">Employee Appraisals</a></li>
+            </ul>
+        </li>
+        <li></li>
+        {% if request.user.employee.title in Title.view_fee_titles %}
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reporting <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+           <li{% if request.path == '/work-in-progress/'%} class="active"{% endif %}><a href="/work-in-progress">Work In Progress</a></li>
+          </ul>
+         </li>
+        {% endif %}
+    </ul>
+    {% if user.is_authenticated %}
+    <ul class="nav navbar-nav navbar-right">
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user.employee.name }} <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </li>
+      <li></li>
+    </ul>
+    {% endif %}
+  </div><!-- /.navbar-collapse -->
+</nav>
+<div  id="Content" >
+{% block body %}
+{% endblock %}
+
+{% block bodyend %}
+  
+{% endblock %}
+</div>
+    <script>
+            NPVNexus.Nav.init();
+    </script>
+</body>
+</html>

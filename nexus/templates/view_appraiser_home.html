@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block page_title %} - {{ request.user.employee.name }}'s Home {% endblock %}
+
+{% block body %}
+
+<div class="container employee-home">
+	<h2>{{ request.user.employee.name }}'s Active Appraisals</h2>
+<div class="row filters">
+		<div class="col-md-3">
+            
+    <div class="title">Filter by:</div>
+    <select id="Filter" class="form-control npvSelect">
+        <option>Quarters</option>
+        <option>Date Range</option>
+    </select>
+		</div>
+        <div class="col-md-3">
+            <div class="quarters">
+            <div class="title">Quarter:</div>
+            <select id="QuartersQt" class="form-control npvSelect">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+                </div>
+            <div class="dates">
+                <div class="title">From:</div>
+                <div id="StDate" class="bfh-datepicker"></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="quarters">
+            <div class="title">Year:</div>
+            <select id="QuartersYrs" class="form-control npvSelect">
+            </select>
+            </div>
+            <div class="dates">
+                <div class="title">To:</div>
+                <div id="EndDate" class="bfh-datepicker"></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="quarters"><button id="QuarterBtn" class="btn btn-small npvBtn">Filter</button></div>
+            <div class="dates">
+                <button id="DateBtn" class="btn btn-small npvBtn">Filter</button></div>
+        </div>
+
+	</div>
+<div class="row">
+        <div class="col-md-12"><table id="Assignments" class="table footable table-striped">
+				<thead>
+					<tr>
+                        <th data-class="expand" class="date">Due Date</th>
+						<th data-hide="phone,tablet" class="jobNum">Job #</th>
+						<th>Client</th>
+                        <th class="type">Type</th>
+                        <th >Property</th>
+                        <th data-hide="phone,tablet">City</th>
+                        <th data-hide="phone,tablet" class="state">State</th>
+						<!-- <th data-hide="phone,tablet">Expense</th> -->
+						<th  data-hide="phone" data-type="numeric">Fee</th>
+						<th data-hide="phone,tablet">Role</th>
+                        <th data-hide="phone,tablet" data-type="numeric" data-sort-initial="true" class="status">Status</th>
+						<th data-hide="phone,tablet" class="hours">Hours</th>
+					</tr>
+				</thead>
+				<tbody>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+
+				</tbody>
+			</table></div>
+</div>
+<div class="row totals">
+        <div class="col-md-12">
+            <h3>Total Billed:&nbsp;<span id="TotalFee"></span></h3>
+        </div>
+    </div>
+	</div>
+
+{% endblock %}
+
+{% block htmlhead %}
+<link href="{{ STATIC_URL }}lib/bootstrap-formhelpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block bodyend %}
+
+<script src="{{ STATIC_URL }}lib/bootstrap-formhelpers/js/bootstrap-formhelpers.min.js"></script>
+
+<script type="text/template" class="tableRow">
+    <%
+    if(rs != null){
+    NPVNexus.View_Appraiser_Home.fee = 0;
+      _.each(rs, function( item ){
+      	if(item.appraisal__status != 'CANCELLED'){ 
+            var aFee = "0.00";
+            if(item.fee){
+                aFee=item.fee;
+            }%>
+    <tr>
+        <td>
+            <%- item.appraisal__due_date %>
+        </td>
+        <td><a href='/appraisal/<%- item.appraisal__id %>'><%- item.appraisal__job_number %></a></td>
+        <td><a href='/client/<%- item.appraisal__engagement_property__engagement__client__id %>'><%- item.appraisal__engagement_property__engagement__client__name %></a></td>
+        <td><%= item.appraisal__engagement_property__property__property_type %> <% if(item.appraisal__engagement_property__property__property_subtype){ %><i class="expand glyphicon glyphicon-question-sign tooltipicon" data-toggle="tooltip" data-placement="top" title="<%= item.appraisal__engagement_property__property__property_subtype %>"> </i><% } %></td>
+        <td><a href='/property/<%- item.appraisal__engagement_property__property__id %>'><%- item.appraisal__engagement_property__property__name %></a></td>
+        <% 
+            var propAddy;
+            if(item.base_address){
+            propAddy = JSON.parse(item.base_address);
+            } else {
+                propAddy = {"city": "City", "state": "ST"};
+            }
+        %>
+        <td><%- propAddy.city %></td>
+        <td><%- propAddy.state %></td>
+        <% NPVNexus.View_Appraiser_Home.fee +=  parseFloat(aFee); %>
+        <td data-value="<%- aFee %>"><%- NPVNexus.Formatters.currency(aFee) %></td>
+        <td><%- item.role_display %></td>
+        <% var stat = 0;
+        switch(item.appraisal__status){
+         case"COMPLETE":
+        stat = 0;
+        break;
+        case"IN_PROGRESS":
+        stat = 1;
+        break;
+        case"CANCELLED":
+        stat = 2;
+        break;
+        } %>
+        <td data-value="<%- stat  %>"><%- NPVNexus.Formatters.friendlyName(item.appraisal__status) %></td>
+        <td><%- item.appraisal__hours_spent %></td>
+    </tr>
+    <% } });
+    }else{
+    %>
+    <tr>
+        <td class="noRecords" colspan="10">There are no appraisals to show</td>
+    </tr>
+   <% }
+     %>
+   
+</script>
+<script>
+    // var app ={{appraisals|safe}};
+    // var cli = {{clients|safe}};
+    // var ass ={{list_json|safe}};
+    var emp = {{ request.user.employee.pk}};
+    //Lazy load DataSets "appraisals, Clients,Assignments, employee
+    NPVNexus.View_Appraiser_Home.init(emp);
+</script>
+{% endblock %}
+
